@@ -1,0 +1,164 @@
+/* Estilos generales */
+.register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+}
+
+.register-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.register-form .form-group {
+  width: 100%;
+}
+
+.register-form input[type="email"],
+.register-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.register-button,
+.social-login-button,
+.login-button,
+.or-divider,
+.login-footer a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.register-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+}
+
+.social-login-button {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ddd;
+}
+
+.login-button,
+.or-divider,
+.login-footer a {
+  color: #888;
+}
+
+.register-button:hover,
+.social-login-button:hover,
+.login-button:hover,
+.or-divider:hover,
+.login-footer a:hover {
+  background-color: #0056b3;
+  color: #fff;
+  text-decoration: none;
+}
+
+.or-divider {
+  margin: 15px 0;
+  font-size: 14px;
+  color: #888;
+}
+
+.social-login-logo {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+/* Estilos adicionales */
+.register-form .form-group {
+  position: relative;
+}
+
+.register-form .form-group .feedback {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  font-size: 14px;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.register-form input[type="email"]:focus,
+.register-form input[type="password"]:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px #007bff;
+}
+
+.register-form input[type="email"]:focus + .feedback,
+.register-form input[type="password"]:focus + .feedback {
+  opacity: 1;
+}
+
+.register-form input[type="email"]:valid,
+.register-form input[type="password"]:valid {
+  border-color: #28a745;
+}
+
+.register-form input[type="email"]:valid + .feedback,
+.register-form input[type="password"]:valid + .feedback {
+  color: #28a745;
+}
+
+.register-form input[type="email"]:invalid,
+.register-form input[type="password"]:invalid {
+  border-color: #dc3545;
+}
+
+.register-form input[type="email"]:invalid + .feedback,
+.register-form input[type="password"]:invalid + .feedback {
+  color: #dc3545;
+}
+
+#recaptchaContainer {
+  margin-top: 20px;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 576px) {
+  .register-container {
+    padding: 0 20px;
+  }
+}
+
+/* Estilos para el pie de página */
+footer {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+footer p {
+  margin: 5px;
+}

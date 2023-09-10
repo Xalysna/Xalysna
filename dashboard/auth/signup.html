@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrarse</title>
+  <link rel="stylesheet" href="../../assets/css/settings/signup.css">
+</head>
+
+<body>
+  <form id="registerForm">
+    <div class="register-container">
+      <h2 class="register-title">Crear una cuenta</h2>
+      <div class="register-form">
+        <div class="form-group">
+          <input type="email" id="emailRegister" placeholder="Correo electrónico" required>
+          <div id="errorEmail" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <input type="email" id="confirmEmailRegister" placeholder="Confirmar correo electrónico" required>
+          <div id="errorConfirmEmail" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <input type="password" id="passwordRegister" placeholder="Contraseña" required>
+          <div id="errorPassword" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <input type="password" id="confirmPasswordRegister" placeholder="Confirmar contraseña" required>
+          <div id="errorConfirmPassword" class="error-message"></div>
+        </div>
+        <button type="button" id="registerButton" class="register-button" data-callback="onSubmit">Registrarse</button>
+        <p class="or-divider">O regístrese con:</p>
+        <button type="button" id="googleSignupButton" class="social-login-button">
+          <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google" class="social-login-logo">
+          Google
+        </button>
+        <div id="recaptchaContainer" class="g-recaptcha" data-sitekey="be2f837e-7ca8-47a0-b846-d01dab1f199f"></div>
+        <a href="login.html" class="login-button">¿Ya tienes una cuenta? Iniciar sesión</a>
+      </div>
+    </div>
+  </form>
+
+  <footer class="login-footer">
+    <p>&copy; <span id="current-year"></span> Xavaya. Todos los derechos reservados.</p>
+    <p id="current-date-time"></p>
+    <p>Contacto: adminpage@xavaya.com</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://hcaptcha.com/1/api.js" async defer></script>
+  <script src="../dist/hcaptcha-config.js?v=1.0.0" type="module"></script>
+  <script src="../dist/firebase-config.js?v=1.0.0" type="module"></script>
+  <script src="../dist/auth.js?v=1.0.0" type="module"></script>
+  <script src="../dist/signup-validation.js?v=1.0.0" type="module"></script>
+  <script src="../dist/current-year.js" type="module"></script>
+
+</body>
+
+</html>

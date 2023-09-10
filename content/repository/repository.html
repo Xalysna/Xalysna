@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- Metadatos -->
+  <meta name="charset" content="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repositorio - Xavaya Blog: Explora, Aprende y Descubre</title>
+  <meta name="description" content="Bienvenido a Xavaya Blog, un espacio para explorar, aprender y descubrir. Sumérgete en nuestro contenido diverso en temas que abarcan negocios, creatividad, entretenimiento, deporte, estilo de vida, ciencia y tecnología. Encuentra inspiración, consejos prácticos y recursos para desbloquear tu potencial. Únete a nosotros mientras crecemos juntos en esta emocionante aventura.">
+  <meta name="keywords" content="Xavaya, Blog, Explorar, Aprender, Descubrir, Negocios, Creatividad, Entretenimiento, Deporte, Estilo de vida, Ciencia, Tecnología, Inspiración, Consejos prácticos, Recursos, Potencial, Crecimiento">
+  <meta name="author" content="Xavaya">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="x-content-type-options" content="nosniff">
+
+  <!-- Etiquetas meta adicionales para redes sociales -->
+  <meta property="og:title" content="Xavaya Blog: Explora, Aprende y Descubre">
+  <meta property="og:image" content="URL_DE_LA_IMAGEN">
+
+  <!-- Estilos -->
+  <script>
+    const baseUrl = '/'; // Coloca aquí tu URL base
+    const cssBaseUrl = `${baseUrl}/assets/css`;
+    const jsBaseUrl = `${baseUrl}/assets/dist`;
+  </script>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+<link rel="stylesheet" href="/assets/css/repository/repository.css">
+<link rel="stylesheet" href="/assets/css/home/index.css">
+<link rel="stylesheet" href="/assets/css/general/panel.css">
+<link rel="stylesheet" href="/assets/css/general/footer.css">
+</head>
+
+<body>
+  <div id="panel">
+    <p id="status"></p>
+    <nav id="navigation"></nav>
+    <div id="subcategory-panel"></div>
+      <button id="login-button">Iniciar sesión</button>
+      <button id="logout-button" style="display: none;">Cerrar sesión</button>
+      <button id="signup-button" style="display: none;">Registrarse</button>
+  </div>
+
+  <header>
+    <h1 id="main-title"></h1>
+    <p id="greeting"></p>
+  </header>
+
+<!--///////////////////////// EDITABLE ///////////////////////////////////-->
+<!--///////////////////////// EDITABLE ///////////////////////////////////-->
+
+<div class="search-wrapper">
+  <div class="input-container">
+    <input type="text" id="searchInput" placeholder="Escriba aquí el nombre del archivo">
+    <button id="searchButton">Buscar</button>
+  </div>
+</div>
+
+<div id="fileContainer" class="table-wrapper">
+  <table class="file-table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Fecha de Modificación</th>
+        <th>Tamaño</th>
+        <th>Descargar</th>
+      </tr>
+    </thead>
+    <tbody id="fileTableBody">
+      <!-- Las filas de archivos se generarán dinámicamente desde JavaScript -->
+    </tbody>
+  </table>
+</div>
+
+<p id="errorText"></p>
+
+<div class="pagination">
+  <button id="prevButton" disabled>Anterior</button>
+  <button id="nextButton" disabled>Siguiente</button>
+</div>
+
+
+
+<!--///////////////////////// EDITABLE ///////////////////////////////////-->
+<!--///////////////////////// EDITABLE ///////////////////////////////////-->
+  
+
+
+  <footer>
+    
+    <nav class="footer-navigation">
+      <ul id="footer-menu"></ul>
+    </nav>
+  </footer>
+  
+
+  <!-- Scripts personalizados -->
+  <script src="/assets/dist/settings/firebase-config.js" type="module"></script>
+  <script src="/assets/dist/general/current-year.js" type="module"></script>
+  <script src="/assets/dist/settings/session-control.js" type="module"></script>
+
+  <!-- Los scripts se colocan después de los estilos -->
+  <script src="/assets/dist/general/panel.js" type="module" defer></script>
+  <script src="/assets/dist/general/footer.js" defer></script>
+  <script src="/assets/dist/repository/search-firestore.js" type="module" defer></script>
+  <script src="/assets/dist/blog/title-article.js" defer></script>
+
+
+
+  <!-- Enlace externo -->
+
+
+</body>
+
+</html>

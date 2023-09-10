@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión</title>
+  <link rel="stylesheet" href="../../assets/css/settings/login.css">
+</head>
+
+<body>
+  <form id="loginForm">
+    <div id="errorMessage"></div>
+    <div class="login-container">
+      <h2 class="login-title">Iniciar sesión</h2>
+      <div class="login-form">
+        <input type="email" id="emailLogin" placeholder="Correo electrónico" required>
+        <div id="errorEmail" class="error-message"></div>
+        <input type="password" id="passwordLogin" placeholder="Contraseña" required autocomplete="current-password">
+        <div id="errorPassword" class="error-message"></div>
+        <button type="button" id="loginButton" class="login-button" data-callback="submitLoginForm">Iniciar sesión</button>
+        <p class="or-divider">O inicia sesión con:</p>
+        <button type="button" id="googleLoginButton" class="social-login-button">
+          <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google" class="social-login-logo">
+          Google
+        </button>
+        <div id="loginCaptcha" class="h-captcha" data-sitekey="be2f837e-7ca8-47a0-b846-d01dab1f199f"></div>
+        <a href="../auth/action/reset-password.html" class="forgot-password-link">¿Olvidó su contraseña?</a>
+      </div>
+      <div class="login-footer">
+        <p>¿No tienes una cuenta? <a href="../auth/signup.html" class="signup-link">Crear una cuenta</a></p>
+      </div>
+    </div>
+  </form>
+
+  <footer>
+    <p>&copy; <span id="current-year"></span> Xavaya. Todos los derechos reservados.</p>
+    <p id="current-date-time"></p>
+    <p>Contacto: adminpage@xavaya.com</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../dist/firebase-config.js?v=1.0.0" type="module"></script>
+  <script src="../dist/auth.js?v=1.0.0" type="module"></script>
+  <script src="../dist/firebase-authentication.js" type="module"></script>
+  <script src="../dist/login.js" type="module"></script>
+  <script src="../dist/loginValidation.js" type="module"></script>
+  <script src="../dist/current-year.js" type="module"></script>
+  <script src="https://hcaptcha.com/1/api.js" async defer></script>
+  <script src="../dist/hcaptcha-config.js?v=1.0.0" type="module"></script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Verificación de dirección de correo electrónico</title>
+  <link rel="stylesheet" type="text/css" href="../../css/verificacion.css">
+  <link rel="stylesheet" type="text/css" href="../../css/styles.css">
+</head>
+<<body class="verificacion">
+    <div class="container">
+      <h1 class="verificacion">Verificación de dirección de correo electrónico</h1>
+        <p>Gracias por registrarte. Estamos verificando tu dirección de correo electrónico. Por favor, espera mientras procesamos la verificación.</p>
+  
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js"></script>
+  <script>
+    // Configura tu SDK de Firebase con tu configuración personalizada
+    const firebaseConfig = {
+       apiKey: "AIzaSyD8qbRp5Ue5VLU21rNi5E6co9p4gFJc6z4",
+       authDomain: "xavayapage.firebaseapp.com",
+       databaseURL: "https://xavayapage-default-rtdb.firebaseio.com",
+       projectId: "xavayapage",
+       storageBucket: "xavayapage.appspot.com",
+       messagingSenderId: "816112500632",
+       appId: "1:816112500632:web:333327ade306fdda14f5ed",
+       measurementId: "G-LT6K4LVDB7"
+    };
+    firebase.initializeApp(firebaseConfig);
+    
+    // Obtiene los parámetros de la URL actual
+    const urlParams = new URLSearchParams(window.location.search);
+    const mode = urlParams.get('mode');
+    const oobCode = urlParams.get('oobCode');
+    
+    // Verifica la dirección de correo electrónico en Firebase usando los parámetros
+    firebase.auth().applyActionCode(oobCode)
+      .then(() => {
+        // Redirecciona al usuario a la página de éxito de verificación
+        window.location.href = 'verificacion_exitosa.html';
+      })
+      .catch((error) => {
+        // Maneja el error de verificación de Firebase
+        console.error(error);
+        // Redirecciona al usuario a la página de error de verificación
+        window.location.href = 'verificacion_error.html';
+      });
+  </script>
+     </div>
+<footer>
+    <p>&copy; <span id="current-year"></span> Xavaya. Todos los derechos reservados.</p>
+    <p id="current-date-time"></p>
+    <p>Contacto: adminpage@xavaya.com</p>
+  </footer>
+
+</body>
+</html>

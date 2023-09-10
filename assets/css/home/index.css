@@ -1,0 +1,196 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Estilos del encabezado */
+header {
+  background-color: #ffffff;
+  padding: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+header.scrolled {
+  background-color: #ffffff;
+}
+
+#main-title {
+  font-size: 24px;
+  margin-bottom: 0;
+  color: #333;
+  text-transform: capitalize;
+  position: absolute;
+  top: 65px;
+  left: 50px;
+  opacity: 0.2;
+  animation: slide-in 17s linear infinite;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+#greeting {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 0;
+  margin-left: 10px;
+  color: #555;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+header.scrolled #greeting {
+  opacity: 0;
+}
+
+/* Estilos de la sección destacada */
+#featured-section {
+  background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Estilos de la sección de contenido principal */
+#content-section {
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Estilos de la sección de anuncios */
+#ad-section {
+  float: right;
+  width: 300px;
+  background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.ad-box {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.ad-box h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.ad-box p {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.ad-link {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.ad-link:hover {
+  background-color: #0056b3;
+}
+
+
+/* Estilos específicos para dispositivos móviles */
+@media screen and (max-width: 768px) {
+  header {
+    padding: 25px;
+  }
+  
+  #main-title {
+    top: 100px;
+    left: 20px;
+    font-size: 15px;
+  }
+  
+  #greeting {
+    display: block;
+    font-size: 10px;
+    padding: 7px 7px;
+    margin-top: 50px;
+  }
+  
+  #ad-section {
+    float: none;
+    width: 100%;
+  }
+  
+  /* Estilo para las categorías */
+  #category-menu {
+    display: block;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  #category-menu-title {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    margin-left: 10px;
+    margin-bottom: 5px;
+  }
+  
+  #category-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #category-menu li {
+    margin-bottom: 5px; /* Agregamos un margen inferior para separar las categorías */
+  }
+  
+  #category-menu a {
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: bold;
+    color: #333;
+    padding: 5px 8px;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+    display: block; /* Cambiamos el display a block para que las categorías aparezcan una encima de la otra */
+  }
+  
+  #category-menu a:hover {
+    background-color: #eaeaea;
+    color: #555;
+  }
+  
+  #category-menu a.active {
+    background-color: #18d3ca;
+    color: #fff;
+  }
+}
+
