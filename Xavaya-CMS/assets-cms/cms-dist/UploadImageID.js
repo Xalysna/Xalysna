@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        const formattedTitle = articleTitle.replace(/\s+/g, '-'); // Reemplaza espacios con guiones
+        const formattedTitle = `${articleTitle.replace(/\s+/g, '-')}.${imageFile.name.split('.').pop()}`;
 
         // Ruta en Firebase Storage donde se almacenará la imagen permanentemente con el mismo nombre que el ID
         const permanentStorageRef = ref(storage, `TEMPORARY/${formattedTitle}`);
