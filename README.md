@@ -18,7 +18,7 @@
 <h2 align="center">📧 Contacto</h2>
 <p align="center">
   <strong>Sitio web:</strong> [www.xavaya.com](https://www.xavaya.com) <br>
-  <strong>Correo electrónico:</strong> [adminpage@xavaya.com](mailto:adminpage@xavaya.com) <br>
+  <strong>Correo electrónico:</strong> [adminpage@xavaya.com]<br>
   <strong>Twitter:</strong> [@XavayaCatalyst](https://twitter.com/XavayaCatalyst)
 </p>
 
