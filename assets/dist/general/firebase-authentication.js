@@ -1,5 +1,5 @@
 // Importar la configuración de Firebase desde firebase-config.js
-import { firebaseConfig } from "./firebase-config.js";
+import { firebaseConfig } from "../settings/firebase-config.js";
 
 // Importar los módulos necesarios del SDK de Firebase desde los enlaces CDN
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";

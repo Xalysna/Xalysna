@@ -2,58 +2,121 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
+  <!-- Metadatos -->
+  <meta name="charset" content="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registrarse</title>
-  <link rel="stylesheet" href="../../assets/css/settings/signup.css">
+  <title>Registrarse - Xavaya: Inspira el Futuro, Desbloquea tu Potencial</title>
+  <meta name="description" content="Explora el fascinante mundo de Xavaya y descubre un sinfín de recursos para inspirarte, aprender y desbloquear tu potencial. Sumérgete en nuestro blog, enciclopedia y repositorio, y forma parte de una comunidad apasionada de personas en busca de conocimiento. Únete a nosotros y prepárate para un viaje emocionante hacia el crecimiento personal y la realización de tus sueños.">
+  <meta name="keywords" content="Xavaya, Inspira, Futuro, Desbloquea, Potencial, Explora, Recursos, Aprender, Blog, Enciclopedia, Repositorio, Comunidad, Conocimiento, Crecimiento personal, Realización de sueños, Inspiración, Desarrollo personal, Apasionado, Viaje emocionante, Aprendizaje">
+  <meta name="author" content="Xavaya">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="x-content-type-options" content="nosniff">
+
+  <!-- BaseUrl -->
+  <script>
+    const baseUrl = '/'; // Coloca aquí tu URL base
+    const imgBaseUrl = `${baseUrl}assets/img`;
+    const cssBaseUrl = `${baseUrl}assets/css`;
+    const jsBaseUrl = `${baseUrl}assets/dist`;
+  </script>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="/assets/css/settings/signup.css">
+  <link rel="stylesheet" href="/assets/css/general/footer.css">
+  <link rel="stylesheet" href="/assets/css/home/index.css">
+  <link rel="stylesheet" href="/assets/css/general/funciones/copy-wallet.css">
+  <link rel="stylesheet" href="/assets/css/general/panel.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/img/web/favicon32x32R.png">
+
 </head>
 
+
 <body>
-  <form id="registerForm">
-    <div class="register-container">
-      <h2 class="register-title">Crear una cuenta</h2>
-      <div class="register-form">
-        <div class="form-group">
-          <input type="email" id="emailRegister" placeholder="Correo electrónico" required>
-          <div id="errorEmail" class="error-message"></div>
-        </div>
-        <div class="form-group">
-          <input type="email" id="confirmEmailRegister" placeholder="Confirmar correo electrónico" required>
-          <div id="errorConfirmEmail" class="error-message"></div>
-        </div>
-        <div class="form-group">
-          <input type="password" id="passwordRegister" placeholder="Contraseña" required>
-          <div id="errorPassword" class="error-message"></div>
-        </div>
-        <div class="form-group">
-          <input type="password" id="confirmPasswordRegister" placeholder="Confirmar contraseña" required>
-          <div id="errorConfirmPassword" class="error-message"></div>
-        </div>
-        <button type="button" id="registerButton" class="register-button" data-callback="onSubmit">Registrarse</button>
+
+<!-- Agrega el logotipo utilizando la etiqueta img con un contenedor div para controlar la posición -->
+<div class="logo-container">
+  <img src="/assets/img/web/XavayaBannerLogo.png" alt="Mi Logotipo" class="logo-image">
+</div>
+
+
+<!-- Formulario de registro -->
+<form id="registerForm">
+  <div id="errorMessageRegister"></div>
+  <div class="register-container">
+    <div class="register-form">
+      <!-- Columna Izquierda -->
+      <div class="left-column">
+        <h2 class="login-title">Crear una cuenta</h2>
+
+        <!-- Campo de correo electrónico -->
+        <label for="emailRegister">Correo electrónico:</label>
+        <input type="email" id="emailRegister" name="email" placeholder="Correo electrónico" required>
+        <div id="errorEmailRegister" class="error-message"></div>
+
+        <!-- Campo de contraseña -->
+        <label for="passwordRegister">Contraseña:</label>
+        <input type="password" id="passwordRegister" name="password" placeholder="Contraseña" required autocomplete="new-password">
+        <div id="errorPasswordRegister" class="error-message"></div>
+
+        <!-- Botón de registro -->
+        <button type="button" id="registerButton" class="login-button" data-callback="submitRegisterForm">Registrarse</button>
+
+        <!-- Contenedor para hCaptcha (si es necesario) -->
+        <div data-hcaptcha-sitekey="be2f837e-7ca8-47a0-b846-d01dab1f199f"></div>
+      </div>
+
+      <!-- Columna Derecha -->
+      <div class="right-column">
+        <!-- Mensaje "O regístrese con" -->
         <p class="or-divider">O regístrese con:</p>
-        <button type="button" id="googleSignupButton" class="social-login-button">
-          <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google" class="social-login-logo">
-          Google
-        </button>
-        <div id="recaptchaContainer" class="g-recaptcha" data-sitekey="be2f837e-7ca8-47a0-b846-d01dab1f199f"></div>
-        <a href="login.html" class="login-button">¿Ya tienes una cuenta? Iniciar sesión</a>
+        <div class="social-buttons">
+          <!-- Botón de registro con Google -->
+          <button type="button" id="googleSignupButton" class="social-login-button">
+            <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google" class="social-login-logo">
+            Google
+          </button>
+        </div>
+
+        <!-- Enlace "¿Ya tienes una cuenta?" -->
+        <p>¿Ya tienes una cuenta? <a href="/login.html" class="login-link">Iniciar sesión</a></p>
       </div>
     </div>
-  </form>
 
-  <footer class="login-footer">
-    <p>&copy; <span id="current-year"></span> Xavaya. Todos los derechos reservados.</p>
-    <p id="current-date-time"></p>
-    <p>Contacto: adminpage@xavaya.com</p>
+    <!-- Pie de página del formulario -->
+    <div class="login-footer">
+      <!-- Mensaje "¿No tienes una cuenta?" movido a la columna derecha -->
+    </div>
+  </div>
+</form>
+
+  
+
+  <!-- Pie de página -->
+  <footer>
+    <nav class="footer-navigation" id="footer-navigation">
+      <ul id="footer-menu"></ul>
+      <a href="#" id="wallet-address" class="wallet-address">
+        ❤️ Apoya con Ethereum (ETH) - Dirección de donación: 0x96dFa67FDff3B167C0923b2fA3697E2a2b298869
+      </a>
+    </nav>
+    <button id="toggle-button" class="icon-button">
+      <img src="/assets/img/footer/sidebar.svg" alt="Icono de menú">
+    </button>
   </footer>
 
   <!-- Scripts -->
-  <script src="https://hcaptcha.com/1/api.js" async defer></script>
-  <script src="../dist/hcaptcha-config.js?v=1.0.0" type="module"></script>
-  <script src="../dist/firebase-config.js?v=1.0.0" type="module"></script>
-  <script src="../dist/auth.js?v=1.0.0" type="module"></script>
-  <script src="../dist/signup-validation.js?v=1.0.0" type="module"></script>
-  <script src="../dist/current-year.js" type="module"></script>
+  <script src="/assets/dist/settings/firebase-config.js" type="module"></script>
+  <script src="/assets/dist/settings/session-control.js" type="module"></script>
+  <script src="/assets/dist/settings/auth.js" type="module" defer></script>
+  <script src="/assets/dist/general/firebase-authentication.js" type="module" defer></script>
+  <script src="/assets/dist/settings/signup-validation.js" type="module" defer></script>
+  <script src="/assets/dist/general/current-year.js" type="module" defer></script>
+  <script src="/assets/dist/general/footer.js" type="module" defer></script>
+  <script src="/assets/dist/general/funciones/copy-wallet.js" type="module" defer></script>
+  <script src="/assets/dist/general/funciones/notificaciones.js" type="module" defer></script>
+  <script src="/assets/dist/settings/hcaptcha-config.js" type="module" defer></script>
 
 </body>
 

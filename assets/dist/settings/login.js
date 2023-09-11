@@ -1,40 +1,39 @@
+// Importaciones de módulos y configuraciones necesarios
 import { firebaseConfig } from './firebase-config.js';
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js';
-import {getAuth,signInWithPopup,GoogleAuthProvider,signInWithEmailAndPassword,onAuthStateChanged,} from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js';
+import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js';
 
+// Inicialización de la aplicación Firebase
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 
+// Selección de elementos del DOM
 const googleLoginButton = document.getElementById('googleLoginButton');
 const loginButton = document.getElementById('loginButton');
 const signupButton = document.querySelector('.signup-link');
 const email = document.getElementById('emailLogin');
 const password = document.getElementById('passwordLogin');
 const errorElement = document.getElementById('errorMessage');
-if (errorElement) {
-  const message = "Error message goes here"; // Define and assign a value to the message variable
-  errorElement.textContent = message;
-  errorElement.style.display = 'block';
-} else {
-  console.error('Element with ID "errorMessage" not found.');
-}
 
-
+// Event listener para el botón de inicio de sesión con Google
 if (googleLoginButton) {
   googleLoginButton.addEventListener('click', loginWithGoogle);
 }
 
+// Event listener para el botón de inicio de sesión con correo y contraseña
 if (loginButton) {
   loginButton.addEventListener('click', submitLoginForm);
 }
 
+// Event listener para el botón de redirección al registro
 if (signupButton) {
   signupButton.addEventListener('click', redirectToSignup);
 }
 
+// Función para iniciar sesión con Google
 function loginWithGoogle() {
   const provider = new GoogleAuthProvider();
-  handleRecaptchaToken()
+  handleHCaptcha()
     .then(() => {
       signInWithPopup(auth, provider)
         .then((result) => {
@@ -47,11 +46,12 @@ function loginWithGoogle() {
         });
     })
     .catch((error) => {
-      console.error('Error al verificar el token de reCAPTCHA:', error);
+      console.error('Error en hCaptcha:', error);
       showErrorMessage('Por favor, verifica que no eres un robot');
     });
 }
 
+// Función para enviar el formulario de inicio de sesión con correo y contraseña
 function submitLoginForm() {
   const emailValue = email.value.trim();
   const passwordValue = password.value;
@@ -61,7 +61,7 @@ function submitLoginForm() {
     return;
   }
 
-  handleRecaptchaToken()
+  handleHCaptcha()
     .then(() => {
       signInWithEmailAndPassword(auth, emailValue, passwordValue)
         .then((result) => {
@@ -73,32 +73,81 @@ function submitLoginForm() {
         });
     })
     .catch((error) => {
-      console.error('Error al verificar el token de reCAPTCHA:', error);
+      console.error('Error en hCaptcha:', error);
       showErrorMessage('Por favor, verifica que no eres un robot');
     });
 }
 
+// Función para redirigir a la página principal después de un inicio de sesión exitoso
 function redirectToMainPage() {
-  window.location.href = '../index.html';
+  window.location.href = 'no';
 }
 
+// Función para redirigir a la página de registro
 function redirectToSignup() {
   window.location.href = '../auth/signup.html';
 }
 
+// Función para mostrar un mensaje de error en el DOM
 function showErrorMessage(message) {
   errorElement.textContent = message;
   errorElement.style.display = 'block';
 }
 
-function handleRecaptchaToken() {
+// Función para manejar hCaptcha
+function handleHCaptcha() {
   return new Promise((resolve, reject) => {
-    // Implementa aquí la lógica para verificar el token de reCAPTCHA
-    // Puedes usar la API de reCAPTCHA o cualquier otra solución que estés utilizando
-    // Llama a resolve() si la verificación es exitosa y a reject() si hay algún error
+    const hcaptchaSiteKey = 'be2f837e-7ca8-47a0-b846-d01dab1f199f';
+    const hcaptchaContainer = document.querySelector('[data-hcaptcha-sitekey]');
+
+    if (hcaptchaContainer) {
+      const hcaptchaScript = document.createElement('script');
+      hcaptchaScript.src = 'https://hcaptcha.com/1/api.js';
+      hcaptchaScript.async = true;
+
+      hcaptchaScript.onload = function () {
+        const hcaptchaDiv = document.createElement('div');
+        hcaptchaDiv.setAttribute('class', 'h-captcha');
+        hcaptchaDiv.setAttribute('data-sitekey', hcaptchaSiteKey);
+
+        hcaptchaContainer.appendChild(hcaptchaDiv);
+
+        window.hcaptcha.render(hcaptchaDiv, {
+          'theme': 'light',
+          'language': 'es',
+          'onError': function (error) {
+            console.error('Error en hCaptcha:', error);
+            reject(error);
+          },
+          'onLoad': function () {
+            console.log('hCaptcha se ha cargado correctamente');
+          },
+          'onSuccess': function (response) {
+            console.log('hCaptcha se ha completado con éxito:', response);
+            resolve(response);
+          },
+          'onExpire': function () {
+            console.log('hCaptcha ha caducado debido a inactividad');
+          },
+          'onClose': function () {
+            console.log('El usuario cerró el diálogo de hCaptcha sin completar el desafío');
+          },
+        });
+      };
+
+      document.body.appendChild(hcaptchaScript);
+
+      hcaptchaScript.onerror = function () {
+        console.error('Error al cargar la librería de hCaptcha');
+        reject('Error al cargar la librería de hCaptcha');
+      };
+    } else {
+      reject('Elemento con data-hcaptcha-sitekey no encontrado');
+    }
   });
 }
 
+// Event listener para el cambio de estado de autenticación
 onAuthStateChanged(auth, (user) => {
   if (user) {
     console.log('Usuario autenticado:', user);

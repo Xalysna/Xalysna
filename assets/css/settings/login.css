@@ -1,11 +1,14 @@
 /* Estilos generales */
+body {
+  overflow-y: hidden; /* Ocultar barra de desplazamiento vertical */
+}
+
 .login-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #f5f5f5;
+  background: linear-gradient(to right, #F3F1BA, #A1AFFF);
   font-family: Arial, sans-serif;
 }
 
@@ -16,10 +19,28 @@
 
 .login-form {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
+  justify-content: space-between; /* Distribuir contenido en dos columnas */
+  align-items: center; /* Centrar verticalmente el contenido */
+  width: 600px; /* Ancho total del formulario */
+  background-color: #fff; /* Fondo blanco para la columna derecha */
+  padding: 20px; /* Espacio entre elementos */
+  border-radius: 10px; /* Esquinas más redondeadas */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra para el formulario */
 }
+
+.left-column {
+  flex: 1; /* La columna izquierda toma todo el espacio disponible */
+  margin-right: 20px; /* Espacio entre las columnas */
+}
+
+.right-column {
+  flex: 1;
+  display: flex; /* Cambio a flex para centrar elementos internos */
+  flex-direction: column; /* Cambio a columna para alinear verticalmente */
+  justify-content: center; /* Centrar verticalmente */
+  align-items: center; /* Centrar horizontalmente */
+}
+
 
 .login-form input[type="email"],
 .login-form input[type="password"] {
@@ -48,10 +69,9 @@
   transition: background-color 0.3s, color 0.3s;
 }
 
+/* Modifica el margen inferior del botón de inicio de sesión */
 .login-button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
+  margin-bottom: 30px;
 }
 
 .social-login-button {
@@ -136,6 +156,22 @@
 #recaptchaContainer {
   margin-top: 20px;
 }
+
+/* Estilos para el contenedor del logotipo */
+.logo-container {
+  position: absolute;
+  top: 10px;
+  left: 90px;
+  display: flex;
+  align-items: center;
+}
+
+/* Estilos para la imagen del logotipo */
+.logo-image {
+  width: 200px;
+  height: auto;
+}
+
 
 /* Estilos para pantallas pequeñas */
 @media (max-width: 576px) {
