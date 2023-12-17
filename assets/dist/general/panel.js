@@ -204,7 +204,7 @@ document.body.appendChild(panelElement);
     // Manejador de evento para el botón de registrarse
     signupButton.addEventListener('click', () => {
       // Redirigir al usuario a la página de registro
-      window.location.href = '../auth/signup.html';
+      window.location.href = '../dashboard/auth/signup.html';
     });
   }
 }
@@ -219,7 +219,7 @@ if (loginButton) {
   // Manejador de evento para el botón de inicio de sesión
   loginButton.addEventListener('click', () => {
     // Redirigir al usuario a la página de inicio de sesión
-    window.location.href = '../auth/login.html';
+    window.location.href = '../dashboard/auth/login.html';
   });
 }
 

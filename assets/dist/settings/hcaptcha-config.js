@@ -1,13 +1,19 @@
 // hcaptcha-config.js
+
 (function () {
   const hcaptchaSiteKey = 'be2f837e-7ca8-47a0-b846-d01dab1f199f';
 
   const hcaptchaContainer = document.querySelector('[data-hcaptcha-sitekey]');
 
   if (hcaptchaContainer) {
-    // Verifica si ya existe un widget de hCaptcha en el contenedor antes de inicializarlo
+    // Verificar si ya existe un widget de hCaptcha en el contenedor antes de inicializarlo
     if (hcaptchaContainer.querySelector('.h-captcha')) {
       return; // No inicialices hCaptcha nuevamente si ya está presente en el contenedor
+    }
+
+    // Verificar si hCaptcha ya se ha cargado
+    if (window.hcaptchaLoaded) {
+      return; // No inicialices hCaptcha nuevamente si ya se ha cargado
     }
 
     // Crear un elemento script para cargar la librería de hCaptcha
@@ -50,6 +56,9 @@
           // Puedes realizar acciones adicionales aquí si es necesario.
         },
       });
+
+      // Marcar que hCaptcha se ha cargado
+      window.hcaptchaLoaded = true;
     };
 
     // Agregar el script al final del cuerpo del documento

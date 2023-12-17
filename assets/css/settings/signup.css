@@ -8,12 +8,25 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: linear-gradient(to right, #F3F1BA, #A1AFFF);
   font-family: Arial, sans-serif;
+  position: relative;
+  z-index: 1; /* Asegúrate de que el valor de z-index sea menor que el de .logo-container */
 }
 
+/* Estilos para el fondo detrás del logo */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, #9c94a6, #4e5360, #1a1c26);
+  z-index: 0;
+}
+
+
 .register-title {
-  font-size: 24px;
+  font-size: 28px; /* Ajusta el tamaño del título según tus preferencias */
   margin-bottom: 20px;
 }
 
@@ -23,7 +36,7 @@ body {
   align-items: center;
   width: 600px;
   background-color: #fff;
-  padding: 20px;
+  padding: 30px; /* Ajusta el espacio dentro del formulario según tus necesidades */
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra para el formulario */
 }
@@ -39,11 +52,12 @@ body {
   flex-direction: column; /* Cambio a columna para alinear verticalmente */
   justify-content: center; /* Centrar verticalmente */
   align-items: center; /* Centrar horizontalmente */
+  margin-right: 40px; /* Ajusta este valor según tus necesidades */
 }
 
 .register-form input[type="email"],
 .register-form input[type="password"] {
-  width: 100%; /* Ancho completo */
+  width: 280px; /* Ajusta el ancho de los campos de entrada */
   padding: 10px;
   margin-bottom: 15px;
   font-size: 16px;
@@ -53,6 +67,7 @@ body {
 }
 
 .register-button,
+.social-login-button,
 .forgot-password-link,
 .login-link {
   display: flex;
@@ -65,14 +80,31 @@ body {
   border-radius: 4px;
   text-decoration: none;
   transition: background-color 0.3s, color 0.3s;
-  background-color: #007bff; /* Cambia el color de fondo */
-  color: #fff; /* Cambia el color del texto */
-  border: none; /* Elimina el borde */
 }
 
-/* Modifica el margen inferior del botón de registro */
 .register-button {
-  margin-bottom: 30px;
+  margin-bottom: 40px; /* Ajusta el margen inferior del botón de registro */
+}
+
+.social-login-button {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ddd;
+}
+
+.forgot-password-link,
+.signup-link,
+.login-link {
+  color: #888;
+}
+
+.register-button:hover,
+.social-login-button:hover,
+.forgot-password-link:hover,
+.login-link:hover {
+  background-color: #0056b3;
+  color: #fff;
+  text-decoration: none;
 }
 
 .or-divider {
@@ -87,7 +119,6 @@ body {
   margin-right: 8px;
 }
 
-/* Estilos adicionales */
 .register-form .form-group {
   position: relative;
 }
@@ -163,6 +194,20 @@ footer {
 
 footer p {
   margin: 5px;
+}
+
+/* Estilo para notificaciones de error */
+.error-notification {
+  background-color: #ff0000; /* Color de fondo rojo para errores */
+  color: #ffffff; /* Color de texto blanco */
+  padding: 10px; /* Espaciado interior */
+}
+
+/* Estilo para notificaciones de éxito */
+.success-notification {
+  background-color: #00ff00; /* Color de fondo verde para éxito */
+  color: #ffffff; /* Color de texto blanco */
+  padding: 10px; /* Espaciado interior */
 }
 
 /* Estilos para pantallas pequeñas */

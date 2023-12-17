@@ -7,7 +7,9 @@
   border: none;
   cursor: pointer;
   outline: none; /* Elimina el delineado al enfocar el botón */
+  z-index: 1000; /* O cualquier otro valor alto que funcione */
 }
+
 
 /* Estilo para el footer */
 .footer-navigation {

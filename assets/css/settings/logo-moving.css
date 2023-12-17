@@ -1,0 +1,38 @@
+/* Estilos para el contenedor del logotipo */
+.logo-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Asegúrate de que el valor de z-index sea menor que el de .login-container */
+  }
+  
+  /* Estilos para la animación del logo */
+  @keyframes scaleLogo {
+    0% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(1.1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    75% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* Aplica la animación al logo */
+  .logo-image {
+    position: absolute;
+    width: auto;
+    height: auto;
+    animation: scaleLogo 10s infinite;
+    z-index: 0; /* Asegúrate de que el valor de z-index sea menor que el de .login-container */
+    cursor: grab; /* Cambia el cursor al estilo "agarre" cuando se pasa por encima */
+  }

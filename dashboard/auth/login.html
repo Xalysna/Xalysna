@@ -3,9 +3,9 @@
 
 <head>
   <!-- Metadatos -->
-  <meta name="charset" content="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iniciar Sesion - Xavaya: Inspira el Futuro, Desbloquea tu Potencial</title>
+  <title>Iniciar Sesión - Xavaya: Inspira el Futuro, Desbloquea tu Potencial</title>
   <meta name="description" content="Explora el fascinante mundo de Xavaya y descubre un sinfín de recursos para inspirarte, aprender y desbloquear tu potencial. Sumérgete en nuestro blog, enciclopedia y repositorio, y forma parte de una comunidad apasionada de personas en busca de conocimiento. Únete a nosotros y prepárate para un viaje emocionante hacia el crecimiento personal y la realización de tus sueños.">
   <meta name="keywords" content="Xavaya, Inspira, Futuro, Desbloquea, Potencial, Explora, Recursos, Aprender, Blog, Enciclopedia, Repositorio, Comunidad, Conocimiento, Crecimiento personal, Realización de sueños, Inspiración, Desarrollo personal, Apasionado, Viaje emocionante, Aprendizaje">
   <meta name="author" content="Xavaya">
@@ -26,102 +26,91 @@
   <link rel="stylesheet" href="/assets/css/home/index.css">
   <link rel="stylesheet" href="/assets/css/general/funciones/copy-wallet.css">
   <link rel="stylesheet" href="/assets/css/general/panel.css">
+  <link rel="stylesheet" href="/assets/css/settings/logo-moving.css">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/assets/img/web/favicon32x32R.png">
-
 </head>
 
-
 <body>
+  <!-- logotipo -->
+  <div class="background"></div>
+  <div class="logo-container">
+    <img src="/assets/img/web/XavayaBannerLogo.png" alt="Mi Logotipo" class="logo-image">
+  </div>
 
-<!-- Agrega el logotipo utilizando la etiqueta img con un contenedor div para controlar la posición -->
-<div class="logo-container">
-  <img src="/assets/img/web/XavayaBannerLogo.png" alt="Mi Logotipo" class="logo-image">
-</div>
-
-
-<!-- Formulario de inicio de sesión -->
-<form id="loginForm">
-  <div id="errorMessage"></div>
-  <div class="login-container">
-    <div class="login-form">
-      <!-- Columna Izquierda -->
-      <div class="left-column">
-        <h2 class="login-title">Iniciar sesión</h2> 
-
-        <!-- Campo de correo electrónico -->
-        <label for="emailLogin">Correo electrónico:</label>
-        <input type="email" id="emailLogin" name="email" placeholder="Correo electrónico" required>
-        <div id="errorEmail" class="error-message"></div>
-
-        <!-- Campo de contraseña -->
-        <label for="passwordLogin">Contraseña:</label>
-        <input type="password" id="passwordLogin" name="password" placeholder="Contraseña" required autocomplete="current-password">
-        <div id="errorPassword" class="error-message"></div>
-
-        <!-- Botón de inicio de sesión -->
-        <button type="button" id="loginButton" class="login-button" data-callback="submitLoginForm">Iniciar sesión</button>
-
-        <!-- Contenedor para hCaptcha -->
-        <div data-hcaptcha-sitekey="be2f837e-7ca8-47a0-b846-d01dab1f199f"></div>
-      </div>
-
-      <!-- Columna Derecha -->
-      <div class="right-column">
-        <!-- Mensaje "O inicia sesión con" -->
-        <p class="or-divider">O inicia sesión con:</p>
-        <div class="social-buttons">
-          <!-- Botón de inicio de sesión con Google -->
-          <button type="button" id="googleLoginButton" class="social-login-button">
-            <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google" class="social-login-logo">
-            Google
-          </button>
+  <!-- Formulario de inicio de sesión -->
+  <form id="loginForm">
+    <div id="errorMessage"></div>
+    <div class="login-container">
+      <div class="login-form">
+        <!-- Columna Izquierda -->
+        <div class="left-column">
+          <h2 class="login-title">Iniciar sesión</h2>
+          <!-- Campo de correo electrónico -->
+          <label for="emailLogin">Correo electrónico:</label>
+          <input type="email" id="emailLogin" name="email" placeholder="Correo electrónico" required>
+          <div id="errorEmail" class="error-message"></div>
+          <!-- Campo de contraseña -->
+          <label for="passwordLogin">Contraseña:</label>
+          <input type="password" id="passwordLogin" name="password" placeholder="Contraseña" required autocomplete="current-password">
+          <div id="errorPassword" class="error-message"></div>
+          <!-- Botón de inicio de sesión -->
+          <button type="button" id="loginButton" class="login-button" data-callback="submitLoginForm">Iniciar sesión</button>
+          <!-- Contenedor para hCaptcha -->
+          <div data-hcaptcha-sitekey="be2f837e-7ca8-47a0-b846-d01dab1f199f"></div>
         </div>
 
-        <!-- Enlace "¿Olvidó su contraseña?" -->
-        <a href="/olvido-contrasena.html" class="forgot-password-link">¿Olvidó su contraseña?</a>
+        <!-- Columna Derecha -->
+        <div class="right-column">
+          <!-- Mensaje "O inicia sesión con" -->
+          <p class="or-divider">O inicia sesión con:</p>
+          <div class="social-buttons">
+            <!-- Botón de inicio de sesión con Google -->
+            <button type="button" id="googleLoginButton" class="social-login-button">
+              <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google" class="social-login-logo">
+              Google
+            </button>
+          </div>
+          <!-- Enlace "¿Olvidó su contraseña?" -->
+          <a href="/dashboard/auth/action/send-email-reset-password.html" class="forgot-password-link">¿Olvidó su contraseña?</a>
+          <!-- Enlace "¿No tienes una cuenta?" -->
+          <p>¿No tienes una cuenta? <a href="/dashboard/auth/signup.html" class="signup-link">Crear una cuenta</a></p>
+        </div>
+      </div>
 
-        <!-- Enlace "¿No tienes una cuenta?" -->
-        <p>¿No tienes una cuenta? <a href="/dashboard/auth/signup.html" class="signup-link">Crear una cuenta</a></p>
+      <!-- Pie de página del formulario -->
+      <div class="login-footer">
+        <!-- Mensaje "¿No tienes una cuenta?" movido a la columna derecha -->
       </div>
     </div>
+  </form>
 
-    <!-- Pie de página del formulario -->
-    <div class="login-footer">
-      <!-- Mensaje "¿No tienes una cuenta?" movido a la columna derecha -->
-    </div>
-  </div>
-</form>
+<!-- Pie de página -->
+<footer>
+  <nav class="footer-navigation" id="footer-navigation">
+    <ul id="footer-menu"></ul>
+    <a href="#" id="wallet-address" class="wallet-address" data-copy="0x96dFa67FDff3B167C0923b2fA3697E2a2b298869">
+      ❤️ Apoya con Ethereum (ETH) - Dirección de donación: 0x96dFa67FDff3B167C0923b2fA3697E2a2b298869
+    </a>
+  </nav>
+  <button id="toggle-button" class="icon-button">
+    <img src="/assets/img/footer/sidebar.svg" alt="Icono de menú">
+  </button>
+</footer>
 
-  
-
-  <!-- Pie de página -->
-  <footer>
-    <nav class="footer-navigation" id="footer-navigation">
-      <ul id="footer-menu"></ul>
-      <a href="#" id="wallet-address" class="wallet-address">
-        ❤️ Apoya con Ethereum (ETH) - Dirección de donación: 0x96dFa67FDff3B167C0923b2fA3697E2a2b298869
-      </a>
-    </nav>
-    <button id="toggle-button" class="icon-button">
-      <img src="/assets/img/footer/sidebar.svg" alt="Icono de menú">
-    </button>
-  </footer>
 
   <!-- Scripts -->
-  <script src="/assets/dist/settings/firebase-config.js" type="module"></script>
-  <script src="/assets/dist/settings/session-control.js" type="module"></script>
-  <script src="/assets/dist/settings/auth.js" type="module" defer></script>
-  <script src="/assets/dist/general/firebase-authentication.js" type="module" defer></script>
-  <script src="/assets/dist/settings/login.js" type="module" defer></script>
-  <script src="/assets/dist/settings/loginValidation.js" type="module" defer></script>
-  <script src="/assets/dist/general/current-year.js" type="module" defer></script>
-  <script src="/assets/dist/general/footer.js" type="module" defer></script>
-  <script src="/assets/dist/general/funciones/copy-wallet.js" type="module" defer></script>
-  <script src="/assets/dist/general/funciones/notificaciones.js" type="module" defer></script>
   <script src="/assets/dist/settings/hcaptcha-config.js" type="module" defer></script>
-
+  <script src="/assets/dist/settings/firebase-config.js" type="module" defer></script>
+  <script src="/assets/dist/settings/session-control.js" type="module" defer></script>
+  <script src="/assets/dist/settings/auth/login-validation.js" type="module" defer></script>
+  <script src="/assets/dist/settings/auth/login.js" type="module" defer></script>
+  <script src="/assets/dist/general/current-year.js" type="module" async></script>
+  <script src="/assets/dist/general/footer.js" type="module" async></script>
+  <script src="/assets/dist/general/funciones/copy-wallet.js" defer></script>
+  <script src="/assets/dist/general/funciones/notificaciones.js" defer></script>
+  <script src="/assets/dist/settings/logo-moving.js" defer></script>
 </body>
 
 </html>

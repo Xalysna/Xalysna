@@ -3,13 +3,26 @@ body {
   overflow-y: hidden; /* Ocultar barra de desplazamiento vertical */
 }
 
+/* Estilos para el contenedor del login */
 .login-container {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: linear-gradient(to right, #F3F1BA, #A1AFFF);
   font-family: Arial, sans-serif;
+  position: relative;
+  z-index: 1; /* Asegúrate de que el valor de z-index sea menor que el de .logo-container */
+}
+
+/* Estilos para el fondo detrás del logo */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, #9c94a6, #4e5360, #1a1c26);
+  z-index: 0;
 }
 
 .login-title {
@@ -157,29 +170,6 @@ body {
   margin-top: 20px;
 }
 
-/* Estilos para el contenedor del logotipo */
-.logo-container {
-  position: absolute;
-  top: 10px;
-  left: 90px;
-  display: flex;
-  align-items: center;
-}
-
-/* Estilos para la imagen del logotipo */
-.logo-image {
-  width: 200px;
-  height: auto;
-}
-
-
-/* Estilos para pantallas pequeñas */
-@media (max-width: 576px) {
-  .login-container {
-    padding: 0 20px;
-  }
-}
-
 /* Estilos para el pie de página */
 footer {
   margin-top: 20px;
@@ -190,4 +180,25 @@ footer {
 
 footer p {
   margin: 5px;
+}
+
+/* Estilo para notificaciones de error */
+.error-notification {
+  background-color: #ff0000; /* Color de fondo rojo para errores */
+  color: #ffffff; /* Color de texto blanco */
+  padding: 10px; /* Espaciado interior */
+}
+
+/* Estilo para notificaciones de éxito */
+.success-notification {
+  background-color: #00ff00; /* Color de fondo verde para éxito */
+  color: #ffffff; /* Color de texto blanco */
+  padding: 10px; /* Espaciado interior */
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 576px) {
+  .login-container {
+    padding: 0 20px;
+  }
 }

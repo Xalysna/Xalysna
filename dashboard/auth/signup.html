@@ -3,7 +3,7 @@
 
 <head>
   <!-- Metadatos -->
-  <meta name="charset" content="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registrarse - Xavaya: Inspira el Futuro, Desbloquea tu Potencial</title>
   <meta name="description" content="Explora el fascinante mundo de Xavaya y descubre un sinfín de recursos para inspirarte, aprender y desbloquear tu potencial. Sumérgete en nuestro blog, enciclopedia y repositorio, y forma parte de una comunidad apasionada de personas en busca de conocimiento. Únete a nosotros y prepárate para un viaje emocionante hacia el crecimiento personal y la realización de tus sueños.">
@@ -26,20 +26,18 @@
   <link rel="stylesheet" href="/assets/css/home/index.css">
   <link rel="stylesheet" href="/assets/css/general/funciones/copy-wallet.css">
   <link rel="stylesheet" href="/assets/css/general/panel.css">
+  <link rel="stylesheet" href="/assets/css/settings/logo-moving.css">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/assets/img/web/favicon32x32R.png">
-
 </head>
 
-
 <body>
-
-<!-- Agrega el logotipo utilizando la etiqueta img con un contenedor div para controlar la posición -->
-<div class="logo-container">
-  <img src="/assets/img/web/XavayaBannerLogo.png" alt="Mi Logotipo" class="logo-image">
-</div>
-
+  <!-- logotipo -->
+  <div class="background"></div>
+  <div class="logo-container">
+    <img src="/assets/img/web/XavayaBannerLogo.png" alt="Mi Logotipo" class="logo-image">
+  </div>
 
 <!-- Formulario de registro -->
 <form id="registerForm">
@@ -48,20 +46,20 @@
     <div class="register-form">
       <!-- Columna Izquierda -->
       <div class="left-column">
-        <h2 class="login-title">Crear una cuenta</h2>
+        <h2 class="register-title">Crear una cuenta</h2>
 
         <!-- Campo de correo electrónico -->
-        <label for="emailRegister">Correo electrónico:</label>
-        <input type="email" id="emailRegister" name="email" placeholder="Correo electrónico" required>
-        <div id="errorEmailRegister" class="error-message"></div>
+        <label for="emailRegister">Correo Electrónico:</label>
+        <input type="email" id="emailRegister" name="email" placeholder="Ingresa tu Correo Electrónico" required>
+        <div id="errorEmail" class="error-message"></div>
 
         <!-- Campo de contraseña -->
         <label for="passwordRegister">Contraseña:</label>
-        <input type="password" id="passwordRegister" name="password" placeholder="Contraseña" required autocomplete="new-password">
+        <input type="password" id="passwordRegister" name="password" placeholder="Ingresa tu Contraseña" required autocomplete="new-password">
         <div id="errorPasswordRegister" class="error-message"></div>
 
         <!-- Botón de registro -->
-        <button type="button" id="registerButton" class="login-button" data-callback="submitRegisterForm">Registrarse</button>
+        <button type="button" id="registerButton" class="register-button" data-callback="submitRegisterForm">Registrarse</button>
 
         <!-- Contenedor para hCaptcha (si es necesario) -->
         <div data-hcaptcha-sitekey="be2f837e-7ca8-47a0-b846-d01dab1f199f"></div>
@@ -80,7 +78,7 @@
         </div>
 
         <!-- Enlace "¿Ya tienes una cuenta?" -->
-        <p>¿Ya tienes una cuenta? <a href="/login.html" class="login-link">Iniciar sesión</a></p>
+        <p>¿Ya tienes una cuenta? <a href="/dashboard/auth/login.html" class="login-link">Iniciar sesión</a></p>
       </div>
     </div>
 
@@ -91,13 +89,12 @@
   </div>
 </form>
 
-  
 
   <!-- Pie de página -->
   <footer>
     <nav class="footer-navigation" id="footer-navigation">
       <ul id="footer-menu"></ul>
-      <a href="#" id="wallet-address" class="wallet-address">
+      <a href="#" id="wallet-address" class="wallet-address" data-copy="0x96dFa67FDff3B167C0923b2fA3697E2a2b298869">
         ❤️ Apoya con Ethereum (ETH) - Dirección de donación: 0x96dFa67FDff3B167C0923b2fA3697E2a2b298869
       </a>
     </nav>
@@ -106,17 +103,17 @@
     </button>
   </footer>
 
-  <!-- Scripts -->
-  <script src="/assets/dist/settings/firebase-config.js" type="module"></script>
-  <script src="/assets/dist/settings/session-control.js" type="module"></script>
-  <script src="/assets/dist/settings/auth.js" type="module" defer></script>
-  <script src="/assets/dist/general/firebase-authentication.js" type="module" defer></script>
-  <script src="/assets/dist/settings/signup-validation.js" type="module" defer></script>
-  <script src="/assets/dist/general/current-year.js" type="module" defer></script>
-  <script src="/assets/dist/general/footer.js" type="module" defer></script>
-  <script src="/assets/dist/general/funciones/copy-wallet.js" type="module" defer></script>
-  <script src="/assets/dist/general/funciones/notificaciones.js" type="module" defer></script>
-  <script src="/assets/dist/settings/hcaptcha-config.js" type="module" defer></script>
+<!-- Scripts -->
+<script src="/assets/dist/settings/firebase-config.js" type="module" defer></script>
+<script src="/assets/dist/settings/session-control.js" type="module" defer></script>
+<script src="/assets/dist/settings/hcaptcha-config.js" type="module" defer></script>
+<script src="/assets/dist/settings/auth/signup-validation.js" type="module" defer></script>
+<script src="/assets/dist/settings/auth/signup.js" type="module" defer></script>
+<script src="/assets/dist/general/current-year.js" type="module" async></script>
+<script src="/assets/dist/general/footer.js" type="module" async></script>
+<script src="/assets/dist/general/funciones/copy-wallet.js" defer></script>
+<script src="/assets/dist/general/funciones/notificaciones.js" defer></script>
+<script src="/assets/dist/settings/logo-moving.js" defer></script>
 
 </body>
 
