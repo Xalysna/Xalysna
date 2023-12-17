@@ -5,8 +5,8 @@
   <!-- Metadatos -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Restablezca su contraseña - Xavaya</title>
-  <meta name="description" content="Verificación de correo electrónico exitosa en Xavaya.">
+  <title>Correo Enviado - Cambio de Dirección de Correo Electrónico - Xavaya</title>
+  <meta name="description" content="Correo electrónico enviado con éxito para el cambio de dirección de correo electrónico en Xavaya.">
   <meta name="author" content="Xavaya">
   <meta name="robots" content="noindex, nofollow">
   <meta http-equiv="x-content-type-options" content="nosniff">
@@ -21,7 +21,6 @@
 
   <!-- Estilos -->
   <link rel="stylesheet" href="/assets/css/settings/signup.css">
-  <link rel="stylesheet" href="/assets/css/settings/reset-password.css">
   <link rel="stylesheet" href="/assets/css/general/footer.css">
   <link rel="stylesheet" href="/assets/css/home/index.css">
   <link rel="stylesheet" href="/assets/css/general/funciones/copy-wallet.css">
@@ -42,21 +41,11 @@
   <div id="styleContainer" class="register-container">
     <div class="register-form">
 
-        <!-- Formulario de Restablecimiento de Contraseña -->
-        <div class="reset-password-container">
-          <h2 class="reset-password-title">Restablecer Contraseña</h2>
-          <form id="changePasswordForm"> <!-- Corregir el ID del formulario -->
-            <div id="errorMessageResetPassword" class="error-message"></div>
-
-            <label for="newPassword">Nueva Contraseña:</label>
-            <input type="password" id="newPassword" name="newPassword" required>
-
-            <label for="confirmPassword">Confirmar Contraseña:</label>
-            <input type="password" id="confirmPassword" name="confirmPassword" required>
-
-            <button type="submit" id="resetPasswordButton" class="submit-button">Restablecer Contraseña</button>
-          </form>
-        </div>
+      <!-- Mensaje de Envío de Correo Electrónico Exitoso -->
+      <div class="email-sent-container">
+        <h2 class="email-sent-title">Correo Electrónico Enviado con Éxito</h2>
+        <p>Hemos enviado un correo electrónico con instrucciones para cambiar tu dirección de correo electrónico. Por favor, verifica tu bandeja de entrada y sigue los pasos proporcionados en el correo.</p>
+        <!-- Puedes agregar aquí más información o instrucciones relevantes -->
       </div>
     </div>
   </div>
@@ -75,11 +64,10 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="/assets/dist/settings/auth/reset-password.js" type="module" async></script>
+  <script src="/assets/dist/settings/auth/change-email.js" type="module" async></script>
   <script src="/assets/dist/general/footer.js" type="module" async></script>
   <script src="/assets/dist/general/funciones/copy-wallet.js" defer></script>
   <script src="/assets/dist/general/funciones/notificaciones.js" defer></script>
-
 </body>
 
 </html>

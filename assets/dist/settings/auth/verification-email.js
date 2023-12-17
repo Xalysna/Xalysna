@@ -1,7 +1,7 @@
 // Importar la configuración de Firebase desde firebase-config.js
 import { firebaseConfig } from '../firebase-config.js';
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js';
-import { getAuth, applyActionCode } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js';
+import { getAuth, applyActionCode, checkActionCode } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js';
 
 // Inicializar Firebase con la configuración importada
 const firebaseApp = initializeApp(firebaseConfig);
@@ -20,11 +20,21 @@ if (action === 'verifyEmail') {
   if (mode === 'verifyEmail') {
     // Realizar la verificación de correo y redirigir según corresponda
     applyActionCode(auth, oobCode)
-      .then(() => {
+      .then(async () => {
         // Almacenar el código OOB en sessionStorage
         sessionStorage.setItem('oobCode', oobCode);
 
-        window.location.href = '/dashboard/auth/action/verificacion_exitosa.html';
+        // Obtener información sobre la acción de código OOB
+        const info = await checkActionCode(auth, oobCode);
+
+        // Verificar si la acción es para cambiar el correo electrónico
+        if (info.data.requestType === 'updateEmail') {
+          // Redireccionar al usuario a la página de cambio de correo electrónico
+          window.location.href = '/dashboard/auth/action/change-email.html';
+        } else {
+          // Redireccionar según corresponda
+          window.location.href = '/dashboard/auth/action/verificacion_exitosa.html';
+        }
       })
       .catch((error) => {
         console.error('Error de verificación de correo:', error);

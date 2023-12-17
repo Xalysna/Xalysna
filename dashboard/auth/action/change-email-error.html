@@ -5,7 +5,7 @@
   <!-- Metadatos -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Restablezca su contraseña - Xavaya</title>
+  <title>Error en cambio de dirección de correo - Xavaya</title>
   <meta name="description" content="Verificación de correo electrónico exitosa en Xavaya.">
   <meta name="author" content="Xavaya">
   <meta name="robots" content="noindex, nofollow">
@@ -21,7 +21,6 @@
 
   <!-- Estilos -->
   <link rel="stylesheet" href="/assets/css/settings/signup.css">
-  <link rel="stylesheet" href="/assets/css/settings/reset-password.css">
   <link rel="stylesheet" href="/assets/css/general/footer.css">
   <link rel="stylesheet" href="/assets/css/home/index.css">
   <link rel="stylesheet" href="/assets/css/general/funciones/copy-wallet.css">
@@ -42,22 +41,13 @@
   <div id="styleContainer" class="register-container">
     <div class="register-form">
 
-        <!-- Formulario de Restablecimiento de Contraseña -->
-        <div class="reset-password-container">
-          <h2 class="reset-password-title">Restablecer Contraseña</h2>
-          <form id="changePasswordForm"> <!-- Corregir el ID del formulario -->
-            <div id="errorMessageResetPassword" class="error-message"></div>
-
-            <label for="newPassword">Nueva Contraseña:</label>
-            <input type="password" id="newPassword" name="newPassword" required>
-
-            <label for="confirmPassword">Confirmar Contraseña:</label>
-            <input type="password" id="confirmPassword" name="confirmPassword" required>
-
-            <button type="submit" id="resetPasswordButton" class="submit-button">Restablecer Contraseña</button>
-          </form>
-        </div>
+      <!-- Mensaje de Cambio de Dirección de Correo Electrónico Fallido -->
+      <div class="error-container">
+        <h2 class="error-title">Cambio de Dirección de Correo Electrónico Fallido</h2>
+        <p>Lo sentimos, el cambio de dirección de correo electrónico ha fallado. Por favor, vuelve a intentar el proceso desde el principio.</p>
+        <!-- Agrega aquí cualquier otro contenido relevante -->
       </div>
+
     </div>
   </div>
 
@@ -75,7 +65,7 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="/assets/dist/settings/auth/reset-password.js" type="module" async></script>
+  <script src="/assets/dist/settings/auth/change-email.js" type="module" async></script>
   <script src="/assets/dist/general/footer.js" type="module" async></script>
   <script src="/assets/dist/general/funciones/copy-wallet.js" defer></script>
   <script src="/assets/dist/general/funciones/notificaciones.js" defer></script>
