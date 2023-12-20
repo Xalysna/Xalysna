@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function redirectToMainPage() {
     console.log('Redirigiendo a la página principal...');
-    window.location.href = '../../../index.html';
+    window.location.href = '/dashboard/users/profile.html';
   }
 
   function isValidEmail(email) {

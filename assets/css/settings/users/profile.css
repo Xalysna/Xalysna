@@ -1,0 +1,301 @@
+/* Estilos generales para el contenedor de la tarjeta */
+.profile-container {
+    width: 1200px; /* Ancho del contenedor en píxeles */
+    height: 500px; /* Altura del contenedor en píxeles */
+    background-color: #add8e6;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    position: absolute;
+    top: 50%; /* Ajusta este valor para cambiar la posición vertical del contenedor */
+    left: 50%; /* Ajusta este valor para cambiar la posición horizontal del contenedor */
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Estilos para la sección de cambio de imagen del perfil */
+.change-profile-image-container {
+    width: 30%; /* Ancho de la sección en porcentaje */
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-section.change-image-section {
+    margin-right: 20px;
+}
+
+#uploadImageButton {
+    padding: 6px 12px;
+    background-color: #af4c4c;
+    background-color: rgba(156, 32, 32, 0.233);
+    backdrop-filter: blur(5px);
+    color: #000000;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+    /* Posicionamiento absoluto para tener control total sobre la posición */
+    position: absolute;
+    top: 90%; /* Ajusta la posición vertical según tus necesidades */
+    left: 18%; /* Ajusta la posición horizontal según tus necesidades */
+}
+
+#uploadImageButton:hover {
+    background-color: #45a0a0;
+}
+
+
+/* Estilos para la sección de información del perfil (Frente) */
+.profile-info.front-info {
+    width: 70%; /* Ancho de la sección en porcentaje */
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Columna izquierda */
+.profile-section.personal-info-section-front {
+    position: absolute;
+    top: 5%; /* Ajusta este valor para mover la columna izquierda hacia abajo */
+    left: 5%; /* Ajusta este valor para mover la columna izquierda hacia la derecha */
+    width: 30%; /* Ancho de la columna izquierda en porcentaje */
+}
+
+/* Columna derecha */
+.profile-section.location-info-section-front {
+    position: absolute;
+    top: 5%; /* Ajusta este valor para mover la columna derecha hacia abajo */
+    right: 30%; /* Ajusta este valor para mover la columna derecha hacia la izquierda */
+    width: 10%; /* Ancho de la columna derecha en porcentaje */
+    
+}
+
+/* Banner centrado abajo */
+.profile-section.bio-info-section-front {
+    position: absolute;
+    top: 45%; /* Ajusta este valor para mover la columna izquierda hacia abajo */
+    left: 5%; /* Ajusta este valor para mover la columna izquierda hacia la derecha */
+    width: 30%; /* Ancho de la columna izquierda en porcentaje */
+}
+
+h3 {
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+span {
+    font-size: 14px;
+}
+
+
+/* Estilos para la sección de información del perfil (Reverso) */
+.profile-info-back.back-info {
+    width: 70%;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    display: none; /* Inicialmente oculta */
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Estilos para el botón de Volver (flip card) */
+#flipBackButton {
+    padding: 6px 12px;
+    background-color: #af4c4c;
+    background-color: rgba(156, 32, 32, 0.233);
+    backdrop-filter: blur(5px);
+    color: #000000;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 88%; /* Ajusta este valor para cambiar la posición vertical en porcentaje */
+    left: 80%; /* Ajusta este valor para cambiar la posición horizontal en porcentaje */
+    width: 120px; /* Ajusta este valor para cambiar el ancho del botón en píxeles o porcentaje */
+    margin: 10px; /* Ajusta este valor para cambiar el margen del botón en píxeles o porcentaje */
+}
+
+
+/* Estilos para el botón de Guardar Perfil */
+#saveProfileButton {
+    padding: 6px 12px;
+    background-color: #af4c4c;
+    background-color: rgba(156, 32, 32, 0.233);
+    backdrop-filter: blur(5px);
+    color: #000000;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 88%; /* Ajusta este valor para cambiar la posición vertical en porcentaje */
+    left: 65%; /* Ajusta este valor para cambiar la posición horizontal en porcentaje */
+    width: 120px; /* Ajusta este valor para cambiar el ancho del botón en píxeles o porcentaje */
+    margin: 10px; /* Ajusta este valor para cambiar el margen del botón en píxeles o porcentaje */
+}
+
+#saveProfileButton:hover {
+    background-color: #45a0a0;
+}
+
+/* Estilos para el botón de Ver Detalles */
+#viewMoreButton {
+    padding: 6px 12px;
+    background-color: #af4c4c;
+    background-color: rgba(156, 32, 32, 0.233);
+    backdrop-filter: blur(5px);
+    color: #000000;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 88%; /* Ajusta este valor para cambiar la posición vertical en porcentaje */
+    left: 80%; /* Ajusta este valor para cambiar la posición horizontal en porcentaje */
+    width: 120px; /* Ajusta este valor para cambiar el ancho del botón en píxeles o porcentaje */
+    margin: 10px; /* Ajusta este valor para cambiar el margen del botón en píxeles o porcentaje */
+}
+
+
+#viewMoreButton:hover {
+    background-color: #45a0a0;
+}
+
+/* Estilos para el botón de Ver Detalles */
+#editProfileButton {
+    padding: 6px 12px;
+    background-color: #af4c4c;
+    background-color: rgba(156, 32, 32, 0.233);
+    backdrop-filter: blur(5px);
+    color: #000000;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 88%; /* Ajusta este valor para cambiar la posición vertical en porcentaje */
+    left: 4%; /* Ajusta este valor para cambiar la posición horizontal en porcentaje */
+    width: 120px; /* Ajusta este valor para cambiar el ancho del botón en píxeles o porcentaje */
+    margin: 10px; /* Ajusta este valor para cambiar el margen del botón en píxeles o porcentaje */
+}
+
+
+#editProfileButton:hover {
+    background-color: #45a0a0;
+}
+
+/* Conexiones Sociales - Banner izquierdo */
+.profile-section.social-connections-section-back {
+    position: absolute;
+    top: 5%; /* Ajusta este valor para mover la columna izquierda hacia abajo */
+    left: 5%; /* Ajusta este valor para mover la columna izquierda hacia la derecha */
+    width: 30%; /* Ancho de la columna izquierda en porcentaje */
+}
+
+/* Estilo para la lista de enlaces */
+#socialLinks {
+    list-style: none;          /* Elimina los puntos de la lista */
+    padding: 0;                /* Elimina el relleno interior de la lista */
+    margin-top: 2%;            /* Ajusta este valor según sea necesario para mover hacia arriba */
+    margin-bottom: 2%;         /* Ajusta este valor según sea necesario para mover hacia abajo */
+    margin-left: -10%;           /* Ajusta este valor según sea necesario para mover hacia la derecha */
+    margin-right: 5%;          /* Ajusta este valor según sea necesario para mover hacia la izquierda */
+    display: flex;             /* Usa un contenedor flexible para alinear los íconos */
+    flex-direction: column;    /* Cambia la dirección del contenedor flexible a columna */
+}
+
+/* Estilo para cada ítem de la lista */
+#socialLinks li {
+    margin-bottom: 10px;       /* Ajusta el espacio entre los íconos en la dirección vertical */
+}
+
+/* Estilo para las imágenes dentro de los enlaces */
+#socialLinks img {
+    width: 28px;               /* Ajusta el ancho de los íconos según tus preferencias */
+    height: 28px;              /* Ajusta la altura de los íconos según tus preferencias */
+    margin-left: 15%;         /* Agrega un margen a la izquierda de cada ícono */
+}
+
+/* Columna derecha */
+.profile-section.crypto-wallet-section-back {
+    position: absolute;
+    top: 10%; /* Ajusta este valor para que esté alineada con la columna izquierda */
+    left: 55%; /* Ajusta este valor para mover la columna derecha hacia la derecha */
+    width: 30%; /* Ancho de la columna derecha en porcentaje */
+    padding: 20px; /* Espaciado interno de la columna derecha */
+
+}
+
+/* Columna derecha para Compartir perfil QR */
+.profile-section.qr-share-section-front {
+    position: absolute;
+    top: 38%; /* Ajusta este valor para alinear con la columna izquierda */
+    left: 55%; /* Ajusta este valor para mover hacia la derecha */
+    width: 30%; /* Ancho en porcentaje */
+    padding: 20px; /* Espaciado interno */
+}
+
+/* Columna izquierda */
+.profile-section.user-uid-section-back {
+    position: absolute;
+    top: 55%; /* Ajusta este valor para mover la columna izquierda hacia abajo */
+    left: 60%; /* Ajusta este valor para mover la columna izquierda hacia la derecha */
+    width: 30%; /* Ancho de la columna izquierda en porcentaje */
+    font-size: 14px;
+}
+
+/* Estilo para el título */
+.profile-section.user-uid-section-back h3 {
+    color: #333; /* Color del texto del título */
+    font-size: 16px;
+}
+
+/* Estilo para la información */
+.profile-section.user-uid-section-back p {
+    margin: 10px 0; /* Margen superior e inferior del párrafo */
+}
+
+/* Estilo para el número de identificación del usuario */
+.profile-section.user-uid-section-back #userUid {
+    font-weight: bold; /* Texto en negrita */
+    color: #007bff; /* Color del número de identificación del usuario */
+}
+
+/* Estilos para el botón de Cancelar Registro */
+#eliminarPerfilButton {
+    padding: 6px 12px;
+    background-color: #af4c4c;
+    background-color: rgba(156, 32, 32, 0.233);
+    backdrop-filter: blur(5px);
+    color: #000000;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 88%; /* Ajusta este valor para cambiar la posición vertical en porcentaje */
+    left: 47%; /* Ajusta este valor para cambiar la posición horizontal en porcentaje */
+    width: 140px; /* Ajusta este valor para cambiar el ancho del botón en píxeles o porcentaje */
+    margin: 10px; /* Ajusta este valor para cambiar el margen del botón en píxeles o porcentaje */
+}
+
+#eliminarPerfilButton:hover {
+    background-color: #45a0a0;
+}

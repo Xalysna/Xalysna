@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Metadatos -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario: Inspira el Futuro, Desbloquea tu Potencial</title>
+    <meta name="description" content="Explora el fascinante mundo de Xavaya y descubre un sinfín de recursos para inspirarte, aprender y desbloquear tu potencial. Sumérgete en nuestro blog, enciclopedia y repositorio, y forma parte de una comunidad apasionada de personas en busca de conocimiento. Únete a nosotros y prepárate para un viaje emocionante hacia el crecimiento personal y la realización de tus sueños.">
+    <meta name="keywords" content="Xavaya, Inspira, Futuro, Desbloquea, Potencial, Explora, Recursos, Aprender, Blog, Enciclopedia, Repositorio, Comunidad, Conocimiento, Crecimiento personal, Realización de sueños, Inspiración, Desarrollo personal, Apasionado, Viaje emocionante, Aprendizaje">
+    <meta name="author" content="Xavaya">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="x-content-type-options" content="nosniff">
+
+    <!-- BaseUrl -->
+    <script>
+        const baseUrl = '/'; // Coloca aquí tu URL base
+        const imgBaseUrl = `${baseUrl}assets/img`;
+        const cssBaseUrl = `${baseUrl}assets/css`;
+        const jsBaseUrl = `${baseUrl}assets/dist`;
+    </script>
+
+
+    <link rel="stylesheet" href="/assets/css/settings/users/profile.css">
+    <link rel="stylesheet" href="/assets/css/settings/users/data-styles.css">
+    <link rel="stylesheet" href="/assets/css/home/index.css">
+    <link rel="stylesheet" href="/assets/css/general/panel.css">
+    <link rel="stylesheet" href="/assets/css/general/footer.css">
+
+    <!-- Código para el favicon -->
+    <link rel="icon" type="image/png" href="/assets/img/web/favicon32x32R.png">
+</head>
+
+<body>
+    <div class="background"></div>
+
+    <div id="panel">
+        <!-- Comentario: Este es el panel principal -->
+        <p id="status"></p>
+        <nav id="navigation"></nav>
+        <div id="subcategory-panel"></div>
+        <button id="login-button">Iniciar sesión</button>
+        <button id="logout-button" style="display: none;">Cerrar sesión</button>
+        <button id="signup-button" style="display: none;">Registrarse</button>
+    </div>
+
+    <header>
+        <h1 id="main-title">Xavaya: Inspira el Futuro, Desbloquea tu Potencial</h1>
+        <p id="greeting"></p>
+    </header>
+
+    <!-- Contenedor principal -->
+    <div class="profile-container">
+
+        <!-- Sección de cambio de imagen del perfil -->
+        <div class="change-profile-image-container">
+            <div id="avatar" class="profile-section change-image-section">
+                <button id="uploadImageButton" class="upload-button">Subir Imagen</button>
+            </div>
+        </div>
+
+        <!-- Información del perfil (Frente) -->
+        <div class="profile-info front-info" id="frontCard">
+            <!-- Datos personales - Columna izquierda -->
+            <div class="profile-section personal-info-section-front">
+                <h3>DATOS PERSONALES</h3>
+                <p>Nombres y Apellidos: <span id="fullName"></span></p>
+                <p>Nombre de Usuario: <span id="alias"></span></p>
+                <p>Correo Electrónico: <span id="userEmail"></span></p>
+                <p>Número de Teléfono: <span id="phone"></span></p>
+            </div>
+
+            <!-- Detalles de ubicación - Columna derecha -->
+            <div class="profile-section location-info-section-front">
+                <h3>UBICACIÓN</h3>
+                <p>Ciudad: <span id="locationCity"></span></p>
+                <p>País: <span id="locationCountry"></span></p>
+                <p>Planeta: <span id="locationPlanet"></span></p>
+            </div>
+
+            <!-- Información Biográfica - Banner centrado abajo -->
+            <div class="profile-section bio-info-section-front">
+                <h3>INFORMACIÓN BIOGRÁFICA</h3>
+                <p>Descripción Personal o Lema: <span id="bio"></span></p>
+                <p>Edad: <span id="edad"></span></p>
+                <p>Profesión: <span id="profesion"></span></p>
+                <p>Hobbies/Intereses: <span id="intereses"></span></p>
+                <!-- Puedes agregar más campos según sea necesario -->
+            </div>
+
+            <!-- Compartir perfil QR -->
+            <div class="profile-section qr-share-section-front">
+                <h3>COMPARTIR PERFIL QR</h3>
+                <p>Código QR del perfil: <span id="userQRCode"></span></p>
+            </div>
+
+            <!-- Botón de Editar Perfil -->
+            <div class="button-section-front">
+                <button id="editProfileButton" class="edit-button">Editar Perfil</button>
+            </div>
+
+            <!-- Botón de Guardar Perfil -->
+            <div class="button-section-front">
+                <button id="saveProfileButton" class="save-button">Guardar Perfil</button>
+            </div>
+
+            <!-- Botón de Ver Detalles -->
+            <div class="button-section-front">
+                <button id="viewMoreButton" onclick="flipCard()" class="view-details-button">Ver Detalles</button>
+            </div>
+        </div>
+
+        <!-- Información del perfil (Reverso) -->
+        <div class="profile-info-back back-info" id="backCard">
+            
+<!-- Conexiones Sociales - Banner izquierdo -->
+<div class="profile-section social-connections-section-back">
+    <h3>REDES SOCIALES</h3>
+    <p>Enlaces a Redes Sociales:</p>
+
+    <ul class="social-links-list-back">
+        <li id="facebookLink">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                <img src="/assets/img/social/icons8-facebook-48.png" alt="Facebook">
+                <span id="facebook">Enlace a Facebook</span>
+            </a>
+        </li>
+        <li id="instagramLink">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                <img src="/assets/img/social/icons8-instagram-48.png" alt="Instagram">
+                <span id="instagram">Enlace a Instagram</span>
+            </a>
+        </li>
+        <li id="youtubeLink">
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+                <img src="/assets/img/social/icons8-youtube-48.png" alt="YouTube">
+                <span id="youtube">Enlace a YouTube</span>
+            </a>
+        </li>
+        <li id="twitterLink">
+            <a href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer">
+                <img src="/assets/img/social/icons8-twitterx-48.png" alt="Twitter">
+                <span id="twitter">Enlace a Twitter</span>
+            </a>
+        </li>
+        <li id="linkedinLink">
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+                <img src="/assets/img/social/icons8-linkedin-48.png" alt="LinkedIn">
+                <span id="linkedin">Enlace a LinkedIn</span>
+            </a>
+        </li>
+        <li id="wechatLink">
+            <a href="https://www.wechat.com/" target="_blank" rel="noopener noreferrer">
+                <img src="/assets/img/social/icons8-wechat-48.png" alt="WeChat">
+                <span id="wechat">Enlace a WeChat</span>
+            </a>
+        </li>
+        <li id="tiktokLink">
+            <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">
+                <img src="/assets/img/social/icons8-tiktok-48.png" alt="TikTok">
+                <span id="tiktok">Enlace a TikTok</span>
+            </a>
+        </li>
+        <li id="vkLink">
+            <a href="https://vk.com/" target="_blank" rel="noopener noreferrer">
+                <img src="/assets/img/social/icons8-vk-com-48.png" alt="VK">
+                <span id="vk">Enlace a VK</span>
+            </a>
+        </li>
+    </ul>
+    
+</div>
+
+
+            <!-- Información de cartera crypto -->
+            <div class="profile-section crypto-wallet-section-back">
+                <h3>CRYPTO WALLET</h3>
+                <p>Dirección de cartera crypto: <span id="userCryptoWalletAddress"></span></p>
+            </div>
+
+            <!-- Información de UID de usuario -->
+            <div class="profile-section user-uid-section-back">
+                <h3>DETALLES DE CUENTA</h3>
+                <p>UID: <span id="userUid"></span></p>
+                <p>Fecha de creación: <span id="fechaCreacion"></span></p>
+                <p>Visto por última vez: <span id="ultimaVezAcceso"></span></p>
+            </div>
+
+            <!-- Botón para volver (flip card) -->
+            <div class="button-section-back">
+                <button id="flipBackButton" onclick="flipBackCard()" class="flip-back-button">Volver</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/assets/dist/settings/users/profile-card.js" defer></script>
+    <script src="/assets/dist/settings/users/display-profile-data.js" type="module" defer></script>
+    <script src="/assets/dist/settings/users/change-profile-image.js" type="module" defer></script>
+    <script src="/assets/dist/settings/users/generate-qrcode.js" type="module" defer></script>
+</body>
+
+</html>

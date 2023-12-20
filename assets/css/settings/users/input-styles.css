@@ -1,0 +1,99 @@
+/* Estilos comunes para los campos de entrada */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+#fullName, #alias, #userEmail, #phone {
+    padding: 6px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    display: block; /* Asegura que los campos se muestren como bloques para centrarlos */
+    margin-left: 0%; /* Ajusta el margen izquierdo según tus necesidades */
+    width: 110%; /* Ajusta el ancho del contenedor según tus necesidades */
+}
+
+/* Estilos comunes para los campos de entrada */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+#locationCity, #locationCountry, #locationPlanet{
+    padding: 6px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    display: block; /* Asegura que los campos se muestren como bloques para centrarlos */
+    width: 250%; /* Ajusta el ancho del contenedor según tus necesidades */
+}
+
+
+/* Estilos comunes para los campos de entrada */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+#bio, #edad, #profesion, #intereses{
+    padding: 6px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    display: block; /* Asegura que los campos se muestren como bloques para centrarlos */
+    margin-left: 0%; /* Ajusta el margen izquierdo según tus necesidades */
+    width: 110%; /* Ajusta el ancho del contenedor según tus necesidades */
+    
+}
+
+/* Estilos comunes para los campos de entrada */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+#userQRCode {
+    padding: 6px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    display: block; /* Asegura que los campos se muestren como bloques para centrarlos */
+    margin-left: 0%; /* Ajusta el margen izquierdo según tus necesidades */
+    margin-top: 15%; /* Ajusta el margen superior según tus necesidades */
+}
+
+/* Estilos comunes para los campos de entrada */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+#facebook, #instagram, #youtube, #twitter,
+#linkedin, #wechat, #tiktok, #vk {
+    padding: 6px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    display: block; /* Asegura que los campos se muestren como bloques para centrarlos */
+    width: 110%; /* Ajusta el ancho del contenedor según tus necesidades */
+    margin-top: -12%; /* Ajusta el margen superior según tus necesidades */
+    margin-bottom: 1%; /* Ajusta el margen inferior según tus necesidades */
+    margin-left: 30%; /* Ajusta el margen izquierdo según tus necesidades */
+    margin-right: 10%; /* Ajusta el margen derecho según tus necesidades */
+}
+
+
+/* Estilos comunes para los campos de entrada */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+#userCryptoWalletAddress {
+    padding: 6px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    display: block; /* Asegura que los campos se muestren como bloques para centrarlos */
+    width: 150%; /* Ajusta el ancho del contenedor según tus necesidades */
+    
+    margin-top: -3%; /* Ajusta el margen superior según tus necesidades */
+    margin-bottom: 50%; /* Ajusta el margen inferior según tus necesidades */
+    margin-left: -25%; /* Ajusta el margen izquierdo según tus necesidades */
+    margin-right: 10%; /* Ajusta el margen derecho según tus necesidades */
+}
