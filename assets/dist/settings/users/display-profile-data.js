@@ -68,8 +68,6 @@ async function displayProfileData() {
         setElementContent('instagram', 'https://www.instagram.com/' + (userData && userData.instagram), true);
         setElementContent('youtube', 'https://www.youtube.com/' + (userData && userData.youtube), true);
         setElementContent('twitter', 'https://www.twitter.com/' + (userData && userData.twitter), true);
-        setElementContent('linkedin', 'https://www.linkedin.com/' + (userData && userData.linkedin), true);
-        setElementContent('wechat', 'https://www.wechat.com/' + (userData && userData.wechat), true);
         setElementContent('tiktok', 'https://www.tiktok.com/' + (userData && userData.tiktok), true);
         setElementContent('vk', 'https://vk.com/' + (userData && userData.vk), true);
 

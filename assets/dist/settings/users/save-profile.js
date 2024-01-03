@@ -57,8 +57,6 @@ export async function saveProfile() {
   const instagram = document.getElementById('instagram');
   const youtube = document.getElementById('youtube');
   const twitter = document.getElementById('twitter');
-  const linkedin = document.getElementById('linkedin');
-  const wechat = document.getElementById('wechat');
   const tiktok = document.getElementById('tiktok');
   const vk = document.getElementById('vk');
   const userCryptoWalletAddress = document.getElementById('userCryptoWalletAddress');
@@ -91,8 +89,6 @@ export async function saveProfile() {
   const instagramValue = instagram.value;
   const youtubeValue = youtube.value;
   const twitterValue = twitter.value;
-  const linkedinValue = linkedin.value;
-  const wechatValue = wechat.value;
   const tiktokValue = tiktok.value;
   const vkValue = vk.value;
   const userCryptoWalletAddressValue = userCryptoWalletAddress.value;
@@ -120,8 +116,6 @@ export async function saveProfile() {
     instagram: instagramValue,
     youtube: youtubeValue,
     twitter: twitterValue,
-    linkedin: linkedinValue,
-    wechat: wechatValue,
     tiktok: tiktokValue,
     vk: vkValue,
     userCryptoWalletAddress: userCryptoWalletAddressValue,

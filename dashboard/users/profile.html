@@ -5,7 +5,7 @@
     <!-- Metadatos -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil de Usuario: Inspira el Futuro, Desbloquea tu Potencial</title>
+    <title>Perfil de Usuario - Inspira el Futuro, Desbloquea tu Potencial</title>
     <meta name="description" content="Explora el fascinante mundo de Xavaya y descubre un sinfín de recursos para inspirarte, aprender y desbloquear tu potencial. Sumérgete en nuestro blog, enciclopedia y repositorio, y forma parte de una comunidad apasionada de personas en busca de conocimiento. Únete a nosotros y prepárate para un viaje emocionante hacia el crecimiento personal y la realización de tus sueños.">
     <meta name="keywords" content="Xavaya, Inspira, Futuro, Desbloquea, Potencial, Explora, Recursos, Aprender, Blog, Enciclopedia, Repositorio, Comunidad, Conocimiento, Crecimiento personal, Realización de sueños, Inspiración, Desarrollo personal, Apasionado, Viaje emocionante, Aprendizaje">
     <meta name="author" content="Xavaya">
@@ -21,183 +21,199 @@
     </script>
 
 
-    <link rel="stylesheet" href="/assets/css/settings/users/profile.css">
-    <link rel="stylesheet" href="/assets/css/settings/users/data-styles.css">
-    <link rel="stylesheet" href="/assets/css/home/index.css">
-    <link rel="stylesheet" href="/assets/css/general/panel.css">
+    <link rel="stylesheet" href="/assets/css/settings/users/profile/profile-container.css">
+    <link rel="stylesheet" href="/assets/css/settings/users/profile/profile-buttons.css">
+    <link rel="stylesheet" href="/assets/css/settings/users/profile/change-profile.image.css">
     <link rel="stylesheet" href="/assets/css/general/footer.css">
+    <link rel="stylesheet" href="/assets/css/home/index.css">
+    <link rel="stylesheet" href="/assets/css/general/funciones/copy-wallet.css">
+    <link rel="stylesheet" href="/assets/css/general/panel.css">
 
     <!-- Código para el favicon -->
     <link rel="icon" type="image/png" href="/assets/img/web/favicon32x32R.png">
 </head>
 
-<body>
-    <div class="background"></div>
 
-    <div id="panel">
-        <!-- Comentario: Este es el panel principal -->
-        <p id="status"></p>
-        <nav id="navigation"></nav>
-        <div id="subcategory-panel"></div>
-        <button id="login-button">Iniciar sesión</button>
-        <button id="logout-button" style="display: none;">Cerrar sesión</button>
-        <button id="signup-button" style="display: none;">Registrarse</button>
-    </div>
+<body>
 
     <header>
         <h1 id="main-title">Xavaya: Inspira el Futuro, Desbloquea tu Potencial</h1>
         <p id="greeting"></p>
     </header>
 
-    <!-- Contenedor principal -->
-    <div class="profile-container">
-
-        <!-- Sección de cambio de imagen del perfil -->
-        <div class="change-profile-image-container">
-            <div id="avatar" class="profile-section change-image-section">
-                <button id="uploadImageButton" class="upload-button">Subir Imagen</button>
-            </div>
-        </div>
-
-        <!-- Información del perfil (Frente) -->
-        <div class="profile-info front-info" id="frontCard">
-            <!-- Datos personales - Columna izquierda -->
-            <div class="profile-section personal-info-section-front">
-                <h3>DATOS PERSONALES</h3>
-                <p>Nombres y Apellidos: <span id="fullName"></span></p>
-                <p>Nombre de Usuario: <span id="alias"></span></p>
-                <p>Correo Electrónico: <span id="userEmail"></span></p>
-                <p>Número de Teléfono: <span id="phone"></span></p>
-            </div>
-
-            <!-- Detalles de ubicación - Columna derecha -->
-            <div class="profile-section location-info-section-front">
-                <h3>UBICACIÓN</h3>
-                <p>Ciudad: <span id="locationCity"></span></p>
-                <p>País: <span id="locationCountry"></span></p>
-                <p>Planeta: <span id="locationPlanet"></span></p>
-            </div>
-
-            <!-- Información Biográfica - Banner centrado abajo -->
-            <div class="profile-section bio-info-section-front">
-                <h3>INFORMACIÓN BIOGRÁFICA</h3>
-                <p>Descripción Personal o Lema: <span id="bio"></span></p>
-                <p>Edad: <span id="edad"></span></p>
-                <p>Profesión: <span id="profesion"></span></p>
-                <p>Hobbies/Intereses: <span id="intereses"></span></p>
-                <!-- Puedes agregar más campos según sea necesario -->
-            </div>
-
-            <!-- Compartir perfil QR -->
-            <div class="profile-section qr-share-section-front">
-                <h3>COMPARTIR PERFIL QR</h3>
-                <p>Código QR del perfil: <span id="userQRCode"></span></p>
-            </div>
-
-            <!-- Botón de Editar Perfil -->
-            <div class="button-section-front">
-                <button id="editProfileButton" class="edit-button">Editar Perfil</button>
-            </div>
-
-            <!-- Botón de Guardar Perfil -->
-            <div class="button-section-front">
-                <button id="saveProfileButton" class="save-button">Guardar Perfil</button>
-            </div>
-
-            <!-- Botón de Ver Detalles -->
-            <div class="button-section-front">
-                <button id="viewMoreButton" onclick="flipCard()" class="view-details-button">Ver Detalles</button>
-            </div>
-        </div>
-
-        <!-- Información del perfil (Reverso) -->
-        <div class="profile-info-back back-info" id="backCard">
-            
-<!-- Conexiones Sociales - Banner izquierdo -->
-<div class="profile-section social-connections-section-back">
-    <h3>REDES SOCIALES</h3>
-    <p>Enlaces a Redes Sociales:</p>
-
-    <ul class="social-links-list-back">
-        <li id="facebookLink">
-            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/img/social/icons8-facebook-48.png" alt="Facebook">
-                <span id="facebook">Enlace a Facebook</span>
-            </a>
-        </li>
-        <li id="instagramLink">
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/img/social/icons8-instagram-48.png" alt="Instagram">
-                <span id="instagram">Enlace a Instagram</span>
-            </a>
-        </li>
-        <li id="youtubeLink">
-            <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/img/social/icons8-youtube-48.png" alt="YouTube">
-                <span id="youtube">Enlace a YouTube</span>
-            </a>
-        </li>
-        <li id="twitterLink">
-            <a href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/img/social/icons8-twitterx-48.png" alt="Twitter">
-                <span id="twitter">Enlace a Twitter</span>
-            </a>
-        </li>
-        <li id="linkedinLink">
-            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/img/social/icons8-linkedin-48.png" alt="LinkedIn">
-                <span id="linkedin">Enlace a LinkedIn</span>
-            </a>
-        </li>
-        <li id="wechatLink">
-            <a href="https://www.wechat.com/" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/img/social/icons8-wechat-48.png" alt="WeChat">
-                <span id="wechat">Enlace a WeChat</span>
-            </a>
-        </li>
-        <li id="tiktokLink">
-            <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/img/social/icons8-tiktok-48.png" alt="TikTok">
-                <span id="tiktok">Enlace a TikTok</span>
-            </a>
-        </li>
-        <li id="vkLink">
-            <a href="https://vk.com/" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/img/social/icons8-vk-com-48.png" alt="VK">
-                <span id="vk">Enlace a VK</span>
-            </a>
-        </li>
-    </ul>
+<!-- Sección de Cambio de Imagen de Perfil -->
+<div id="avatar" class="change-profile-image-container">
+    <!-- Mostrar la imagen de perfil o inicial del nombre si no hay imagen -->
+    <img src="" id="userAvatar">
+    <div class="initial-avatar" id="initialAvatar">A</div>
     
+    <!-- Botón de subir imagen -->
+    <button id="uploadImageButton" class="upload-button">Subir Imagen</button>
 </div>
 
 
-            <!-- Información de cartera crypto -->
-            <div class="profile-section crypto-wallet-section-back">
-                <h3>CRYPTO WALLET</h3>
-                <p>Dirección de cartera crypto: <span id="userCryptoWalletAddress"></span></p>
+<div class="profile-container">
+    <div class="profile-info">
+<!-- Pestañas de Navegación -->
+<div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'red-social')">Perfil</button>
+    <button class="tablinks" onclick="openTab(event, 'bio-info')">Biografía</button>
+    <button class="tablinks" onclick="openTab(event, 'publicaciones')">Publicaciones</button>
+    <button class="tablinks" onclick="openTab(event, 'crypto-wallet')">Crypto Wallet</button>
+    <button class="tablinks" onclick="openTab(event, 'user-uid')">Detalles de Cuenta</button>
+    <button class="tablinks" onclick="openTab(event, 'qr-share')">Compartir Perfil QR</button>
+</div>
+
+
+
+<!-- Nueva sección "Red Social" -->
+<div id="red-social" class="tabcontent">
+    <div class="profile-section red-social-section">
+        <!-- Detalles del usuario -->
+        <div class="user-details">
+            <h2 id="fullName"></h2>
+            <h3 id="alias"></h3>
+            <p id="locationInfo"><strong>Ubicación:</strong> <span id="locationCity"></span>, <span id="locationCountry"></span>, <span id="locationPlanet"></span></p>
+            <p><strong>Descripción:</strong> <span id="bio"></span></p>
+            <!-- Botón Seguir -->
+            <button id="btnSeguir">Sígueme</button>
+        </div>
+
+        <!-- Contadores y Botones de Red Social -->
+        <div class="social-container">
+            <!-- Contadores -->
+            <div class="counters">
+                <div id="contadorSeguidores" class="counter">1000</div>
+                <button id="btnSeguidores" class="counter-btn">Seguidores</button>
             </div>
 
-            <!-- Información de UID de usuario -->
-            <div class="profile-section user-uid-section-back">
-                <h3>DETALLES DE CUENTA</h3>
-                <p>UID: <span id="userUid"></span></p>
-                <p>Fecha de creación: <span id="fechaCreacion"></span></p>
-                <p>Visto por última vez: <span id="ultimaVezAcceso"></span></p>
+            <div class="counters">
+                <div id="contadorSeguidos" class="counter">500</div>
+                <button id="btnSeguidos" class="counter-btn">Seguidos</button>
             </div>
 
-            <!-- Botón para volver (flip card) -->
-            <div class="button-section-back">
-                <button id="flipBackButton" onclick="flipBackCard()" class="flip-back-button">Volver</button>
+            <div class="counters">
+                <div id="contadorMeGusta" class="counter">2000</div>
+                <button id="btnMeGusta" class="counter-btn">Me Gusta</button>
+            </div>
+
+            <div class="counters">
+                <div id="contadorNotificaciones" class="counter">10</div>
+                <button id="btnNotificaciones" class="counter-btn">Notificaciones</button>
             </div>
         </div>
     </div>
+</div>
+
+
+
+
+
+        <!-- Sección de Biografía -->
+        <div id="bio-info" class="tabcontent">
+            <div class="profile-section bio-info-section">
+                <h2>Biografía</h2>
+                <div class="bio-details">
+                    <!-- Usar dos columnas para la información personal -->
+                    <div class="column">
+                        <p><strong>Edad:</strong> <span id="edad"></span></p>
+                        <p><strong>Profesión:</strong> <span id="profesion"></span></p>
+                        <p><strong>Intereses:</strong> <span id="intereses"></span></p>
+                    </div>
+
+                    <div class="column">
+                        <p><strong>Correo Electrónico:</strong> <span id="userEmail"></span></p>
+                        <p><strong>Teléfono:</strong> <span id="phone"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de Crypto Wallet -->
+        <div id="crypto-wallet" class="tabcontent">
+            <div class="profile-section crypto-wallet-section">
+                <h2>Crypto Wallet</h2>
+                <p><strong>Dirección:</strong> <span id="userCryptoWalletAddress"></span></p>
+            </div>
+        </div>
+
+        <!-- Sección de Detalles de Cuenta -->
+        <div id="user-uid" class="tabcontent">
+            <div class="profile-section user-uid-section">
+                <h2>Detalles de Cuenta</h2>
+                <p><strong>UID:</strong> <span id="userUid"></span></p>
+                <p><strong>Fecha de creación:</strong> <span id="fechaCreacion"></span></p>
+                <p><strong>Última vez visto:</strong> <span id="ultimaVezAcceso"></span></p>
+            </div>
+        </div>
+
+        <!-- Sección de Compartir Perfil QR -->
+        <div id="qr-share" class="tabcontent">
+            <div id="qrShareSection" class="profile-section qr-share-section">
+                <h2>Compartir Perfil QR</h2>
+                <p><strong>Código QR del perfil:</strong> <span id="userQRCode"></span></p>
+            </div>
+        </div>
+
+
+<!-- Contenido de la sección de Publicaciones -->
+<div id="publicaciones" class="tabcontent">
+    <h3>Publicaciones</h3>
+    <!-- Subcategorías de Publicaciones -->
+    <div class="subtabs">
+        <button class="subtablinks" onclick="openSubTab(event, 'publicas')">Publicas</button>
+        <button class="subtablinks" onclick="openSubTab(event, 'privadas')">Privadas</button>
+    </div>
+    
+    <!-- Contenido de las subcategorías -->
+    <div id="publicas" class="subtabcontent">
+        <h4>Publicaciones Públicas</h4>
+        <!-- Aquí puedes mostrar las publicaciones públicas -->
+        <!-- Ajusta según tus necesidades -->
+        <div class="post-publico">Contenido de la publicación pública 1</div>
+        <div class="post-publico">Contenido de la publicación pública 2</div>
+        <!-- Puedes repetir este patrón para mostrar más publicaciones públicas -->
+    </div>
+    
+    <div id="privadas" class="subtabcontent">
+        <h4>Publicaciones Privadas</h4>
+        <!-- Aquí puedes mostrar las publicaciones privadas -->
+        <!-- Ajusta según tus necesidades -->
+        <div class="post-privado">Contenido de la publicación privada 1</div>
+        <div class="post-privado">Contenido de la publicación privada 2</div>
+        <!-- Puedes repetir este patrón para mostrar más publicaciones privadas -->
+    </div>
+</div>
+
+
+    </div>
+</div>
+
+    
+    
+    <!-- Pie de página -->
+    <footer>
+      <nav class="footer-navigation" id="footer-navigation">
+        <ul id="footer-menu"></ul>
+        <a href="#" id="wallet-address" class="wallet-address" data-copy="0x96dFa67FDff3B167C0923b2fA3697E2a2b298869">
+          ❤️ Apoya con Ethereum (ETH) - Dirección de donación: 0x96dFa67FDff3B167C0923b2fA3697E2a2b298869
+        </a>
+      </nav>
+      <button id="toggle-button" class="icon-button">
+        <img src="/assets/img/footer/sidebar.svg" alt="Icono de menú">
+      </button>
+    </footer>
 
     <!-- Scripts -->
-    <script src="/assets/dist/settings/users/profile-card.js" defer></script>
+    <script src="/assets/dist/settings/users/profile-nav.js" defer></script>
     <script src="/assets/dist/settings/users/display-profile-data.js" type="module" defer></script>
     <script src="/assets/dist/settings/users/change-profile-image.js" type="module" defer></script>
     <script src="/assets/dist/settings/users/generate-qrcode.js" type="module" defer></script>
+    <script src="/assets/dist/blog/title-article.js" type="module" async></script>
+    <script src="/assets/dist/general/current-year.js" type="module" async></script>
+    <script src="/assets/dist/general/footer.js" type="module" async></script>
+    <script src="/assets/dist/general/funciones/copy-wallet.js" defer></script>
+    <script src="/assets/dist/general/funciones/notificaciones.js" defer></script>
 </body>
 
 </html>
