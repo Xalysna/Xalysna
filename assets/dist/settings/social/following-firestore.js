@@ -1,7 +1,7 @@
 // Importaciones de módulos Firebase
 import { firebaseConfig } from '../firebase-config.js';
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js';
-import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js';
+import { getAuth } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js';
 import { getFirestore, doc, setDoc, serverTimestamp, collection, getDoc } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js';
 
 // Inicializar la aplicación Firebase
@@ -26,35 +26,42 @@ function obtenerUIDyCorreo() {
 }
 
 // Función para seguir a un usuario
-export async function followUser(userIdToFollow) {
-  const { uid } = obtenerUIDyCorreo();
+export async function followUser() {
+  // Supongamos que tienes un botón con el ID 'btnSeguir' y un elemento 'alias' en tu HTML
+  const btnSeguir = document.getElementById('btnSeguir');
+  const aliasElement = document.getElementById('alias');
 
-  if (!uid) {
-    console.error('No se pudo obtener el UID del usuario.');
-    return;
-  }
+  if (btnSeguir && aliasElement) {
+    btnSeguir.addEventListener('click', async () => {
+      const userIdToFollow = aliasElement.getAttribute('data-user-id'); // Obtener el ID del usuario a seguir del atributo de datos
+      const { uid } = obtenerUIDyCorreo();
 
-  const followingCollection = collection(firestore, 'following', uid);
+      if (!uid) {
+        console.error('No se pudo obtener el UID del usuario.');
+        return;
+      }
 
-  try {
-    const followingCollectionSnapshot = await getDoc(followingCollection);
-    if (!followingCollectionSnapshot.exists()) {
-      await setDoc(followingCollection, {});
-    }
+      const followingCollection = collection(firestore, 'SOCIAL', uid, 'FOLLOWING');
 
-    await setDoc(followingCollection, { [userIdToFollow]: true }, { merge: true });
+      try {
+        const timestamp = serverTimestamp();
+        const userProfile = await getDoc(doc(firestore, 'SOCIAL', userIdToFollow));
+        
+        if (userProfile.exists()) {
+          const userData = userProfile.data();
+          const { fullName, userEmail, alias } = userData;
 
-    console.log('Ahora sigues a', userIdToFollow);
-  } catch (error) {
-    console.error('Error al seguir al usuario:', error);
+          await setDoc(followingCollection, { [userIdToFollow]: { timestamp, fullName, userEmail, alias } }, { merge: true });
+          console.log('Ahora sigues a', userIdToFollow);
+        } else {
+          console.error('El usuario a seguir no existe.');
+        }
+      } catch (error) {
+        console.error('Error al seguir al usuario:', error);
+      }
+    });
   }
 }
 
 // Esperar a que el DOM esté completamente cargado
-document.addEventListener('DOMContentLoaded', () => {
-  // Supongamos que tienes un botón con el ID 'btnSeguir' en tu HTML
-  document.getElementById('btnSeguir').addEventListener('click', async () => {
-    const userIdToFollow = 'el_id_del_usuario_a_seguir'; // Reemplazar con el ID real del usuario a seguir
-    await followUser(userIdToFollow);
-  });
-});
+document.addEventListener('DOMContentLoaded', followUser);

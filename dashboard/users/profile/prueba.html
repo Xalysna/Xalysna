@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <link rel="stylesheet" href="/assets/css/settings/users/profile/profile-window-modal.css">
+    <link rel="stylesheet" href="/assets/css/general/funciones/contadorCaracteres.css">
+
+
+        <!-- BaseUrl -->
+        <script>
+            const baseUrl = '/'; // Coloca aquí tu URL base
+            const imgBaseUrl = `${baseUrl}assets/img`;
+            const cssBaseUrl = `${baseUrl}assets/css`;
+            const jsBaseUrl = `${baseUrl}assets/dist`;
+
+        // Nueva variable global para el tipo de usuario seleccionado
+        let tipoUsuarioSeleccionado = '';
+            
+        </script>
+
+</head>
+
+
+<body>
+
+
+
+
+<!-- Botón para abrir la ventana modal -->
+<button onclick="mostrarModal()">Editar Perfil</button>
+
+
+
+
+<!-- 🌟 WINDOW MODAL 🌟 -->
+
+<!-- Ventana modal -->
+<div class="modal-container"></div>
+<div id="myModal" class="modal">
+    <!-- Contenido de la ventana modal -->
+    <div class="modal-content">
+        <button id="saveProfileButton">Guardar Perfil</button>
+        <button id="cancelModalButton" onclick="cancelarModal()">Cancelar</button>
+
+        <!-- El select en ambos HTML -->
+        <select id="tipoFormulario" onchange="mostrarFormulario(this.value)">
+            <option value="" disabled selected>Seleccione Tipo de Usuario</option>
+            <option value="Persona">Persona</option>
+            <option value="Empresa">Empresa</option>
+            <option value="Marca">Marca</option>
+        </select>
+
+
+        <!-- Botones para guardar cambios y cancelar -->
+        <div class="modal-header">
+            <!-- Puedes poner los botones aquí -->
+            <button id="datosBtn">Datos Básicos</button>
+            <button id="auroraBtn">Aurora</button>
+            <button id="contactoBtn">Contacto</button>
+            <button id="cryptoBtn">Crypto Wallet</button>
+            <button id="redesBtn">Redes Sociales</button>
+            <!-- Agrega botones para otras pestañas si es necesario -->
+        </div>
+
+
+
+        <main id="contenidoPestana">
+            <!-- El contenido de la pestaña se cargará aquí -->
+        </main>
+
+
+    </div>
+</div>
+
+
+
+<!-- 🌟 WINDOW MODAL 🌟 -->
+
+
+
+
+
+<script src="/assets/dist/settings/users/profile-window-modal.js"></script>
+<script src="/assets/dist/settings/users/tab-dynamic-edit.js"></script>
+<script src="/assets/dist/settings/users/add-social-form.js"></script>
+<script src="/assets/dist/general/funciones/notificaciones.js" defer></script>
+<script src="/assets/dist/general/funciones/contadorCaracteres.js" defer></script>
+</body>
+</html>
