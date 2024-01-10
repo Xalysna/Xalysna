@@ -7,39 +7,46 @@
     <fieldset id="formularioPersonaDatos" class="formulario-datos">
         <legend>Datos Personales</legend>
 
-        <p>
+        <div class="campo-persona">
             <label for="nombrePersona"><strong>Nombre:</strong></label>
             <input type="text" id="nombrePersona" name="nombrePersona" required>
-        </p>
-
-        <p>
+        </div>
+        
+        <div class="campo-persona">
             <label for="apellidoPersona"><strong>Apellido:</strong></label>
             <input type="text" id="apellidoPersona" name="apellidoPersona" required>
-        </p>
+        </div>
+        
 
-        <!-- Campos específicos de Persona -->
-        <p class="fecha-genero-container">
-            <strong>Fecha de Nacimiento:</strong>
-            <div class="fecha-nacimiento-container">
-                <select id="diaNacimientoPersona">
-                    <option value="" disabled selected>Día</option>
-                    <!-- Puedes agregar opciones específicas de días aquí -->
-                </select>
-                <select id="mesNacimientoPersona">
-                    <option value="" disabled selected>Mes</option>
-                    <!-- Puedes agregar opciones específicas de meses aquí -->
-                </select>
-                <select id="anoNacimientoPersona">
-                    <option value="" disabled selected>Año</option>
-                    <!-- Puedes agregar opciones específicas de años aquí -->
-                </select>
-            </div>
-            <strong>Género:</strong>
-            <select id="generoPersona">
-                <option value="" disabled selected>Selecciona Género</option>
-                <!-- Puedes agregar opciones específicas de género aquí -->
-            </select>
-        </p>
+<!-- Campos específicos de Persona -->
+<div class="fecha-genero-container">
+    <p>
+        <strong>Fecha de Nacimiento:</strong>
+    </p>
+    <div class="fecha-nacimiento-container">
+        <select id="diaNacimientoPersona">
+            <option value="" disabled selected>Día</option>
+            <!-- Puedes agregar opciones específicas de días aquí -->
+        </select>
+        <select id="mesNacimientoPersona">
+            <option value="" disabled selected>Mes</option>
+            <!-- Puedes agregar opciones específicas de meses aquí -->
+        </select>
+        <select id="anoNacimientoPersona">
+            <option value="" disabled selected>Año</option>
+            <!-- Puedes agregar opciones específicas de años aquí -->
+        </select>
+    </div>
+
+    <p>
+        <strong>Género:</strong>
+    </p>
+    <select id="generoPersona">
+        <option value="" disabled selected>Selecciona Género</option>
+        <!-- Puedes agregar opciones específicas de género aquí -->
+    </select>
+</div>
+
     </fieldset>
 
     <!-- Formulario para datos basicos - Empresa -->
@@ -78,16 +85,22 @@
     </fieldset>
 
     <!-- Campos compartidos entre los formularios -->
-    <p>
+
+    <div class="campo-usuario">
         <label for="usernameId"><strong>Usuario:</strong></label>
         <input type="text" id="usernameId" name="nombreUsuario" placeholder="Ej. Usuario123" title="Identificación única en la red">
-    </p>
+    </div>
+    
 
     <p class="ubicacion-container">
         <strong>Ubicación:</strong>
         <select id="locationCity">
             <option value="" disabled selected>Ciudad</option>
             <!-- Puedes agregar opciones específicas de ciudades aquí -->
+        </select>
+        <select id="locationState">
+            <option value="" disabled selected>Estado</option>
+            <!-- Puedes agregar opciones específicas de planetas aquí -->
         </select>
         <select id="locationCountry">
             <option value="" disabled selected>País</option>

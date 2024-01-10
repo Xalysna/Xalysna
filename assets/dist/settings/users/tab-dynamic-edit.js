@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (tipoUsuarioSeleccionado) {
             mostrarPestanas();
             cargarPestana('datos');
-            showNotification("Pestaña 'Datos' cargada");
         } else {
             showNotification('Por favor, seleccione un tipo de usuario antes de abrir una pestaña.');
         }
@@ -40,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (tipoUsuarioSeleccionado) {
             mostrarPestanas();
             cargarPestana('aurora');
-            showNotification("Pestaña 'Aurora' cargada");
         } else {
             showNotification('Por favor, seleccione un tipo de usuario antes de abrir una pestaña.');
         }
@@ -50,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Verifica que se haya seleccionado un tipo de usuario antes de cargar la pestaña
         if (tipoUsuarioSeleccionado) {
             cargarPestana('contacto');
-            showNotification("Pestaña 'Contacto' cargada");
         } else {
             showNotification('Por favor, seleccione un tipo de usuario antes de abrir una pestaña.');
         }
@@ -60,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Verifica que se haya seleccionado un tipo de usuario antes de cargar la pestaña
         if (tipoUsuarioSeleccionado) {
             cargarPestana('crypto');
-            showNotification("Pestaña 'Crypto' cargada");
         } else {
             showNotification('Por favor, seleccione un tipo de usuario antes de abrir una pestaña.');
         }
@@ -70,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Verifica que se haya seleccionado un tipo de usuario antes de cargar la pestaña
         if (tipoUsuarioSeleccionado) {
             cargarPestana('redes');
-            showNotification("Pestaña 'Redes' cargada");
         } else {
             showNotification('Por favor, seleccione un tipo de usuario antes de abrir una pestaña.');
         }
