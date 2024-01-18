@@ -22,6 +22,7 @@
 
   <!-- Estilos -->
   <link rel="stylesheet" href="/assets/css/settings/auth/create-account.css">
+  <link rel="stylesheet" href="/assets/css/general/funciones/notification.css">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/assets/img/web/favicon32x32R.png">
@@ -29,14 +30,13 @@
 
 <body>
 
-
-    <div class="contenedor">
+<div class="contenedor">
     <div class="contenido">
         <form id="formulario">
 
             <!-- Paso 0 -->
             <div id="paso0">
-                <h1 id="titulo">¡Empecemos juntos! Crea tu Perfil</h1>
+                <h2 id="titulo">¡Empecemos juntos! Crea tu Perfil</h2>
                 <button type="button" onclick="siguientePaso()">Siguiente</button>
             </div>
 
@@ -47,9 +47,14 @@
                 <div class="campo-usuario">
                     <label for="usernameId"><strong>Usuario:</strong></label>
                     <input type="text" id="usernameId" name="nombreUsuario" placeholder="Ej. Usuario123" title="Identificación única en la red">
-                </div>
+                    <p id="mensajeUsuario"></p>
+                </div>                
                 <button type="button" onclick="anteriorPaso()">Atrás</button>
-                <button type="button" onclick="siguientePaso()">Siguiente</button>
+
+                <div class="button-container">
+                    <button type="button" id="btnSiguientePaso" onclick="siguientePaso()">Siguiente</button>
+                </div>
+                
             </div>
 
             <!-- Paso 2 -->
@@ -154,11 +159,10 @@
             <!-- Paso 4 -->
             <div id="paso4" style="display: none;">
                 <h2>Paso 4: Selecciona tu ubicación</h2>
-                <select id="locationCountry" onchange="seleccionarPais()">
+                <select id="locationCountry" onchange="cargarPaises()">
                     <option value="" selected disabled>Seleccione un país</option>
                     <!-- Opciones de países se cargarán dinámicamente desde el JSON -->
                 </select>
-
 
                 <button type="button" onclick="anteriorPaso()">Atrás</button>
                 <button type="button" onclick="siguientePaso()">Siguiente</button>
@@ -169,21 +173,20 @@
                 <h2>Paso 5: ¡Registro completado!</h2>
                 <p>Ahora puedes hacer uso de tu cuenta.</p>
                 <p>Si deseas agregar más detalles, dirígete a tu perfil y busca el botón "Editar".</p>
-                <button type="button" onclick="window.location.href='index.html'">Comencemos</button>
+                <button type="button" id="saveProfileButton">Comencemos</button>
                 <button type="button" onclick="anteriorPaso()">Atrás</button>
             </div>
         </form>
     </div>
 </div>
 
-    
-
-
 
   <!-- Scripts -->
 
   <script src="/assets/dist/settings/auth/create-account.js"></script>
-
+  <script src="/assets/dist/settings/users/save-profile.js" type="module" defer></script>
+  <script src="/assets/dist/settings/users/username-verification.js" type="module" defer></script>
+  <script src="/assets/dist/general/funciones/notificaciones.js" defer></script>
 
 </body>
 </html>

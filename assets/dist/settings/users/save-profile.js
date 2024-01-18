@@ -11,6 +11,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const firestore = getFirestore(app);
 
+
 // Función para obtener el UID y el correo del usuario actual
 function obtenerUIDyCorreo() {
   const user = auth.currentUser;
@@ -25,33 +26,6 @@ function obtenerUIDyCorreo() {
   }
 }
 
-// Variable para almacenar la pestaña actual
-let currentTab = 'datosBtn';
-
-// Objeto que mapea las pestañas a los elementos correspondientes
-const tabElements = {
-  datosBtn: [
-    'nombrePersona', 'apellidoPersona', 'diaNacimientoPersona', 'mesNacimientoPersona',
-    'anoNacimientoPersona', 'generoPersona', 'nombreEmpresa', 'industria',
-    'nombreMarca', 'categoriaMarca', 'usernameId', 'locationCountry',
-    'locationState', 'locationCity', 'ubicacionEspacial'
-  ],
-  auroraBtn: [
-    'hobby', 'intereses', 'profesion', 'slogan', 'creacionempresa',
-    'creacionempresaEspecifico', 'mision', 'vision', 'objetivos',
-    'eslogan', 'creacionMarca', 'creacionMarcaEspecifico', 'objetivosMarca'
-  ],
-  contactoBtn: [
-    'userEmail', 'codigoPais', 'phone', 'sitioWeb', 'horariosDisponibilidad'
-  ],
-  cryptoBtn: [
-    'userCryptoWalletAddress', 'favoriteCryptos', 'favoriteExchange'
-  ],
-  redesBtn: [
-    'selectRedSocial', 'inputUsuarioRedSocial', 'listaRedes'
-  ],
-};
-
 // Función para guardar o actualizar el perfil en Firestore
 export async function saveProfile() {
   // Obtener UID y correo del usuario actual
@@ -65,35 +39,89 @@ export async function saveProfile() {
   // Obtener referencia al documento del usuario en la colección "USERS"
   const userDocRef = doc(firestore, 'USERS', uid);
 
-  // Obtener la fecha de creación del usuario
-  const fechaCreacion = auth.currentUser.metadata.creationTime;
+  // Obtener el tipo de usuario seleccionado desde el formulario HTML
+  const tipoUsuario = document.getElementById('tipoFormulario').value;
 
-  // Obtener los elementos de la pestaña actual
-  const currentTabElements = tabElements[currentTab];
-
-  // Crear objeto para almacenar los valores de los campos de entrada
-  const profileData = {};
-
-  // Obtener los valores de los campos de entrada desde el formulario HTML
-  currentTabElements.forEach((elementId) => {
-    const element = document.getElementById(elementId);
-    if (element) {
-      profileData[elementId] = element.value;
-    }
-  });
-
-  // Validar campos obligatorios
-  if (currentTabElements.some((elementId) => !profileData[elementId])) {
-    console.error('Por favor, complete los campos obligatorios.');
+  // Validar que se haya seleccionado un tipo de usuario
+  if (!tipoUsuario) {
+    console.error('Por favor, seleccione un tipo de usuario.');
     return;
   }
 
-  // Agregar valores adicionales al objeto profileData
-  Object.assign(profileData, {
+  // Obtener los valores de los campos del formulario específicos para cada tipo de usuario
+  let camposEspecificos = {};
+
+  switch (tipoUsuario) {
+    case 'Persona':
+      camposEspecificos = {
+        nombrePersona: getValue('nombrePersona'),
+        apellidoPersona: getValue('apellidoPersona'),
+        diaNacimientoPersona: getValue('diaNacimientoPersona'),
+        mesNacimientoPersona: getValue('mesNacimientoPersona'),
+        anoNacimientoPersona: getValue('anoNacimientoPersona'),
+        generoPersona: getValue('generoPersona'),
+        hobby: getValue('hobby'),
+        intereses: getValue('intereses'),
+        profesion: getValue('profesion'),
+      };
+      break;
+
+    case 'Empresa':
+      camposEspecificos = {
+        nombreEmpresa: getValue('nombreEmpresa'),
+        industria: getValue('industria'),
+        sloganEmpresa: getValue('sloganEmpresa'),
+        creacionempresa: getValue('creacionempresa'),
+        creacionempresaEspecifico: getValue('creacionempresaEspecifico'),
+        mision: getValue('mision'),
+        vision: getValue('vision'),
+        objetivos: getValue('objetivos'),
+      };
+      break;
+
+    case 'Marca':
+      camposEspecificos = {
+        nombreMarca: getValue('nombreMarca'),
+        categoriaMarca: getValue('categoriaMarca'),
+        sloganMarca: getValue('sloganMarca'),
+        creacionMarca: getValue('creacionMarca'),
+        creacionMarcaEspecifico: getValue('creacionMarcaEspecifico'),
+        objetivosMarca: getValue('objetivosMarca'),
+      };
+      break;
+
+    default:
+      console.error('Tipo de usuario no reconocido.');
+      return;
+  }
+
+  // Obtener campos comunes a todos los tipos de usuario
+  const camposComunes = {
+    usernameId: getValue('usernameId'),
+    userEmail: getValue('userEmail'),
+    codigoPais: getValue('codigoPais'),
+    phone: getValue('phone'),
+    sitioWeb: getValue('sitioWeb'),
+    locationCountry: getValue('locationCountry'),
+    locationState: getValue('locationState'),
+    locationCity: getValue('locationCity'),
+    ubicacionEspacial: getValue('ubicacionEspacial'),
+    horariosDisponibilidad: getValue('horariosDisponibilidad'),
+    userCryptoWalletAddress: getValue('userCryptoWalletAddress'),
+    favoriteCryptos: getValue('favoriteCryptos'),
+    favoriteExchange: getValue('favoriteExchange'),
+    listaRedes: getValue('listaRedes'),
+  };
+
+  // Combinar campos específicos y comunes
+  const profileData = {
+    ...camposEspecificos,
+    ...camposComunes,
+    tipo: tipoUsuario,
     userUid: uid,
-    fechaCreacion,
+    fechaCreacion: auth.currentUser.metadata.creationTime,
     ultimaVezAcceso: serverTimestamp(),
-  });
+  };
 
   try {
     // Verificar si el documento ya existe
@@ -111,6 +139,12 @@ export async function saveProfile() {
   } catch (error) {
     console.error('Error al guardar el perfil:', error);
   }
+}
+
+// Función auxiliar para obtener el valor de un campo HTML
+function getValue(elementId) {
+  const element = document.getElementById(elementId);
+  return element ? element.value : '';
 }
 
 // Esperar a que el DOM esté completamente cargado

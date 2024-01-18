@@ -53,6 +53,10 @@ h1, h2, h3 {
     color: #333;
 }
 
+.button-container {
+    display: inline-block; /* Alinea el contenedor de manera que se ajuste al tamaño del botón */
+}
+
 button {
     background-color: #4caf50;
     color: #fff;
@@ -67,6 +71,12 @@ button {
 button:hover {
     background-color: #45a049;
 }
+
+button:disabled {
+    opacity: 0.7; /* Cambia la opacidad cuando está deshabilitado */
+    cursor: not-allowed; /* Cambia el cursor cuando está deshabilitado */
+}
+
 
 /* Estilo para los campos del formulario */
 label {
@@ -99,17 +109,6 @@ input, select {
     display: none;
 }
 
-/* Estilo para los campos específicos de Persona */
-.fecha-genero-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-
-.fecha-nacimiento-container select {
-    width: 30%;
-}
-
 /* Estilo para el paso final */
 #paso5 p {
     margin-bottom: 15px;
@@ -122,6 +121,58 @@ input, select {
 #paso5 button:hover {
     background-color: #005F7F;
 }
+
+
+/* Estilos para dispositivos móviles */
+
+/* Media query para pantallas pequeñas */
+@media only screen and (max-width: 490px) {
+    .contenedor {
+        width: 100%; /* Ocupa todo el ancho de la pantalla */
+        border-radius: 0; /* Sin bordes redondeados */
+    }
+
+    .campo-usuario input,
+    #tipoFormulario,
+    .campo-persona input,
+    .fecha-nacimiento-container select {
+        width: 100%; /* Hacer que los campos de entrada ocupen todo el ancho */
+        max-width: none; /* Eliminar el ancho máximo */
+    }
+
+    /* Otros ajustes según sea necesario */
+}
+
+/* Media query para pantallas muy pequeñas */
+@media only screen and (max-width: 480px) {
+    .contenedor {
+        padding: 10px; /* Ajusta el espaciado interno para pantallas muy pequeñas */
+    }
+
+    .campo-usuario input,
+    #tipoFormulario,
+    .campo-persona input,
+    .fecha-nacimiento-container select {
+        width: 100%; /* Hacer que los campos de entrada ocupen todo el ancho */
+        max-width: none; /* Eliminar el ancho máximo */
+    }
+
+    /* Otros ajustes según sea necesario */
+}
+
+/* Media query para pantallas extremadamente pequeñas */
+@media only screen and (max-width: 320px) {
+    /* Ajustes específicos para pantallas extremadamente pequeñas */
+
+    body {
+        font-size: 14px; /* Reduce el tamaño de la fuente para una mejor legibilidad */
+    }
+
+    /* Otros ajustes según sea necesario */
+}
+
+
+
 
 /* ♥♥Estilos específicos ♥♥ */
 
@@ -201,4 +252,11 @@ label[for="tipoFormulario"] {
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 8px;
+}
+
+#mensajeUsuario {
+    font-size: 12px; /* Ajusta el tamaño de la fuente según tu preferencia */
+    font-family: 'Arial', sans-serif; /* Puedes cambiar la fuente según tus preferencias */
+    color: #555; /* Color del texto */
+    /* Agrega otros estilos según tus preferencias, como márgenes, espaciado, etc. */
 }
