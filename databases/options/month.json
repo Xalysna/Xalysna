@@ -1,0 +1,19 @@
+{
+    "nombre": "MES",
+    "descripcion": "Información relacionada con el mes",
+    "opciones": [
+      {"valor": "1", "label": "Enero"},
+      {"valor": "2", "label": "Febrero"},
+      {"valor": "3", "label": "Marzo"},
+      {"valor": "4", "label": "Abril"},
+      {"valor": "5", "label": "Mayo"},
+      {"valor": "6", "label": "Junio"},
+      {"valor": "7", "label": "Julio"},
+      {"valor": "8", "label": "Agosto"},
+      {"valor": "9", "label": "Septiembre"},
+      {"valor": "10", "label": "Octubre"},
+      {"valor": "11", "label": "Noviembre"},
+      {"valor": "12", "label": "Diciembre"}
+    ]
+  }
+  

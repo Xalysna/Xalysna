@@ -3,17 +3,13 @@ body {
 }
 
 /* Estilos iniciales para ocultar los formularios */
-.formulario {
-    display: none;
-    border: none;
-}
-
-/* Estilos iniciales para ocultar los formularios */
+.formulario,
 .formulario-datos,
 .formulario-aurora {
     display: none;
     border: none;
 }
+
 
 /* Estilos generales de la ventana modal */
 .modal-container,
@@ -30,21 +26,19 @@ body {
     height: 100%;
     overflow: auto;
     background-color: rgba(30, 30, 30, 0.7);
-
 }
 
 .modal-content {
     background-color: #fff;
     margin: 2% auto 5%;
     padding: 20px;
-    max-width: 80%;
+    max-width: 60%;
     box-sizing: border-box;
     border: 1px solid #ddd;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     position: relative;
     border-radius: 10px;
 }
-
 
 /* Estilos para el desenfoque en tono oscuro */
 .modal::before {
@@ -64,35 +58,33 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px; /* Añade padding según tus preferencias */
-    margin: 0; /* Elimina los márgenes para un aspecto más ajustado */
+    padding: 10px;
+    margin: 0;
 }
-
 
 .modal-header button {
     cursor: pointer;
-    background-color: #ffc0cb; /* Hermoso color claro */
-    color: #333; /* Color de texto */
+    background-color: #ffc0cb;
+    color: #333;
     border: none;
     border-radius: 5px;
     padding: 8px 16px;
     margin: 0 5px;
-    transition: background-color 0.3s; /* Efecto de transición suave */
+    transition: background-color 0.3s;
 }
 
 /* Estilos para el botón activo */
 .modal-header button.active {
-    background-color: #ff66b2; /* Color activo más llamativo */
-    color: #fff; /* Cambia el color de texto cuando está activo */
+    background-color: #ff66b2;
+    color: #fff;
 }
 
 .modal-header button.active:hover {
-    background-color: #ff3385; /* Cambia el color al pasar el mouse sobre el botón activo */
+    background-color: #ff3385;
 }
 
 /* Media query para ajustar los botones en pantallas más pequeñas */
-
-@media (max-width: 794px) {
+@media (max-width: 1052px) {
     .modal-header {
         flex-direction: column;
         align-items: stretch;
@@ -103,6 +95,17 @@ body {
     }
 }
 
+/* Media query para ajustar los botones en pantallas más pequeñas */
+@media (max-width: 794px) {
+    .modal-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .modal-header button {
+        margin: 5px 0;
+    }
+}
 
 @media (max-width: 634px) {
     .modal-header {
@@ -115,23 +118,11 @@ body {
     }
 }
 
-
-#saveProfileButton {
-    top: 2%;
-    left: 1%;
-    margin-right: 10px;
-}
-
+#saveProfileButton,
 #cancelModalButton {
     top: 2%;
-    right: 1%;
     margin-right: 10px;
 }
-
-
-
-
-
 
 /* Estilos para los campos y elementos dentro de la ventana modal */
 .modal-content h2 {
@@ -140,7 +131,8 @@ body {
 }
 
 .modal-content input,
-.modal-content select {
+.modal-content select,
+.formulario-aurora textarea {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -150,20 +142,21 @@ body {
     font-size: 16px;
 }
 
+/* Estilo para botones modernos y atractivos */
 button {
     padding: 12px;
-    background-color: #af4c4c;
-    color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
+/* Efecto de color al pasar el cursor */
 button:hover {
-    background-color: #a04572;
+    background: #2980b9;
+    color: #fff;
+    transition: background 0.3s ease, color 0.3s ease;
 }
-
 
 
 .notification {
@@ -175,11 +168,11 @@ button:hover {
     padding: 10px;
     border-radius: 5px;
     font-size: 14px;
-    z-index: 9999; /* Aumentamos el valor del z-index para asegurar la visibilidad */
+    z-index: 9999;
     width: auto;
     max-width: 300px;
-    white-space: normal; /* Permitir ajuste automático del texto */
-    overflow-wrap: break-word; /* Permite ajuste automático del texto */
+    white-space: normal;
+    overflow-wrap: break-word;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: opacity 0.3s ease-in-out;
 }
@@ -188,45 +181,26 @@ button:hover {
     opacity: 0;
 }
 
-
-
 /* 🌟 OTROS ELEMENTOS 🌟*/
 
 /* Estilos para los campos de nombre y apellido */
-.campo-persona {
-    margin-bottom: 15px; /* Espaciado entre campos */
-}
-
-.campo-persona label {
-    display: block; /* Asegura que la etiqueta esté en una línea nueva */
-    margin-bottom: 5px; /* Espaciado entre la etiqueta y el campo de entrada */
-}
-
-.campo-persona input {
-    width: 100%; /* Ocupa el ancho completo del contenedor */
-    padding: 8px; /* Añade relleno alrededor del campo de entrada */
-    box-sizing: border-box; /* Incluye el padding en el ancho total */
-}
-
-
-
-/* Estilos para el campo de usuario */
+.campo-persona,
 .campo-usuario {
-    margin-bottom: 15px; /* Espaciado entre campos */
+    margin-bottom: 15px;
 }
 
+.campo-persona label,
 .campo-usuario label {
-    display: block; /* Asegura que la etiqueta esté en una línea nueva */
-    margin-bottom: 5px; /* Espaciado entre la etiqueta y el campo de entrada */
+    display: block;
+    margin-bottom: 5px;
 }
 
+.campo-persona input,
 .campo-usuario input {
-    width: 50%; /* Ocupa el ancho completo del contenedor */
-    padding: 8px; /* Añade relleno alrededor del campo de entrada */
-    box-sizing: border-box; /* Incluye el padding en el ancho total */
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
 }
-
-
 
 /* Estilos para el botón "Añadir" y otros elementos según sea necesario */
 #redesSocialesContainer {
@@ -234,24 +208,9 @@ button:hover {
     text-align: center;
 }
 
-/* Ajuste de margen entre los botones Confirmar y Eliminar */
-button.boton-confirmar,
-button.boton-eliminar {
-    margin-right: 10px;
-}
-
-button.boton-confirmar:hover {
-    background-color: #45a049;
-}
-
-button.boton-eliminar:hover {
-    background-color: #d32f2f;
-}
 
 /* Añade estos estilos para centrar y alinear los elementos */
-.red-social-container,
-.botones-container,
-.ubicacion-container,
+
 .genero-container,
 .telefono-container,
 .fecha-nacimiento-container,
@@ -260,50 +219,30 @@ button.boton-eliminar:hover {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
-    
 }
-
 
 /* Estilos para la fecha de nacimiento */
-.fecha-genero-container {
-    margin-bottom: 20px; /* Espacio entre los campos de fecha y género */
-}
-
+.fecha-genero-container,
 .fecha-nacimiento-container {
-    display: flex;
-    margin-bottom: 10px; /* Espacio entre los campos de fecha y género */
+    margin-bottom: 20px;
 }
 
 .fecha-nacimiento-container select {
-    margin-right: 10px; /* Espacio entre los selectores de día, mes y año */
+    margin-right: 10px;
 }
 
 /* Estilos adicionales para mejorar la apariencia y la usabilidad */
 .fecha-genero-container p {
-    margin-bottom: 5px; /* Espacio entre los títulos (Fecha de Nacimiento y Género) y los selectores */
+    margin-bottom: 5px;
 }
 
 .fecha-genero-container strong {
-    font-weight: bold; /* Texto en negrita para los títulos */
+    font-weight: bold;
 }
-
-
 
 .botones-container span {
     margin-right: 10px;
 }
-
-/* Estilos para los campos de ubicación */
-.ubicacion-container select {
-    width: auto;
-    margin-right: 10px;
-}
-
-#locationCity, #locationCountry, #locationPlanet {
-    width: 200px;
-    margin-right: 10px; /* Espacio adicional entre los campos de ubicación */
-}
-
 
 /* Añade estos estilos para el campo de género */
 .genero-container select {
@@ -312,42 +251,97 @@ button.boton-eliminar:hover {
 
 /* Añade estos estilos para el campo de teléfono */
 .telefono-container select {
-    width: calc(40% - 0px); /* Reduzco el ancho para dejar espacio al párrafo y resto el doble del margen derecho para compensar */
-    padding: 10px; /* Añade relleno para mejorar la apariencia y la usabilidad */
+    width: calc(40% - 0px);
+    padding: 10px;
     margin-right: 10px;
     margin-left: 10px;
-    box-sizing: border-box; /* Incluye el relleno y el borde en el ancho total */
-    border: 1px solid #ccc; /* Añade un borde para mejorar la visibilidad y la apariencia */
-    border-radius: 5px; /* Agrega esquinas redondeadas para un aspecto más suave */
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
-
 
 #phone {
     width: calc(100% - 90px);
 }
 
-
 /* Estilos generales para textarea en los formularios */
-.formulario-aurora textarea {
-    width: 100%; /* Ocupa el 100% del ancho del contenedor */
-    padding: 8px; /* Ajusta el espaciado interno según tus preferencias */
-    box-sizing: border-box; /* Incluye el padding en el ancho total del textarea */
-    resize: vertical; /* Permite la redimensión vertical del textarea */
-}
-
-/* Estilos específicos para textarea en el formulario de la empresa */
-#formularioEmpresaAurora textarea {
-    min-height: 100px; /* Altura mínima del textarea */
-    max-height: 200px; /* Altura máxima del textarea */
-}
-
-/* Estilos específicos para textarea en el formulario de la marca */
+.formulario-aurora textarea,
+#formularioEmpresaAurora textarea,
 #formularioMarcaAurora textarea {
-    min-height: 100px; /* Altura mínima del textarea */
-    max-height: 200px; /* Altura máxima del textarea */
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    resize: vertical;
 }
 
+/* Estilos específicos para textarea en el formulario de la empresa y la marca */
+#formularioEmpresaAurora textarea,
+#formularioMarcaAurora textarea {
+    min-height: 100px;
+    max-height: 200px;
+}
 
+/* Estilo para el formulario */
+#formularioRedes {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
+/* Estilo para los elementos de la lista de redes sociales */
+#listaRedes p {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
 
+/* Estilo para la imagen del icono */
+#listaRedes img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
 
+/* Estilo para el botón de eliminar */
+#listaRedes button {
+    margin-left: auto;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#listaRedes button:hover {
+    background-color: #c0392b;
+}
+
+/* Estilo para la notificación */
+#notificacion {
+    display: none;
+    padding: 10px;
+    background-color: #e74c3c;
+    color: #fff;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Efecto de transición para la notificación */
+#notificacion.show {
+    display: block;
+    animation: fadeInOut 3s ease-out;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    10%, 90% { opacity: 1; }
+}

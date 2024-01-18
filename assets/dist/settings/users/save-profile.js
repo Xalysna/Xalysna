@@ -25,6 +25,33 @@ function obtenerUIDyCorreo() {
   }
 }
 
+// Variable para almacenar la pestaña actual
+let currentTab = 'datosBtn';
+
+// Objeto que mapea las pestañas a los elementos correspondientes
+const tabElements = {
+  datosBtn: [
+    'nombrePersona', 'apellidoPersona', 'diaNacimientoPersona', 'mesNacimientoPersona',
+    'anoNacimientoPersona', 'generoPersona', 'nombreEmpresa', 'industria',
+    'nombreMarca', 'categoriaMarca', 'usernameId', 'locationCountry',
+    'locationState', 'locationCity', 'ubicacionEspacial'
+  ],
+  auroraBtn: [
+    'hobby', 'intereses', 'profesion', 'slogan', 'creacionempresa',
+    'creacionempresaEspecifico', 'mision', 'vision', 'objetivos',
+    'eslogan', 'creacionMarca', 'creacionMarcaEspecifico', 'objetivosMarca'
+  ],
+  contactoBtn: [
+    'userEmail', 'codigoPais', 'phone', 'sitioWeb', 'horariosDisponibilidad'
+  ],
+  cryptoBtn: [
+    'userCryptoWalletAddress', 'favoriteCryptos', 'favoriteExchange'
+  ],
+  redesBtn: [
+    'selectRedSocial', 'inputUsuarioRedSocial', 'listaRedes'
+  ],
+};
+
 // Función para guardar o actualizar el perfil en Firestore
 export async function saveProfile() {
   // Obtener UID y correo del usuario actual
@@ -41,88 +68,32 @@ export async function saveProfile() {
   // Obtener la fecha de creación del usuario
   const fechaCreacion = auth.currentUser.metadata.creationTime;
 
-  // Obtener los valores de los campos de entrada desde el formulario HTML
-  const fullName = document.getElementById('fullName');
-  const alias = document.getElementById('alias');
-  const userEmail = document.getElementById('userEmail'); 
-  const phone = document.getElementById('phone');
-  const locationCity = document.getElementById('locationCity');
-  const locationCountry = document.getElementById('locationCountry');
-  const locationPlanet = document.getElementById('locationPlanet');
-  const bio = document.getElementById('bio');
-  const edad = document.getElementById('edad');
-  const profesion = document.getElementById('profesion');
-  const intereses = document.getElementById('intereses');
-  const facebook = document.getElementById('facebook');
-  const instagram = document.getElementById('instagram');
-  const youtube = document.getElementById('youtube');
-  const twitter = document.getElementById('twitter');
-  const tiktok = document.getElementById('tiktok');
-  const vk = document.getElementById('vk');
-  const userCryptoWalletAddress = document.getElementById('userCryptoWalletAddress');
+  // Obtener los elementos de la pestaña actual
+  const currentTabElements = tabElements[currentTab];
 
-  // Validar que todos los elementos estén presentes
-  if (
-    !fullName || !alias || !userEmail || !phone ||
-    !locationCity || !locationCountry || !locationPlanet ||
-    !bio || !edad || !profesion || !intereses || 
-    !facebook || !instagram || !youtube || !twitter || 
-    !linkedin || !wechat || !tiktok || !vk || !userCryptoWalletAddress
-  ) {
-    console.error('No se encontraron todos los elementos del formulario.');
-    return;
-  }
+  // Crear objeto para almacenar los valores de los campos de entrada
+  const profileData = {};
 
   // Obtener los valores de los campos de entrada desde el formulario HTML
-  const fullNameValue = fullName.value;
-  const aliasValue = alias.value;
-  const userEmailValue = userEmail.value; 
-  const phoneValue = phone.value;
-  const locationCityValue = locationCity.value;
-  const locationCountryValue = locationCountry.value;
-  const locationPlanetValue = locationPlanet.value;
-  const bioValue = bio.value;
-  const edadValue = edad.value;
-  const profesionValue = profesion.value;
-  const interesesValue = intereses.value;
-  const facebookValue = facebook.value;
-  const instagramValue = instagram.value;
-  const youtubeValue = youtube.value;
-  const twitterValue = twitter.value;
-  const tiktokValue = tiktok.value;
-  const vkValue = vk.value;
-  const userCryptoWalletAddressValue = userCryptoWalletAddress.value;
+  currentTabElements.forEach((elementId) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      profileData[elementId] = element.value;
+    }
+  });
 
   // Validar campos obligatorios
-  if (!fullNameValue || !aliasValue || !userEmailValue) {
+  if (currentTabElements.some((elementId) => !profileData[elementId])) {
     console.error('Por favor, complete los campos obligatorios.');
     return;
   }
 
-  // Supongamos que tienes un objeto llamado "profileData" con los valores del perfil desde el formulario HTML
-  const profileData = {
-    fullName: fullNameValue,
-    alias: aliasValue,
-    userEmail: userEmailValue,
-    phone: phoneValue,
-    locationCity: locationCityValue,
-    locationCountry: locationCountryValue,
-    locationPlanet: locationPlanetValue,
-    bio: bioValue,
-    edad: edadValue,
-    profesion: profesionValue,
-    intereses: interesesValue,
-    facebook: facebookValue,
-    instagram: instagramValue,
-    youtube: youtubeValue,
-    twitter: twitterValue,
-    tiktok: tiktokValue,
-    vk: vkValue,
-    userCryptoWalletAddress: userCryptoWalletAddressValue,
+  // Agregar valores adicionales al objeto profileData
+  Object.assign(profileData, {
     userUid: uid,
     fechaCreacion,
     ultimaVezAcceso: serverTimestamp(),
-  };
+  });
 
   try {
     // Verificar si el documento ya existe

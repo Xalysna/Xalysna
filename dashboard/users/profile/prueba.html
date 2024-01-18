@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    
 
     <link rel="stylesheet" href="/assets/css/settings/users/profile/profile-window-modal.css">
     <link rel="stylesheet" href="/assets/css/general/funciones/contadorCaracteres.css">
+    <link rel="stylesheet" href="/assets/css/general/intel-loader-page.css">
 
         <!-- BaseUrl -->
         <script>
@@ -20,6 +22,8 @@
 </head>
 
 <body>
+
+
 
 <!-- Botón para abrir la ventana modal -->
 <button onclick="mostrarModal()">Editar Perfil</button>
@@ -51,7 +55,7 @@
             <button id="datosBtn">Datos Básicos</button>
             <button id="auroraBtn">Aurora</button>
             <button id="contactoBtn">Contacto</button>
-            <button id="cryptoBtn">Crypto Wallet</button>
+            <button id="cryptoBtn">CryptoZen</button>
             <button id="redesBtn">Redes Sociales</button>
             <!-- Agrega botones para otras pestañas si es necesario -->
         </div>
@@ -66,15 +70,21 @@
 
 <!-- 🌟 WINDOW MODAL 🌟 -->
 
+    <!-- Indicador de carga -->
+    <div id="intelligentLoader"></div>
 
-
-
+<script src="/assets/dist/general/Intel-loader-page.js" defer></script>
 <script src="/assets/dist/settings/users/profile-window-modal.js"></script>
 <script src="/assets/dist/settings/users/tab-dynamic-edit.js"></script>
+<script src="/assets/dist/settings/users/save-profile.js" type="module"></script>
+<script src="/assets/dist/settings/users/resaltador-tab-edit-profile.js" defer></script>
 <script src="/assets/dist/settings/users/add-social-form.js"></script>
-<script src="/assets/dist/general/funciones/cargarOpcionesDatabases.js" defer type="module"></script>
 <script src="/assets/dist/general/funciones/notificaciones.js" defer></script>
 <script src="/assets/dist/general/funciones/contadorCaracteres.js" defer></script>
-<script src="/assets/dist/settings/users/resaltador-tab-edit-profile.js" defer></script>
+<script src="/assets/dist/general/funciones/count-specific.js" defer></script>
+<script src="/assets/dist/general/funciones/cargar-opciones-select.js" defer></script>
+<script src="/assets/dist/general/funciones/cargar-opciones-ubicacion.js" defer></script>
+
+
 </body>
 </html>

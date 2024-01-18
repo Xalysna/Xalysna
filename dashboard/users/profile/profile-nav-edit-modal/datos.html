@@ -25,15 +25,12 @@
     </p>
     <div class="fecha-nacimiento-container">
         <select id="diaNacimientoPersona">
-            <option value="" disabled selected>Día</option>
             <!-- Puedes agregar opciones específicas de días aquí -->
         </select>
         <select id="mesNacimientoPersona">
-            <option value="" disabled selected>Mes</option>
             <!-- Puedes agregar opciones específicas de meses aquí -->
         </select>
         <select id="anoNacimientoPersona">
-            <option value="" disabled selected>Año</option>
             <!-- Puedes agregar opciones específicas de años aquí -->
         </select>
     </div>
@@ -42,7 +39,6 @@
         <strong>Género:</strong>
     </p>
     <select id="generoPersona">
-        <option value="" disabled selected>Selecciona Género</option>
         <!-- Puedes agregar opciones específicas de género aquí -->
     </select>
 </div>
@@ -59,9 +55,8 @@
         </p>
 
         <p>
-            <label for="sectorEmpresa"><strong>Sector:</strong></label>
-            <select id="sectorEmpresa" name="sectorEmpresa" required>
-                <option value="" disabled selected>Seleccione el Sector</option>
+            <label for="industria"><strong>Industria:</strong></label>
+            <select id="industria" name="industria" required>
                 <!-- Agrega más opciones según tus necesidades -->
             </select>
         </p>
@@ -78,7 +73,6 @@
         <p>
             <label for="categoriaMarca"><strong>Categoría:</strong></label>
             <select id="categoriaMarca" name="categoriaMarca" required>
-                <option value="" disabled selected>Seleccione la Categoría</option>
                 <!-- Agrega más opciones según tus necesidades -->
             </select>
         </p>
@@ -94,21 +88,25 @@
 
     <p class="ubicacion-container">
         <strong>Ubicación:</strong>
-        <select id="locationCity">
-            <option value="" disabled selected>Ciudad</option>
-            <!-- Puedes agregar opciones específicas de ciudades aquí -->
-        </select>
-        <select id="locationState">
-            <option value="" disabled selected>Estado</option>
-            <!-- Puedes agregar opciones específicas de planetas aquí -->
-        </select>
-        <select id="locationCountry">
-            <option value="" disabled selected>País</option>
-            <!-- Puedes agregar opciones específicas de países aquí -->
-        </select>
-        <select id="locationPlanet">
-            <option value="" disabled selected>Planeta</option>
-            <!-- Puedes agregar opciones específicas de planetas aquí -->
-        </select>
+        
+        <select id="locationCountry" onchange="seleccionarPais()">
+            <option value="" selected disabled>Seleccione un país</option>
+            <!-- Opciones de países se cargarán dinámicamente desde el JSON -->
+          </select>
+        
+          <select id="locationState" onchange="seleccionarEstado()" disabled>
+            <option value="" selected disabled>Seleccione un estado</option>
+            <!-- Opciones de estados se cargarán dinámicamente según el país seleccionado -->
+          </select>
+        
+          <select id="locationCity" disabled>
+            <option value="" selected disabled>Seleccione una ciudad</option>
+            <!-- Opciones de ciudades se cargarán dinámicamente según el estado seleccionado -->
+          </select> 
+
+          <select id="ubicacionEspacial">
+            <option value="" disabled selected>Ubicación Espacial</option>
+            <!-- Puedes agregar opciones específicas de ubicaciones espaciales aquí -->
+        </select>        
     </p>
 </section>

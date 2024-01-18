@@ -1,0 +1,29 @@
+{
+    "nombre": "UBICACIONES_ESPACIALES",
+    "descripcion": "Información relacionada con ubicaciones en el espacio",
+    "opciones": [
+        {"valor": "sol", "label": "Sol"},
+        {"valor": "mercurio", "label": "Mercurio"},
+        {"valor": "venus", "label": "Venus"},
+        {"valor": "tierra", "label": "Tierra"},
+        {"valor": "marte", "label": "Marte"},
+        {"valor": "cinturon_asteroides", "label": "Cinturón de asteroides"},
+        {"valor": "jupiter", "label": "Júpiter"},
+        {"valor": "saturno", "label": "Saturno"},
+        {"valor": "anello_saturno", "label": "Anillo alrededor de Saturno"},
+        {"valor": "urano", "label": "Urano"},
+        {"valor": "neptuno", "label": "Neptuno"},
+        {"valor": "luna", "label": "Luna"},
+        {"valor": "est_espacial_int", "label": "Est. Espacial Internacional"},
+        {"valor": "megaestruct_orion", "label": "Megaestructura en Orión"},
+        {"valor": "exoplaneta", "label": "Colonia en exoplaneta"},
+        {"valor": "agujero_negro", "label": "Agujero Negro"},
+        {"valor": "nebulosa_helix", "label": "Nebulosa Hélix"},
+        {"valor": "base_asteroide", "label": "Base en asteroide"},
+        {"valor": "planeta_extraterrestre", "label": "Planeta extraterrestre"},
+        {"valor": "ciudad_gas_gigante", "label": "Ciudad en gigante gaseoso"},
+        {"valor": "orbita_estelar", "label": "Órbita alrededor de estrella"},
+        {"valor": "estacion_orbital", "label": "Estación Orbital"},
+        {"valor": "constelacion_via_lactea", "label": "Constelación en Vía Láctea"}
+    ]
+}

@@ -1,55 +1,41 @@
-// Función para agregar una nueva red social
+// Function to agregarRedSocial
 function agregarRedSocial() {
-    // Obtener el contenedor de redes sociales
-    var container = document.getElementById('redesSocialesContainer');
+    // Obtener valores del formulario
+    var seleccionRedSocial = document.getElementById("selectRedSocial");
+    var usuarioRedSocial = document.getElementById("inputUsuarioRedSocial").value;
 
-    // Crear un nuevo div para la red social
-    var nuevaRedSocial = document.createElement('div');
-    nuevaRedSocial.classList.add('red-social-container'); // Agregar clase para estilos
+    // Validar que se haya seleccionado una red social y se haya ingresado un usuario
+    if (seleccionRedSocial.value === "" || usuarioRedSocial === "") {
+        showNotification("Por favor, selecciona una red social e ingresa el usuario.");
+        return;
+    }
 
-    // Agregar un select con opciones de redes sociales
-    var selectRedSocial = document.createElement('select');
-    // Aquí deberías cargar dinámicamente las opciones desde Firestore
+    // Obtener la ruta del icono asociado a la red social seleccionada
+    var iconoRuta = "/assets/img/social/icons8-" + seleccionRedSocial.value.toLowerCase() + "-48.png";
 
-    // Agregar un input para el nombre de usuario
-    var inputUsuario = document.createElement('input');
-    inputUsuario.type = 'text';
-    inputUsuario.placeholder = 'Nombre de usuario';
+    // Crear un nuevo elemento para mostrar la red social agregada con icono y botón de eliminación
+    var nuevaRedSocial = document.createElement("div");
+    nuevaRedSocial.innerHTML = `
+        <p>
+            <img src="${iconoRuta}" alt="${seleccionRedSocial.value} Icono"> 
+            ${seleccionRedSocial.value}: @${usuarioRedSocial}
+            <button onclick="eliminarRedSocial(this)">Eliminar</button>
+        </p>`;
 
-    // Agregar un div para contener los botones Confirmar y Eliminar
-    var divBotones = document.createElement('div');
-    divBotones.classList.add('botones-container');
+    // Agregar el nuevo elemento a la lista de redes sociales
+    var listaRedes = document.getElementById("listaRedes");
+    listaRedes.appendChild(nuevaRedSocial);
 
-    // Agregar un botón para confirmar el cambio
-    var botonConfirmar = document.createElement('button');
-    botonConfirmar.innerText = '✔ Confirmar';
-    botonConfirmar.classList.add('boton-confirmar'); // Agregar la clase
-    botonConfirmar.onclick = function () {
-        // Aquí deberías guardar el cambio en localStorage y reflejarlo en la vista
-    };
+    // Limpiar el formulario
+    seleccionRedSocial.value = "";
+    document.getElementById("inputUsuarioRedSocial").value = "";
+}
 
-    // Agregar un espacio intermedio
-    var espacioIntermedio = document.createElement('span');
-    espacioIntermedio.innerHTML = '&nbsp;';
+// Function to eliminarRedSocial
+function eliminarRedSocial(elemento) {
+    // Obtener el elemento padre (el <p> que contiene la red social)
+    var padre = elemento.parentNode;
 
-    // Agregar un botón para eliminar la red social
-    var botonEliminar = document.createElement('button');
-    botonEliminar.innerText = '✘ Eliminar';
-    botonEliminar.classList.add('boton-eliminar'); // Agregar la clase
-    botonEliminar.onclick = function () {
-        // Aquí deberías eliminar la red social de la vista y localStorage
-    };
-
-    // Agregar elementos al contenedor de botones
-    divBotones.appendChild(botonConfirmar);
-    divBotones.appendChild(espacioIntermedio);
-    divBotones.appendChild(botonEliminar);
-
-    // Agregar elementos al nuevo div de red social
-    nuevaRedSocial.appendChild(selectRedSocial);
-    nuevaRedSocial.appendChild(inputUsuario);
-    nuevaRedSocial.appendChild(divBotones);
-
-    // Agregar el nuevo div al contenedor
-    container.appendChild(nuevaRedSocial);
+    // Eliminar el elemento padre de la lista
+    padre.parentNode.removeChild(padre);
 }
