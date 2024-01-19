@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- BaseUrl -->
+    <script>
+        const baseUrl = '/'; // Coloca aquí tu URL base
+        const imgBaseUrl = `${baseUrl}assets/img`;
+        const cssBaseUrl = `${baseUrl}assets/css`;
+        const jsBaseUrl = `${baseUrl}assets/dist`;
+    </script>
+
+
+
+    <link rel="stylesheet" href="/assets/css/settings/users/navbar/UserNavbarTab.css">
+    <link rel="stylesheet" href="/assets/css/settings/users/profile/change-profile.image.css">
+
+
+</head>
+
+<body>
+
+    <div id="UserNavbarTab" class="navbar">
+
+        <!-- Contenedor redondo para mostrar la primera letra o la foto de perfil -->
+        <div id="contenedorPerfil">
+            <!-- Elemento de imagen para mostrar la foto de perfil -->
+            <img id="imagenPerfil" src="" alt="Foto de perfil">
+
+            <!-- Contenedor para mostrar la primera letra -->
+            <div id="primeraLetraContainer"></div>
+        </div>
+
+    <!-- Botón personalizado con solo el icono de la cámara -->
+    <label for="botonSubirFoto" class="custom-file-upload">
+        <!-- Ruta al archivo SVG de la cámara -->
+        <img class="icono-camera" src="/assets/img/profile/Camera.svg" alt="Icono de cámara">
+    </label>
+
+    <!-- Botón para subir la foto de perfil -->
+    <input type="file" id="botonSubirFoto" accept="image/*">
+</div>
+
+
+
+        <!-- Menú desplegable -->
+        <div id="UserDropdownMenu" class="dropdown-menu">
+            <a href="#">Editar perfil</a>
+            <a href="#">Configuraciones de la cuenta</a>
+            <a href="#">Ayuda</a>
+            <a href="#">Agregar otra cuenta</a>
+            <a href="#">Cerrar sesión</a>
+        </div>
+    </div>
+
+    <script src="/assets/dist/settings/users/change-profile-image.js" type="module" defer></script>
+    <script src="/assets/dist/settings/users/navbar/UserNavbarTab.js" type="module" defer></script>
+
+</body>
+
+</html>
