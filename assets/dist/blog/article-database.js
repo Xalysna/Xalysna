@@ -1,9 +1,10 @@
 // Importar la configuración de Firebase desde firebase-config.js
-import { firebaseConfig } from "../settings/firebase-config.js";
+import { firebaseConfig } from "../settings/config/firebase-config.js";
+import { firebaseUrls } from "../settings/config/firebase-config-urls.js";
 
 // Importar los módulos necesarios del SDK de Firebase desde los enlaces CDN
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
-import { getFirestore, doc, setDoc, collection, getDoc } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js";
+import { initializeApp } from firebaseUrls.app;
+import { getFirestore, doc, setDoc, collection, getDoc } from firebaseUrls.firestore;
 
 // Identificador del script de generación de título
 const titleScriptIdentifier = "Script Generador de Título";

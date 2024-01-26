@@ -1,0 +1,8 @@
+{
+  "AppDesc": {
+    "message": "Remove CORS restrictions to empower the web with PUT, PATCH, POST, and DELETE requests."
+  },
+  "AppName": {
+    "message": "CORS Freedom Plus"
+  }
+}

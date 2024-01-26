@@ -1,10 +1,17 @@
-// Importaciones de módulos Firebase
-import { firebaseConfig } from '../firebase-config.js';
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js';
-import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js';
-import { getFirestore, doc, getDoc, setDoc } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js';
-import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-storage.js';
+// Importar la configuración de Firebase desde firebase-config.js
+import { firebaseConfig } from "../config/firebase-config.js";
+import { firebaseUrls } from "../config/firebase-config-urls.js";
 
+// Importar las funciones necesarias del SDK de Firebase desde los CDN
+import { initializeApp } from firebaseUrls.app;
+import { getAuth, onAuthStateChanged } from firebaseUrls.auth;
+import { getFirestore, doc, getDoc, setDoc, updateDoc } from firebaseUrls.firestore;
+import { getStorage, ref, uploadBytes, getDownloadURL, deleteObject } from firebaseUrls.storage;
+
+//Importacion de recorte
+import { mostrarModalRecorte } from './../../general/funciones/cropper-edit.js';
+
+s
 // Inicializar la aplicación Firebase
 const app = initializeApp(firebaseConfig);
 
@@ -14,7 +21,7 @@ const firestore = getFirestore(app);
 const storage = getStorage(app);
 
 // Función para obtener el UID y el correo del usuario actual
-function obtenerUIDyCorreo() {
+export function obtenerUIDyCorreo() {
     const user = auth.currentUser;
 
     if (user) {
@@ -26,6 +33,7 @@ function obtenerUIDyCorreo() {
         return null;
     }
 }
+
 
 // Función para obtener la primera letra de usernameId
 function obtenerPrimeraLetra(usernameId) {
@@ -66,6 +74,7 @@ async function obtenerUsernameId(uid) {
         return null;
     }
 }
+
 
 // Escuchar cambios en el estado de autenticación
 onAuthStateChanged(auth, async (user) => {
@@ -136,18 +145,28 @@ botonSubirFoto.addEventListener('change', (event) => {
     const file = event.target.files[0];
 
     if (file) {
-        // Obtener el UID del usuario autenticado
-        const { uid } = obtenerUIDyCorreo();
+        // Crear instancia del lector de archivos
+        const reader = new FileReader();
 
-        // Llamar a la función para subir la foto de perfil
-        subirFotoPerfilYActualizar(uid, file);
+        // Definir la función que se ejecutará cuando la lectura esté completa
+        reader.onload = function (e) {
+            // Obtener el UID del usuario autenticado
+            const { uid } = obtenerUIDyCorreo();
+
+            // Mostrar el modal de recorte con la imagen cargada
+            mostrarModalRecorte(file, uid);
+        };
+
+        // Leer el archivo como una URL de datos
+        reader.readAsDataURL(file);
     } else {
         console.error('No se seleccionó ningún archivo.');
     }
 });
 
+
 // Función para subir la foto de perfil y actualizar el documento del usuario
-async function subirFotoPerfilYActualizar(uid, fotoPerfilFile) {
+export async function subirFotoPerfilYActualizar(uid, fotoPerfilFile) {
     // Extensiones permitidas
     const extensionesValidas = ['xbm', 'tif', 'pjp', 'apng', 'svgz', 'jpg', 'jpeg', 'ico', 'tiff', 'gif', 'svg', 'jfif', 'webp', 'png', 'bmp', 'pjpeg', 'avif', 'heif', 'heic'];
 
@@ -209,34 +228,54 @@ function mostrarFotoDePerfil(uid) {
         });
 }
 
-// Función para eliminar la foto de perfil y actualizar el documento del usuario
-async function eliminarFotoPerfilYActualizar(uid) {
+// Función para eliminar la foto de perfil del almacenamiento y del documento del usuario
+async function eliminarFotoPerfil(uid) {
     try {
-        // Obtener la referencia al documento del usuario en Firestore
+        // Obtener la referencia al documento del usuario
         const userDocRef = doc(firestore, 'USERS', uid);
 
         // Obtener los datos del documento
         const docSnapshot = await getDoc(userDocRef);
 
-        // Verificar si el documento existe
         if (docSnapshot.exists()) {
             // Obtener la URL de la foto de perfil desde los datos del documento
             const fotoPerfilURL = docSnapshot.data()?.photoProfile;
 
             // Verificar si hay una foto de perfil para eliminar
             if (fotoPerfilURL) {
-                // Obtener la referencia al archivo en Storage
-                const storageRef = ref(storage, `USERS/${uid}/PHOTO/${uid}.${getExtensionFromURL(fotoPerfilURL)}`);
+                // Eliminar la foto de perfil del almacenamiento
+                const storagePath = `USERS/${uid}/PHOTO/${uid}.${fotoPerfilURL.split('.').pop()}`;
+                const storageRef = ref(storage, storagePath);
 
-                // Eliminar el archivo de Storage
-                await deleteObject(storageRef);
+                try {
+                    // Verificar si el objeto existe obteniendo su URL de descarga
+                    await getDownloadURL(storageRef);
 
-                // Actualizar el documento del usuario en Firestore sin la URL de la foto de perfil
-                await setDoc(userDocRef, { photoProfile: null }, { merge: true });
+                    // Objeto existe, entonces eliminarlo
+                    await deleteObject(storageRef);
 
-                console.log('Foto de perfil eliminada y documento actualizado.');
+                    console.log('Eliminando la foto de perfil en Firebase Storage...');
+                    
+                } catch (error) {
+                    if (error.code !== 'storage/object-not-found') {
+                        // Otro tipo de error
+                        console.error('Error al eliminar la foto de perfil en Firebase Storage:', error);
+                        throw error; // Re-lanzar el error para detener la ejecución
+                    }
+                    // El objeto no se encuentra (ya fue eliminado), no se imprime ningún mensaje.
+                }
+
+                // Eliminar la referencia de la foto de perfil del documento del usuario
+                await updateDoc(userDocRef, { photoProfile: null });
+
+                console.log('Foto de perfil eliminada con éxito.');
+
+                setTimeout(() => {
+                    location.reload(true);
+                }, 1200); 
+                
             } else {
-                console.log('No hay foto de perfil para eliminar.');
+                console.log('El usuario no tiene una foto de perfil para eliminar.');
             }
         } else {
             console.error('Error: El documento del usuario no existe.');
@@ -246,7 +285,25 @@ async function eliminarFotoPerfilYActualizar(uid) {
     }
 }
 
-// Función para obtener la extensión de un archivo a partir de su URL
-function getExtensionFromURL(url) {
-    return url.split('.').pop().toLowerCase();
-}
+
+// Agregar un evento de clic al botón oculto
+eliminarFotoPerfilBtn.addEventListener('click', () => {
+    // Mostrar la ventana modal de confirmación
+    const confirmacionModal = new bootstrap.Modal(document.getElementById('confirmacionModal'));
+    confirmacionModal.show();
+
+    // Agregar un evento de clic al botón de confirmación dentro de la modal
+    const confirmarEliminacionBtn = document.getElementById('confirmarEliminacionBtn');
+    confirmarEliminacionBtn.addEventListener('click', async () => {
+        // Obtener el UID y el correo del usuario actual
+        const usuarioActual = obtenerUIDyCorreo();
+
+        if (usuarioActual) {
+            // Llamar a la función eliminarFotoPerfil con el UID como parámetro
+            await eliminarFotoPerfil(usuarioActual.uid);
+
+            // Cerrar la ventana modal después de la eliminación
+            confirmacionModal.hide();
+        }
+    });
+});

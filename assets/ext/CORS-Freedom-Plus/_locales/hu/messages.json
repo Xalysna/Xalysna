@@ -1,0 +1,8 @@
+{
+  "AppDesc": {
+    "message": "Korlátozások nélkül használja a CORS-t a web erősítéséhez PUT, PATCH, POST és DELETE kérésekkel."
+  },
+  "AppName": {
+    "message": "CORS Freedom Plus"
+  }
+}

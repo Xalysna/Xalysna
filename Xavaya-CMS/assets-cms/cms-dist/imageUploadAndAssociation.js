@@ -1,9 +1,10 @@
 // Importar la configuración de Firebase desde firebase-config.js
-import { firebaseConfig } from "/assets/dist/settings/firebase-config.js";
+import { firebaseConfig } from "../../../assets/dist/settings/config/firebase-config.js";
+import { firebaseUrls } from "../../../assets/dist/settings/config/firebase-config-urls.js";
 
-// Importar los módulos necesarios del SDK de Firebase desde los enlaces CDN
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
-import { getStorage, ref, uploadBytes } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-storage.js";
+// Importar las funciones necesarias del SDK de Firebase desde los CDN
+import { initializeApp } from firebaseUrls.app;
+import { getStorage, ref, uploadBytes } from firebaseUrls.storage;
 
 // Inicializa Firebase con la configuración
 const firebaseApp = initializeApp(firebaseConfig);

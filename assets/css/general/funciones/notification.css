@@ -12,6 +12,7 @@
   z-index: 9999; /* Aumentamos el valor del z-index para asegurar la visibilidad */
   width: auto;
   max-width: 300px;
+  white-space: pre-line;
 }
 
 /* Asegurémonos de que el body tenga una posición relativa */

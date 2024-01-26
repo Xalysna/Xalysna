@@ -1,3 +1,7 @@
+// firebase-config.js
+
+import { isValidFirebaseConfig } from './firebase-check.js';
+
 const firebaseConfig = {
   apiKey: "AIzaSyD8qbRp5Ue5VLU21rNi5E6co9p4gFJc6z4",
   authDomain: "xavayapage.firebaseapp.com",
@@ -10,3 +14,5 @@ const firebaseConfig = {
 };
 
 export { firebaseConfig };
+
+isValidFirebaseConfig(firebaseConfig);

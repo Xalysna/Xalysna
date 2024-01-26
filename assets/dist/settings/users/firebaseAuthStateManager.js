@@ -1,8 +1,11 @@
-// Importaciones de módulos Firebase
-import { firebaseConfig } from '../firebase-config.js';
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js';
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js';
-import { getDatabase, ref, onValue } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js';
+// Importar la configuración de Firebase desde firebase-config.js
+import { firebaseConfig } from "../config/firebase-config.js";
+import { firebaseUrls } from "../config/firebase-config-urls.js";
+
+// Importar las funciones necesarias del SDK de Firebase desde los CDN
+import { initializeApp } from firebaseUrls.app;
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from firebaseUrls.auth;
+import { getDatabase, ref, onValue } from firebaseUrls.database;
 
 // Inicializar la aplicación Firebase
 const app = initializeApp(firebaseConfig);
