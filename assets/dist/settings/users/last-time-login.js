@@ -1,13 +1,18 @@
-// Importar la configuración de Firebase desde firebase-config.js
+// Importar la configuración de Firebase
 import { firebaseConfig } from "../config/firebase-config.js";
-import { firebaseUrls } from "../config/firebase-config-urls.js";
+import { FIREBASE_APP_URL, FIREBASE_AUTH_URL, FIREBASE_FIRESTORE_URL } from "../config/firebase-config-urls.js";
 
-// Importar las funciones necesarias del SDK de Firebase desde los CDN
-import { initializeApp } from firebaseUrls.app;
-import { getAuth, onAuthStateChanged } from firebaseUrls.auth;
-import { getFirestore, doc, setDoc, getDoc, updateDoc, serverTimestamp } from firebaseUrls.firestore;
+// Imprimir las URLs para verificar que estén configuradas correctamente
+console.log("FIREBASE_APP_URL:", FIREBASE_APP_URL);
+console.log("FIREBASE_AUTH_URL:", FIREBASE_AUTH_URL);
+console.log("FIREBASE_FIRESTORE_URL:", FIREBASE_FIRESTORE_URL);
 
-// Inicializar la aplicación Firebase
+// Importar las funciones necesarias del SDK de Firebase de forma dinámica
+const { initializeApp } = await import(FIREBASE_APP_URL);
+const { getAuth, onAuthStateChanged } = await import(FIREBASE_AUTH_URL);
+const { getFirestore, doc, setDoc, getDoc, updateDoc, serverTimestamp } = await import(FIREBASE_FIRESTORE_URL);
+
+// Inicializar Firebase con la configuración importada
 const app = initializeApp(firebaseConfig);
 
 // Obtener instancias de auth y firestore

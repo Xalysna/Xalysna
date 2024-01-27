@@ -1,17 +1,22 @@
-// Importar la configuración de Firebase desde firebase-config.js
+// Importar la configuración de Firebase
 import { firebaseConfig } from "../config/firebase-config.js";
-import { firebaseUrls } from "../config/firebase-config-urls.js";
+import { FIREBASE_APP_URL, FIREBASE_AUTH_URL, FIREBASE_FIRESTORE_URL, FIREBASE_STORAGE_URL } from "../config/firebase-config-urls.js";
 
-// Importar las funciones necesarias del SDK de Firebase desde los CDN
-import { initializeApp } from firebaseUrls.app;
-import { getAuth, onAuthStateChanged } from firebaseUrls.auth;
-import { getFirestore, doc, getDoc, setDoc, updateDoc } from firebaseUrls.firestore;
-import { getStorage, ref, uploadBytes, getDownloadURL, deleteObject } from firebaseUrls.storage;
+// Imprimir las URLs para verificar que estén configuradas correctamente
+console.log("FIREBASE_APP_URL:", FIREBASE_APP_URL);
+console.log("FIREBASE_AUTH_URL:", FIREBASE_AUTH_URL);
+console.log("FIREBASE_FIRESTORE_URL:", FIREBASE_FIRESTORE_URL);
+console.log("FIREBASE_STORAGE_URL:", FIREBASE_STORAGE_URL);
+
+// Importar las funciones necesarias del SDK de Firebase de forma dinámica
+const { initializeApp } = await import(FIREBASE_APP_URL);
+const { getAuth, onAuthStateChanged } = await import(FIREBASE_AUTH_URL);
+const { getFirestore, doc, getDoc, setDoc, updateDoc } = await import(FIREBASE_FIRESTORE_URL);
+const { getStorage, ref, uploadBytes, getDownloadURL, deleteObject } = await import(FIREBASE_STORAGE_URL);
 
 //Importacion de recorte
 import { mostrarModalRecorte } from './../../general/funciones/cropper-edit.js';
 
-s
 // Inicializar la aplicación Firebase
 const app = initializeApp(firebaseConfig);
 

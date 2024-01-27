@@ -1,10 +1,14 @@
-// Importar la configuración de Firebase desde firebase-config.js
+// Importar la configuración de Firebase
 import { firebaseConfig } from "../../../assets/dist/settings/config/firebase-config.js";
-import { firebaseUrls } from "../../../assets/dist/settings/config/firebase-config-urls.js";
+import { FIREBASE_APP_URL, FIREBASE_FIRESTORE_URL } from "../../../assets/dist/settings/config/firebase-config-urls.js";
 
-// Importar las funciones necesarias del SDK de Firebase desde los CDN
-import { initializeApp } from firebaseUrls.app;
-import { getFirestore, collection, doc, setDoc, serverTimestamp } from firebaseUrls.firestore;
+// Imprimir las URLs para verificar que estén configuradas correctamente
+console.log("FIREBASE_APP_URL:", FIREBASE_APP_URL);
+console.log("FIREBASE_FIRESTORE_URL:", FIREBASE_FIRESTORE_URL);
+
+// Importar las funciones necesarias del SDK de Firebase de forma dinámica
+const { initializeApp } = await import(FIREBASE_APP_URL);
+const { getFirestore, collection, doc, setDoc, serverTimestamp } = await import(FIREBASE_FIRESTORE_URL);
 
 // Inicializar la app de Firebase
 initializeApp(firebaseConfig);

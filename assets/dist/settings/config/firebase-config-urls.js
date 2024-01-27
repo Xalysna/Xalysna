@@ -1,9 +1,9 @@
 // firebase-config-urls.js
-import { validateFirebaseConfigUrls } from './firebase-check.js';
+//import { validateFirebaseConfigUrls } from './firebase-check.js';
 
-const firebaseCdn = 'https://www.gstatic.com/firebasejs/10.7.2/';
+const FIREBASE_CDN_BASE_URL = 'https://www.gstatic.com/firebasejs/10.7.2/';
 
-const moduleNames = {
+const MODULE_FILENAMES = {
     app: 'firebase-app.js',
     auth: 'firebase-auth.js',
     firestore: 'firebase-firestore.js',
@@ -18,31 +18,47 @@ const moduleNames = {
 
 // Crear constantes para cada módulo
 const {
-    app,
-    auth,
-    firestore,
-    storage,
-    database,
-    messaging,
-    functions,
-    analytics,
-    performance,
-    remoteConfig,
-} = moduleNames;
+    app: APP_MODULE,
+    auth: AUTH_MODULE,
+    firestore: FIRESTORE_MODULE,
+    storage: STORAGE_MODULE,
+    database: DATABASE_MODULE,
+    messaging: MESSAGING_MODULE,
+    functions: FUNCTIONS_MODULE,
+    analytics: ANALYTICS_MODULE,
+    performance: PERFORMANCE_MODULE,
+    remoteConfig: REMOTE_CONFIG_MODULE,
+} = MODULE_FILENAMES;
 
-const firebaseUrls = {
-    app: `${firebaseCdn}${app}`,
-    auth: `${firebaseCdn}${auth}`,
-    firestore: `${firebaseCdn}${firestore}`,
-    storage: `${firebaseCdn}${storage}`,
-    database: `${firebaseCdn}${database}`,
-    messaging: `${firebaseCdn}${messaging}`,
-    functions: `${firebaseCdn}${functions}`,
-    analytics: `${firebaseCdn}${analytics}`,
-    performance: `${firebaseCdn}${performance}`,
-    remoteConfig: `${firebaseCdn}${remoteConfig}`,
-};
+export const FIREBASE_APP_URL = `${FIREBASE_CDN_BASE_URL}${APP_MODULE}`;
+console.log('FIREBASE_APP_URL:', FIREBASE_APP_URL);
 
-export { firebaseUrls };
+export const FIREBASE_AUTH_URL = `${FIREBASE_CDN_BASE_URL}${AUTH_MODULE}`;
+console.log('FIREBASE_AUTH_URL:', FIREBASE_AUTH_URL);
 
-validateFirebaseConfigUrls(firebaseUrls);
+export const FIREBASE_FIRESTORE_URL = `${FIREBASE_CDN_BASE_URL}${FIRESTORE_MODULE}`;
+console.log('FIREBASE_FIRESTORE_URL:', FIREBASE_FIRESTORE_URL);
+
+export const FIREBASE_STORAGE_URL = `${FIREBASE_CDN_BASE_URL}${STORAGE_MODULE}`;
+console.log('FIREBASE_STORAGE_URL:', FIREBASE_STORAGE_URL);
+
+export const FIREBASE_DATABASE_URL = `${FIREBASE_CDN_BASE_URL}${DATABASE_MODULE}`;
+console.log('FIREBASE_DATABASE_URL:', FIREBASE_DATABASE_URL);
+
+export const FIREBASE_MESSAGING_URL = `${FIREBASE_CDN_BASE_URL}${MESSAGING_MODULE}`;
+console.log('FIREBASE_MESSAGING_URL:', FIREBASE_MESSAGING_URL);
+
+export const FIREBASE_FUNCTIONS_URL = `${FIREBASE_CDN_BASE_URL}${FUNCTIONS_MODULE}`;
+console.log('FIREBASE_FUNCTIONS_URL:', FIREBASE_FUNCTIONS_URL);
+
+export const FIREBASE_ANALYTICS_URL = `${FIREBASE_CDN_BASE_URL}${ANALYTICS_MODULE}`;
+console.log('FIREBASE_ANALYTICS_URL:', FIREBASE_ANALYTICS_URL);
+
+export const FIREBASE_PERFORMANCE_URL = `${FIREBASE_CDN_BASE_URL}${PERFORMANCE_MODULE}`;
+console.log('FIREBASE_PERFORMANCE_URL:', FIREBASE_PERFORMANCE_URL);
+
+export const FIREBASE_REMOTE_CONFIG_URL = `${FIREBASE_CDN_BASE_URL}${REMOTE_CONFIG_MODULE}`;
+console.log('FIREBASE_REMOTE_CONFIG_URL:', FIREBASE_REMOTE_CONFIG_URL);
+
+// Validar las URLs utilizando MODULE_FILENAMES en lugar de firebaseUrls
+//validateFirebaseConfigUrls(MODULE_FILENAMES);
