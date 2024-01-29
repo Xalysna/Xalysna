@@ -1,0 +1,85 @@
+#contenedorPerfil {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+}
+
+#imagenPerfil {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer; /* Añadido para indicar que es interactivo */
+}
+
+#primeraLetraContainer {
+    width: 100%;
+    height: 100%;
+    font-size: 24px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 60px;
+    color: #ffffff;
+    background-color: #3498db;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/* Estilos del menú desplegable */
+.dropdown-menu {
+    position: absolute;
+    top: 50px;
+    left: 88%;
+    transform: translateX(-50%);
+    max-width: 300px; /* Ajusta la anchura máxima según sea necesario */
+    width: 100%;
+    background-color: #f5f5f5;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    color: #333;
+    border-radius: 10px;
+    transition: left 0.3s ease, max-width 0.3s ease; /* Añadido ajuste de la propiedad 'max-width' en la transición */
+    overflow: hidden;
+}
+
+.dropdown-menu a {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 5px;
+    font-size: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #5abda4;
+}
+
+.dropdown-menu a:hover {
+    background-color: #8257a6;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Estilos adicionales para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* Estilos adicionales para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

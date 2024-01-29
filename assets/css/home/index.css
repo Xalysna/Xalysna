@@ -43,7 +43,7 @@ header.scrolled {
   color: #333;
   text-transform: capitalize;
   position: absolute;
-  top: 65px;
+  top: 85px;
   left: 50px;
   opacity: 0.2;
   animation: slide-in 17s linear infinite;

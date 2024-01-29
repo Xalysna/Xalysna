@@ -1,0 +1,5 @@
+.logo img {
+    height: 47px; /* Tamaño del logo */
+    transform: translateY(10px); /* Baja el logo sin afectar a los elementos circundantes */
+    z-index: 2;
+}
