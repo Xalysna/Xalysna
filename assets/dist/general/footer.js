@@ -18,7 +18,7 @@ const menuItems = [
   { label: 'Soporte y Foro', link: `${baseUrl}/support-forum`, image: `${baseUrl}assets/img/nav/soporte.svg` },
   { label: 'Política y Términos de Uso', link: `/content/privacy/policy-and-terms.html`, image: `${baseUrl}assets/img/nav/terminos.svg` },
   { label: 'Acerca de, Contacto y Donaciones', link: `${baseUrl}/about-contact-donations`, image: `${baseUrl}assets/img/nav/acerca.svg` },
-  { label: 'Configuración', link: `${baseUrl}/settings`, image: `${baseUrl}assets/img/nav/gear.svg` }
+  { label: 'Dona Ethereum', link: `${baseUrl}/settings`, image: `${baseUrl}assets/img/footer/eth.svg` }
 ];
 
 const footerMenu = document.createElement('ul');

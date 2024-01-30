@@ -1,34 +1,29 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     var dropdownMenu = document.getElementById('UserDropdownMenu');
-    dropdownMenu.style.display = 'none'; // Inicialmente oculto
-});
+    var isMenuVisible = false;
 
-function toggleNavbarTab(event) {
-    event.stopPropagation();
+    document.getElementById('contenedorPerfil').addEventListener('click', function (event) {
+        event.stopPropagation();
+        isMenuVisible = !isMenuVisible;
+        updateDropdownVisibility();
+    });
 
-    var dropdownMenu = document.getElementById('UserDropdownMenu');
-    
-    if (dropdownMenu.style.display === 'none') {
-        dropdownMenu.style.display = 'block';
-    } else {
-        dropdownMenu.style.display = 'none';
-    }
-}
-
-document.addEventListener('click', function() {
-    var dropdownMenu = document.getElementById('UserDropdownMenu');
-
-    if (dropdownMenu.style.display !== 'none') {
-        dropdownMenu.style.display = 'none';
-    }
-});
-
-document.getElementById('contenedorPerfil').addEventListener('click', toggleNavbarTab);
-
-// Cerrar el menú desplegable si se hace clic en otra parte de la página
-document.addEventListener('click', function(event) {
-    if (!event.target.closest('#UserDropdownMenu') && !event.target.closest('#contenedorPerfil')) {
+    document.addEventListener('click', function (event) {
         var dropdownMenu = document.getElementById('UserDropdownMenu');
-        dropdownMenu.style.display = 'none';
+        if (!event.target.closest('#UserDropdownMenu') && !event.target.closest('#contenedorPerfil')) {
+            isMenuVisible = false;
+            updateDropdownVisibility();
+        }
+    });
+
+    function updateDropdownVisibility() {
+        var dropdownMenu = document.getElementById('UserDropdownMenu');
+        dropdownMenu.style.transition = 'none'; // Desactiva la transición para cambiar rápidamente la visibilidad
+        dropdownMenu.style.display = isMenuVisible ? 'block' : 'none';
+
+        // Activa la transición después de un pequeño retraso
+        setTimeout(function () {
+            dropdownMenu.style.transition = 'left 0.3s ease, max-width 0.3s ease';
+        }, 10);
     }
 });

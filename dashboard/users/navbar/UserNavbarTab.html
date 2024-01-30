@@ -31,11 +31,11 @@
         <div id="contenedorPerfil">
             <!-- Elemento de imagen para mostrar la foto de perfil -->
             <img id="imagenPerfil" src="" alt="Foto de perfil">
-    
+
             <!-- Contenedor para mostrar la primera letra -->
             <div id="primeraLetraContainer"></div>
         </div>
-    
+
         <!-- Contenedor para el botón de subir foto de perfil -->
         <div class="contenedor-boton">
             <label for="botonSubirFoto" class="custom-file-upload">
@@ -48,48 +48,49 @@
 
 
         <!-- Modal para la vista previa y recorte de la imagen -->
-<div id="modalRecorte" class="modal">
-    <div class="modal-content">
-        <img id="imagenRecorte" src="" alt="Vista previa de recorte">
-        <button id="btnAceptarRecorte">Aceptar</button>
-        <button id="btnCancelarRecorte">Cancelar</button>
-    </div>
-</div>
-    
-<!-- Contenedor para el botón de eliminar foto de perfil -->
-<div class="contenedor-boton">
-    <!-- Botón personalizado para eliminar la foto con solo el icono de la papelera -->
-    <label for="eliminarFotoPerfilBtn" class="custom-delete" style="cursor: pointer;">
-        <!-- Ruta al archivo SVG de la papelera -->
-        <img class="icono-papelera" src="/assets/img/profile/gallery-remove.svg" alt="Icono de papelera">
-    </label>
-    <!-- Input oculto que servirá como el botón de clic real -->
-    <input type="button" id="eliminarFotoPerfilBtn" style="display: none;">
-</div>
-
-
-<!-- Agrega esta ventana modal en tu HTML -->
-<div class="modal fade" id="confirmacionModal" tabindex="-1" aria-labelledby="confirmacionModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="confirmacionModalLabel">Confirmar eliminación</h5>
+        <div id="modalRecorte" class="modal">
+            <div class="modal-content">
+                <img id="imagenRecorte" src="" alt="Vista previa de recorte">
+                <button id="btnAceptarRecorte">Aceptar</button>
+                <button id="btnCancelarRecorte">Cancelar</button>
+            </div>
         </div>
-        <div class="modal-body">
-          ¿Estás seguro de que quieres eliminar tu foto de perfil?
+
+        <!-- Contenedor para el botón de eliminar foto de perfil -->
+        <div class="contenedor-boton">
+            <!-- Botón personalizado para eliminar la foto con solo el icono de la papelera -->
+            <label for="eliminarFotoPerfilBtn" class="custom-delete" style="cursor: pointer;">
+                <!-- Ruta al archivo SVG de la papelera -->
+                <img class="icono-papelera" src="/assets/img/profile/gallery-remove.svg" alt="Icono de papelera">
+            </label>
+            <!-- Input oculto que servirá como el botón de clic real -->
+            <input type="button" id="eliminarFotoPerfilBtn" style="display: none;">
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-danger" id="confirmarEliminacionBtn">Confirmar</button>
+
+
+        <!-- Agrega esta ventana modal en tu HTML -->
+        <div class="modal fade" id="confirmacionModal" tabindex="-1" aria-labelledby="confirmacionModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirmacionModalLabel">Confirmar eliminación</h5>
+                    </div>
+                    <div class="modal-body">
+                        ¿Estás seguro de que quieres eliminar tu foto de perfil?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-danger" id="confirmarEliminacionBtn">Confirmar</button>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-  
 
 
 
-    
+
+
         <!-- Menú desplegable -->
         <div id="UserDropdownMenu" class="dropdown-menu">
             <a href="#">Editar perfil</a>
@@ -99,13 +100,39 @@
             <a href="#">Cerrar sesión</a>
         </div>
     </div>
-    
+
+
+
+      <!-- Contenedor para el botón de subir o cambiar foto de perfil -->
+      <a href="#" id="enlaceSubirFoto" class="contenedor-boton custom-file-upload">
+        <!-- Ruta al archivo SVG de la cámara -->
+        <img class="icono-camera" src="/assets/img/profile/Camera.svg" alt="Icono de cámara">
+        <!-- Texto para subir o cambiar foto -->
+        Subir o cambiar foto
+        <!-- Botón para subir la foto de perfil -->
+        <input type="file" id="botonSubirFoto" accept="image/*">
+      </a>
+
+
+      <!-- Enlace para eliminar la foto de perfil -->
+      <a href="#" id="enlaceEliminarFotoPerfil" class="contenedor-boton custom-delete" style="cursor: pointer;">
+        <!-- Ruta al archivo SVG de la papelera -->
+        <img class="icono-papelera" src="/assets/img/profile/gallery-remove.svg" alt="Icono de papelera">
+        <!-- Texto para eliminar foto de perfil -->
+        Eliminar foto de perfil
+        <!-- Input oculto que servirá como el botón de clic real -->
+        <input type="button" id="eliminarFotoPerfilBtn" style="display: none;">
+      </a>
+
+
+
+
 
     <script src="/assets/dist/settings/users/change-profile-image.js" type="module" defer></script>
     <script src="/assets/dist/settings/users/navbar/UserNavbarTab.js" type="module" defer></script>
     <script src="/assets/other/cropper/cropper.js"></script>
-    <script src="/assets/dist/general/funciones/cropper-edit.js" type="module" ></script>
+    <script src="/assets/dist/general/funciones/cropper-edit.js" type="module"></script>
     <script src="/assets/other/bootstrap/bootstrap.js"></script>
-    
+
 
 </html>

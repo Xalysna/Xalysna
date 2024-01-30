@@ -1,29 +1,38 @@
 /* Estilo para el botón */
-.icon-button {
-  position: fixed;
-  bottom: 40px; /* Ajusta la distancia desde la parte inferior de la pantalla según desees */
-  right: 20px; /* Ajusta la distancia desde el lado derecho de la pantalla según desees */
-  background-color: transparent; /* Fondo transparente */
-  border: none;
+#toggle-button img {
+  width: 26px;
+  height: 26px;
+  filter: invert(0);
   cursor: pointer;
-  outline: none; /* Elimina el delineado al enfocar el botón */
-  z-index: 1000; /* O cualquier otro valor alto que funcione */
+  position: fixed;
+  top: 88%;
+  left: 97%;
+  z-index: 1;
+}
+
+#toggle-button img:focus {
+  outline: none;
+}
+
+#toggle-button img:active {
+  transform: scale(0.9);
 }
 
 
 /* Estilo para el footer */
 .footer-navigation {
-  background-color: #c79393; /* Cambia el color de fondo */
+  background-color: #c79393;
   padding: 8px;
   display: flex;
   justify-content: space-between;
   position: fixed;
   bottom: 0;
   left: 20px;
-  width: calc(100% - 40px); /* Resta 40px para dejar espacio al botón */
+  width: calc(100% - 40px);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  z-index: 1; /* Colocar detrás del enlace de donación */
+  z-index: 1;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Agregar sombra para mejorar la separación visual */
 }
 
 /* Estilo para ocultar elementos secundarios */
@@ -31,7 +40,7 @@
   display: none;
 }
 
-/* Estilos para el menú (puedes personalizarlos según tus necesidades) */
+/* Estilos para el menú */
 .footer-navigation ul {
   list-style: none;
   margin: 0;
@@ -49,41 +58,36 @@
   align-items: center;
   text-decoration: none;
   color: #000;
-  font-size: 12px;
+  font-size: 14px; /* Aumentar el tamaño de la fuente para una mejor legibilidad */
 }
 
 .footer-navigation img {
-  width: 16px;
-  height: 16px;
+  width: 20px; /* Ajustar el tamaño de la imagen */
+  height: 20px;
   margin-right: 5px;
 }
 
 /* Estilo para el enlace de donación Ethereum */
 .wallet-address {
   position: fixed;
-  bottom: 3px; /* Ajusta la distancia desde la parte inferior de la pantalla según desees */
-  left: 27%; /* Centra horizontalmente */
-  transform: translateX(-50%); /* Centra horizontalmente */
-  background-color: #dbbebe; /* Color de fondo */
-  padding: 5px 10px; /* Espaciado interno reducido */
-  border-radius: 20px; /* Borde redondeado */
-  color: #fff; /* Color de texto */
-  font-size: 12px; /* Tamaño de fuente (ajusta este valor) */
-  text-align: center; /* Alineación del texto al centro */
-  max-width: 680px; /* Ancho máximo en píxeles */
-  width: 100%; /* Ancho del 100% para ocupar el espacio disponible */
-  overflow: hidden; /* Evitar desbordamiento de contenido */
-  white-space: nowrap; /* Evitar saltos de línea */
-  text-overflow: ellipsis; /* Mostrar puntos suspensivos en caso de desbordamiento */
-  cursor: pointer; /* Cambiar cursor al puntero */
-  z-index: 2; /* Colocar encima del botón */
-  display: inline-block; /* Mostrar en una línea */
+  bottom: 10px; /* Ajustar la distancia desde la parte inferior de la pantalla */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #dbbebe;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 16px; /* Aumentar el tamaño de la fuente */
+  text-align: center;
+  max-width: 600px; /* Reducir el ancho máximo para un diseño más equilibrado */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  z-index: 2;
+  transition: background-color 0.3s ease;
 }
 
-
-/* Estilo cuando se coloca el mouse sobre el enlace */
 .wallet-address:hover {
-  background-color: #a57979; /* Cambia el color de fondo al pasar el mouse */
+  background-color: #a98888;
 }
-
-
