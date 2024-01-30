@@ -18,21 +18,21 @@
   transform: scale(0.9);
 }
 
-
 /* Estilo para el footer */
 .footer-navigation {
   background-color: #c79393;
   padding: 8px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Centrar el contenido horizontalmente */
+  align-items: center; /* Centrar el contenido verticalmente */
   position: fixed;
   bottom: 0;
-  left: 20px;
-  width: calc(100% - 40px);
+  left: 0; /* Alinearlo al borde izquierdo */
+  right: 0; /* Alinearlo al borde derecho */
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   z-index: 1;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Agregar sombra para mejorar la separación visual */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilo para ocultar elementos secundarios */
@@ -58,11 +58,11 @@
   align-items: center;
   text-decoration: none;
   color: #000;
-  font-size: 14px; /* Aumentar el tamaño de la fuente para una mejor legibilidad */
+  font-size: 14px;
 }
 
 .footer-navigation img {
-  width: 20px; /* Ajustar el tamaño de la imagen */
+  width: 20px;
   height: 20px;
   margin-right: 5px;
 }
@@ -90,4 +90,18 @@
 
 .wallet-address:hover {
   background-color: #a98888;
+}
+
+@media only screen and (max-width: 530px) {
+  .footer-navigation li {
+    font-size: 0; /* Establecer tamaño de fuente a 0 para ocultar el texto */
+  }
+
+  .footer-navigation a {
+    font-size: 0; /* Asegurar que el tamaño de fuente sea 0 para cualquier contenido dentro de 'a' */
+  }
+
+  .footer-navigation img {
+    margin-right: 0; /* Eliminar el margen derecho si es necesario */
+  }
 }
