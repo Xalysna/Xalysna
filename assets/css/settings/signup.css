@@ -37,10 +37,15 @@ body {
   align-items: center;
   width: 400px;
   background-color: #fff;
-  padding: 0px;
+  padding: 25px;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
+
+.register-title {
+  margin-bottom: 15px; /* Puedes ajustar el valor según tus necesidades */
+}
+
 
 /* Estilos para los campos de entrada */
 .register-form input[type="email"],
@@ -66,6 +71,7 @@ body {
   border-radius: 8px;
   text-decoration: none;
   transition: background-color 0.3s, color 0.3s;
+  margin-bottom: 10px;
 }
 
 .register-button {
@@ -77,11 +83,13 @@ body {
   background-color: #fff;
   color: #000;
   border: 1px solid #ddd;
+  margin-bottom: 25px;
 }
 
 /* Estilos para enlaces y texto adicional */
 .login-link {
   color: #888888;
+  margin-bottom: 10px;
 }
 
 .register-button:hover,
@@ -130,3 +138,14 @@ body {
 }
 
 
+/* Aplica estilos a input con id passwordRegister, independientemente de su tipo */
+#passwordRegister,
+#passwordRegister[type="text"] {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s, background-color 0.3s;
+}

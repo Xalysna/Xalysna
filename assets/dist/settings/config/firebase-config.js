@@ -3,14 +3,14 @@
 //import { isValidFirebaseConfig } from './firebase-check.js';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD8qbRp5Ue5VLU21rNi5E6co9p4gFJc6z4",
-  authDomain: "xavayapage.firebaseapp.com",
-  databaseURL: "https://xavayapage-default-rtdb.firebaseio.com",
-  projectId: "xavayapage",
-  storageBucket: "xavayapage.appspot.com",
-  messagingSenderId: "816112500632",
-  appId: "1:816112500632:web:333327ade306fdda14f5ed",
-  measurementId: "G-LT6K4LVDB7"
+  apiKey: "AIzaSyCTz8pXlIeYykdjcA9zmknm5ksiqdvI_UE",
+  authDomain: "xalysna-system.firebaseapp.com",
+  databaseURL: "https://xalysna-system-default-rtdb.firebaseio.com",
+  projectId: "xalysna-system",
+  storageBucket: "xalysna-system.appspot.com",
+  messagingSenderId: "260763600726",
+  appId: "1:260763600726:web:5ea16e3d382564659178f7",
+  measurementId: "G-GYHNGX0Y0E"
 };
 
 export { firebaseConfig };

@@ -16,24 +16,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Agregar event listeners para restablecer los errores al cambiar el valor del campo
     emailInput.addEventListener('input', function () {
-      setTimeout(validateEmail, 0); // Retrasar la validación
-    });
-
-    passwordInput.addEventListener('input', function () {
-      setTimeout(validatePassword, 0); // Retrasar la validación
-    });
-
-    // Agregar event listeners para manejar cambios en el autocompletado del navegador
-    emailInput.addEventListener('change', function () {
       validateEmail();
     });
 
-    passwordInput.addEventListener('change', function () {
+    passwordInput.addEventListener('input', function () {
       validatePassword();
     });
 
     // Validar el formulario una vez al cargar la página
-    validateForm();
+    // Comenté esto para evitar la validación inicial
+    // validateForm();
   }
 
   // Función para validar el formato del correo electrónico
@@ -54,6 +46,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Función para establecer la validez y mostrar mensajes de error
   function setValidity(inputElement, isValid, errorElement, errorMessage) {
+    if (inputElement.value.trim() === '') {
+      // No mostrar mensajes de error si el campo está vacío
+      isValid = true;
+    }
+
     if (isValid) {
       inputElement.classList.remove('is-invalid');
       errorElement.textContent = '';
@@ -69,13 +66,12 @@ document.addEventListener('DOMContentLoaded', function () {
     return emailRegex.test(email);
   }
 
-// Función para validar la longitud mínima y el formato de la contraseña
-function validatePasswordFormat(password) {
-  // Modifiqué la expresión regular para hacerla menos exigente
-  const passwordRegex = /^[a-zA-Z\d\W_]{6,}$/;
-  return passwordRegex.test(password);
-}
-
+  // Función para validar la longitud mínima y el formato de la contraseña
+  function validatePasswordFormat(password) {
+    // Modifiqué la expresión regular para hacerla menos exigente
+    const passwordRegex = /^[a-zA-Z\d\W_]{6,}$/;
+    return passwordRegex.test(password);
+  }
 
   // Función principal para validar todo el formulario
   function validateForm() {
@@ -87,3 +83,4 @@ function validatePasswordFormat(password) {
     return invalidInputs.length === 0; // Devuelve true si no hay errores, de lo contrario, false
   }
 });
+

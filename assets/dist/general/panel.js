@@ -20,10 +20,10 @@ const navigationButtons = [
       { label: 'TechVision360', link: `${baseUrl}blog/techvision360`, image: `${baseUrl}assets/img/nav/TechVision360.svg` }
     ]
   },
-  { label: 'Xavaya Enciclopedia', link: `${baseUrl}xavaya-encyclopedia`, image: `${baseUrl}assets/img/nav/ency.svg` },
+  { label: 'Enciclopedia', link: `${baseUrl}xavaya-encyclopedia`, image: `${baseUrl}assets/img/nav/ency.svg` },
   { label: 'Utilidades', link: `${baseUrl}Utilities`, image: `${baseUrl}assets/img/nav/tool.svg` },
   { label: 'Repositorio', link: `/content/repository/repository.html`, image: `${baseUrl}assets/img/nav/repository.svg` },
-  { label: 'Xavaya Token', link: `${baseUrl}xavaya-token`, image: `${baseUrl}assets/img/nav/token.svg` },
+  { label: 'Xalysna Token', link: `${baseUrl}xavaya-token`, image: `${baseUrl}assets/img/nav/token.svg` },
 ];
 
 

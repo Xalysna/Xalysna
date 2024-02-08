@@ -1,0 +1,92 @@
+/* Reset de estilos y fuentes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Estilo del contenedor principal */
+.search-container {
+    max-width: 500px;
+    margin: 50px auto;
+    background: linear-gradient(45deg, #007bff, #3b80ca);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.3s ease;
+}
+
+/* Estilo del contenedor de entrada y botón */
+.input-container {
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.search-input {
+    flex: 1;
+    padding: 15px;
+    border: 2px solid #007bff;
+    border-radius: 10px 0 0 10px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    font-size: 16px;
+}
+
+/* Ajustes para el botón de búsqueda */
+.search-button {
+    cursor: pointer;
+    background-color: #007bff;
+    border: none;
+    border-radius: 0 10px 10px 0;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+/* Ajusta estilos según sea necesario para que la imagen se vea como un botón */
+.search-svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Estilo del texto "CTRL + K" */
+.shortcut-text {
+    position: absolute;
+    right: 80px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #070000;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Estilo del contenedor de sugerencias, opciones y historial de búsqueda */
+.suggestions-container,
+.search-options,
+.search-history {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Estilo del hover para el botón de búsqueda */
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para la transición de la entrada de búsqueda */
+.search-input:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+}

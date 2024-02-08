@@ -57,29 +57,27 @@ const rutaBase = '/databases/options/';
 // Función para cargar opciones cuando se abre la ventana modal
 function cargarOpcionesEnModal() {
     const opciones = [
-        { jsonPath: `${rutaBase}day.json`, selectorId: 'diaNacimientoPersona', defaultOptionText: 'Día', tab: 'datosBtn' },
-        { jsonPath: `${rutaBase}month.json`, selectorId: 'mesNacimientoPersona', defaultOptionText: 'Mes', tab: 'datosBtn' },
-        { jsonPath: `${rutaBase}year.json`, selectorId: 'anoNacimientoPersona', defaultOptionText: 'Año', tab: 'datosBtn' },
-        { jsonPath: `${rutaBase}genders.json`, selectorId: 'generoPersona', defaultOptionText: 'Seleccionar género', tab: 'datosBtn' },
-        { jsonPath: `${rutaBase}ubications-space.json`, selectorId: 'ubicacionEspacial', defaultOptionText: 'Seleccionar ubicación espacial', tab: 'datosBtn' },
-        { jsonPath: `${rutaBase}industries-business.json`, selectorId: 'industria', defaultOptionText: 'Seleccionar industria', tab: 'datosBtn' },
-        { jsonPath: `${rutaBase}brand-categories.json`, selectorId: 'categoriaMarca', defaultOptionText: 'Seleccionar categoría de marca', tab: 'datosBtn' },
-        { jsonPath: `${rutaBase}year.json`, selectorId: 'creacionempresa', defaultOptionText: 'Seleccionar año de creación', tab: 'auroraBtn' },
-        { jsonPath: `${rutaBase}year.json`, selectorId: 'creacionMarca', defaultOptionText: 'Seleccionar año de creación', tab: 'auroraBtn' },
-        { jsonPath: `${rutaBase}prefix-phone.json`, selectorId: 'codigoPais', defaultOptionText: 'Seleccionar código de área', tab: 'contactoBtn' },
-        { jsonPath: `${rutaBase}red-social.json`, selectorId: 'selectRedSocial', defaultOptionText: 'Seleccionar red social', tab: 'redesBtn', opciones: [] }
+        { jsonPath: `${rutaBase}day.json`, selectorId: 'diaNacimientoPersona', defaultOptionText: 'Día'},
+        { jsonPath: `${rutaBase}month.json`, selectorId: 'mesNacimientoPersona', defaultOptionText: 'Mes'},
+        { jsonPath: `${rutaBase}year.json`, selectorId: 'anoNacimientoPersona', defaultOptionText: 'Año'},
+        { jsonPath: `${rutaBase}genders.json`, selectorId: 'generoPersona', defaultOptionText: 'Seleccionar género'},
+        { jsonPath: `${rutaBase}ubications-space.json`, selectorId: 'ubicacionEspacial', defaultOptionText: 'Seleccionar ubicación espacial'},
+        { jsonPath: `${rutaBase}industries-business.json`, selectorId: 'industria', defaultOptionText: 'Seleccionar industria'},
+        { jsonPath: `${rutaBase}year.json`, selectorId: 'creacionempresa', defaultOptionText: 'Seleccionar año de creación'},
+        { jsonPath: `${rutaBase}prefix-phone.json`, selectorId: 'codigoPais', defaultOptionText: 'Seleccionar código de área'},
+        { jsonPath: `${rutaBase}red-social.json`, selectorId: 'selectRedSocial', defaultOptionText: 'Seleccionar red social', opciones: [] }
 
         // Agrega más elementos según sea necesario
     ];
     
 
     opciones.forEach(opcion => {
-        const { jsonPath, selectorId, defaultOptionText, tab } = opcion;
+        const { jsonPath, selectorId, defaultOptionText } = opcion;
         const selector = document.getElementById(selectorId);
 
         // Verificar que el elemento exista antes de llamar a cargarOpcionesDesdeJSON
         if (selector) {
-            cargarOpcionesDesdeJSON(jsonPath, selectorId, defaultOptionText, tab);
+            cargarOpcionesDesdeJSON(jsonPath, selectorId, defaultOptionText);
         }
     });
 }

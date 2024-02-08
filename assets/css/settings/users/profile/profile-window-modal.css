@@ -1,12 +1,12 @@
 body {
     font-family: 'Arial', sans-serif;
+    font-size: 14px ; 
 }
 
 /* Estilos iniciales para ocultar los formularios */
 .formulario,
 .formulario-datos,
 .formulario-aurora {
-    display: none;
     border: none;
 }
 
@@ -142,6 +142,17 @@ body {
     font-size: 16px;
 }
 
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    resize: vertical; /* Permite redimensionar verticalmente el textarea si es necesario */
+}
+
 /* Estilo para botones modernos y atractivos */
 button {
     padding: 12px;
@@ -228,7 +239,7 @@ button:hover {
 }
 
 .fecha-nacimiento-container select {
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 /* Estilos adicionales para mejorar la apariencia y la usabilidad */
@@ -344,4 +355,137 @@ button:hover {
 @keyframes fadeInOut {
     0%, 100% { opacity: 0; }
     10%, 90% { opacity: 1; }
+}
+
+
+#centrador {
+    text-align: right;
+}
+
+#contenedor {
+    display: inline-block;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 5px;
+    margin-right: 10px;  /* Agrega un margen derecho */
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.section-usuario,
+.section-datos-persona,
+.section-datos-empresa,
+.section-aurora-persona,
+.section-aurora-empresa,
+.section-contacto,
+.section-ubicacion,
+.section-crypto,
+.section-redes-sociales {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.section-usuario:hover,
+.section-datos-persona:hover,
+.section-datos-empresa:hover,
+.section-aurora-persona:hover,
+.section-aurora-empresa:hover,
+.section-contacto:hover,
+.section-ubicacion:hover,
+.section-crypto:hover,
+.section-redes-sociales:hover {
+    transform: scale(1.05);
+    background-color: rgb(154, 255, 238); /* Azul brillante */
+}
+
+
+.section-title {
+    color: #2c3e50;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+
+/* Estilo para ubicar los elementos <span> en línea */
+p span {
+    display: inline;
+  }
+  
+  /* Estilo para el título h3 */
+  h3 {
+    font-size: 12px; /* Tamaño de fuente de 12px */
+  }
+  
+
+
+/* Estilo para el contenedor del texto de ubicación */
+.location-container {
+    margin-top: 20px; /* Espacio superior */
+    display: flex; /* Utilizar flexbox para alinear elementos */
+    align-items: center; /* Alinear verticalmente los elementos */
+}
+
+.location-icon img {
+    width: 20px; /* Ancho del SVG */
+    height: 20px; /* Alto del SVG */
+    margin-right: 5px; /* Espacio a la derecha del icono */
+}
+
+/* Estilo para el texto de ubicación */
+.location-text {
+    font-size: 16px; /* Tamaño de fuente */
+}
+
+
+
+/* Estilos específicos para dispositivos móviles */
+
+@media only screen and (max-width: 600px) {
+    .modal-content {
+        margin: 5% auto;
+        max-width: 100%;
+        position: absolute;
+    }
+
+    
+    #contenedor {
+        padding: 8px; 
+    }
+
+    .section-usuario,
+    .section-datos-persona,
+    .section-datos-empresa,
+    .section-aurora-persona,
+    .section-aurora-empresa,
+    .section-contacto,
+    .section-ubicacion,
+    .section-crypto,
+    .section-redes-sociales {
+        margin: 8px auto; /* Reduce el margen */
+        padding: 10px; /* Reduce el relleno */
+    }
+
+    .section-title {
+        font-size: 12px; /* Reduce el tamaño de fuente */
+        margin-bottom: 8px; /* Reduce el margen inferior */
+    }
+
+    #saveProfileButton,
+    #cancelModalButton {
+    top: 2%;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    }
+
+
 }

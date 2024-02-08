@@ -40,10 +40,15 @@ document.addEventListener('DOMContentLoaded', () => {
   function disablePasswordInput() {
     passwordInput.setAttribute('disabled', 'disabled');
     passwordInput.value = '';
-    setValidity(passwordInput, passwordError, false, 'El formato del correo electrónico es inválido');
+    setValidity(passwordInput, passwordError, false, 'Por favor, ingrese un correo electrónico válido antes de habilitar la contraseña');
   }
 
   function setValidity(inputElement, errorElement, isValid, errorMessage) {
+    if (inputElement.value.trim() === '') {
+      // No mostrar mensajes de error si el campo está vacío
+      isValid = true;
+    }
+
     if (isValid) {
       inputElement.classList.remove('is-invalid');
       errorElement.textContent = '';
@@ -77,3 +82,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+

@@ -6,11 +6,19 @@ function siguientePaso() {
     if (validarPasoActual()) {
         ocultarPasoActual();
         pasoActual++;
+
+        // Verificar si el formulario correspondiente debe mostrarse manualmente
+        const tipoCuentaSelector = document.getElementById('tipoFormulario');
+        if (tipoCuentaSelector.value !== '') {
+            mostrarFormulario(tipoCuentaSelector.value);
+        }
+
         mostrarPasoActual();
     } else {
         showNotification('Complete los campos obligatorios antes de pasar al siguiente paso.');
     }
 }
+
 
 // Función para mostrar el paso anterior
 function anteriorPaso() {
@@ -31,15 +39,30 @@ function mostrarPasoActual() {
 
 // Función para mostrar el formulario específico según el tipo de cuenta seleccionado
 function mostrarFormulario(tipoCuenta) {
+    const tipoCuentaSelector = document.getElementById('tipoFormulario');
+
+    // Marcar la interacción del usuario
+    tipoCuentaSelector.dataset.usuarioHaInteractuado = 'true';
+
+    // Establecer el valor solo si no se ha seleccionado nada aún
+    if (tipoCuentaSelector.value === '') {
+        tipoCuentaSelector.value = tipoCuenta;
+
+        // Simular el evento change para forzar la interacción del usuario
+        const changeEvent = new Event('change');
+        tipoCuentaSelector.dispatchEvent(changeEvent);
+    }
+
     ocultarTodosLosFormularios();
     document.getElementById(`formulario${tipoCuenta}Datos`).style.display = 'block';
 }
+
 
 // Función para ocultar todos los formularios
 function ocultarTodosLosFormularios() {
     document.getElementById('formularioPersonaDatos').style.display = 'none';
     document.getElementById('formularioEmpresaDatos').style.display = 'none';
-    document.getElementById('formularioMarcaDatos').style.display = 'none';
+ /* document.getElementById('formularioMarcaDatos').style.display = 'none';*/
 }
 
 // Función para limpiar el selector y agregar una opción predeterminada
@@ -76,6 +99,14 @@ function cargarOpcionesDesdeJSON(config) {
             agregarOpciones(selector, data.opciones);
         })
         .catch(error => console.error(`Error al cargar las opciones desde ${jsonPath}`, error));
+
+         // Agregar evento de cambio para deshabilitar la opción predeterminada al seleccionar otra opción
+    selector.addEventListener('change', function() {
+        const defaultOption = selector.querySelector('option[value=""]');
+        if (defaultOption) {
+            defaultOption.disabled = true;
+        }
+    });
 }
 
 // Función para agregar opciones al selector
@@ -94,23 +125,25 @@ cargarOpcionesDesdeJSON({ jsonPath: 'month.json', selectorId: 'mesNacimientoPers
 cargarOpcionesDesdeJSON({ jsonPath: 'year.json', selectorId: 'anoNacimientoPersona', defaultOptionText: 'Año' });
 cargarOpcionesDesdeJSON({ jsonPath: 'genders.json', selectorId: 'generoPersona', defaultOptionText: 'Seleccione género' });
 cargarOpcionesDesdeJSON({ jsonPath: 'industries-business.json', selectorId: 'industria', defaultOptionText: 'Seleccione industria' });
+/*
 cargarOpcionesDesdeJSON({ jsonPath: 'brand-categories.json', selectorId: 'categoriaMarca', defaultOptionText: 'Seleccione categoría de marca' });
+*/
 
 // Inicialmente muestra el paso 0
 mostrarPasoActual();
 
 // URL del archivo JSON
-const ubicationsURL = '/databases/options/ubications-earth.json';
+const ubicationCountries = '/databases/options/ubications-earth.json';
 
 // Función para cargar opciones de países
 function cargarPaises() {
-    fetch(ubicationsURL)
+    fetch(ubicationCountries)
         .then(response => response.json())
         .then(data => {
-            var selectPais = document.getElementById("locationCountry");
+            var selectPais = document.getElementById("countrySelect");
 
             if (!selectPais) {
-                console.error('Elemento con id "locationCountry" no encontrado.');
+                console.error('Elemento con id "countrySelect" no encontrado.');
                 return;
             }
 
@@ -128,6 +161,31 @@ function cargarPaises() {
         })
         .catch(error => console.error('Error al cargar el archivo JSON:', error));
 }
+
+// Función para actualizar la ubicación seleccionada en el span correspondiente
+function actualizarUbicacion() {
+    // Obtener referencia al elemento select de país y al span correspondiente
+    var countrySelect = document.getElementById("countrySelect");
+    var locationCountrySpan = document.getElementById("locationCountry");
+  
+    // Obtener el valor seleccionado en el select de país
+    var country = countrySelect.options[countrySelect.selectedIndex];
+  
+    // Verificar si se ha seleccionado un país
+    var countryText = country ? country.text : "Seleccione un país";
+  
+    // Actualizar el contenido del span con el valor seleccionado
+    locationCountrySpan.textContent = countryText;
+  
+    // Mostrar la información en la consola
+    console.log("País seleccionado:", countryText);
+  }
+  
+  // Llamar a la función para que se ejecute cada vez que se cambie la selección de país
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById("countrySelect").addEventListener("change", actualizarUbicacion);
+  });
+  
 
 // Llamada a la función para cargar opciones de países después de cargar el contenido del documento
 document.addEventListener('DOMContentLoaded', cargarPaises);
@@ -189,14 +247,8 @@ function validarCamposSegunTipoCuenta(tipoCuenta) {
             // Agrega más campos según sea necesario
             return nombreEmpresa.trim() !== '' && industria.trim() !== '';
 
-        case 'Marca':
-            // Validación para el formulario de datos básicos de Marca
-            const nombreMarca = document.getElementById('nombreMarca').value;
-            const categoriaMarca = document.getElementById('categoriaMarca').value;
-            // Agrega más campos según sea necesario
-            return nombreMarca.trim() !== '' && categoriaMarca.trim() !== '';
-
         default:
             return true;
     }
 }
+

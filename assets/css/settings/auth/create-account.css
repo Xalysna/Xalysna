@@ -260,3 +260,26 @@ label[for="tipoFormulario"] {
     color: #555; /* Color del texto */
     /* Agrega otros estilos según tus preferencias, como márgenes, espaciado, etc. */
 }
+
+  /* Estilo para ignorar el error de "is not focusable" */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Estilo para el contenedor del texto de ubicación */
+.location-container {
+    margin-top: 20px; /* Espacio superior */
+}
+
+/* Estilo para el icono de ubicación */
+.location-icon {
+    width: 20px; /* Ancho del icono */
+    height: 20px; /* Alto del icono */
+    vertical-align: middle; /* Alineación vertical */
+    margin-right: 5px; /* Espacio a la derecha del icono */
+}
+
+/* Estilo para el texto de ubicación */
+.location-text {
+    font-size: 16px; /* Tamaño de fuente */
+}

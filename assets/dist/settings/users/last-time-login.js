@@ -20,7 +20,7 @@ const auth = getAuth(app);
 const firestore = getFirestore(app);
 
 // Función para obtener el UID y el correo del usuario actual
-function obtenerUIDyCorreo() {
+export function obtenerUIDyCorreo() {
   const user = auth.currentUser;
 
   if (user) {

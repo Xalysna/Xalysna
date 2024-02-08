@@ -16,9 +16,7 @@
 
         // Nueva variable global para el tipo de usuario seleccionado
         let tipoUsuarioSeleccionado = '';
-            
         </script>
-
 </head>
 
 <body>
@@ -29,61 +27,278 @@
 <button onclick="mostrarModal()">Editar Perfil</button>
 
 
-
-
 <!-- 🌟 WINDOW MODAL 🌟 -->
 
-<!-- Ventana modal -->
+<!-- Ventana modal 
 <div class="modal-container"></div>
-<div id="myModal" class="modal">
+<div id="myModal" class="modal">-->
     <!-- Contenido de la ventana modal -->
     <div class="modal-content">
-        <button id="saveProfileButton">Guardar Perfil</button>
+        <button id="saveProfileButton" onclick="uploadToFirestore()">Guardar cambios</button>
         <button id="cancelModalButton" onclick="cancelarModal()">Cancelar</button>
 
-        <!-- El select en ambos HTML -->
-        <select id="tipoFormulario" onchange="mostrarFormulario(this.value)">
-            <option value="" disabled selected>Seleccione Tipo de Usuario</option>
-            <option value="Persona">Persona</option>
-            <option value="Empresa">Empresa</option>
-            <option value="Marca">Marca</option>
-        </select>
+        <span id="tipoFormulario"></span>
 
-        <!-- Botones para guardar cambios y cancelar -->
-        <div class="modal-header">
-            <!-- Puedes poner los botones aquí -->
-            <button id="datosBtn">Datos Básicos</button>
-            <button id="auroraBtn">Aurora</button>
-            <button id="contactoBtn">Contacto</button>
-            <button id="cryptoBtn">CryptoZen</button>
-            <button id="redesBtn">Redes Sociales</button>
-            <!-- Agrega botones para otras pestañas si es necesario -->
+        <div id="centrador">
+            <div id="contenedor">
+                <span id="etiqueta">Tipo de cuenta: </span>
+                <span id="tipo"></span>
+            </div>
         </div>
-
-        <main id="contenidoPestana">
-            <!-- El contenido de la pestaña se cargará aquí -->
-        </main>
+                
 
 
+        
+        <section id="seccion-usuario" class="section-usuario">
+            <h2 class="section-title">Usuario</h2>
+            <div class="campo-usuario">
+                <label for="usernameId">
+                    <strong>Nombre de Usuario:</strong>
+                </label>
+                <input type="text" id="usernameId" name="nombreUsuario" placeholder="Ej. Xalysna" title="Identificación única en la red">
+                <p id="mensajeUsuario"></p>
+            </div>            
+        </section>
+        
+        <section id="seccion-datos-persona" class="section-datos-persona">
+            <h2 class="section-title">Datos Básicos Persona</h2>
+            <div class="campo-persona">
+                <label for="nombrePersona"><strong>Nombre:</strong></label>
+                <input type="text" id="nombrePersona" name="nombrePersona" required>
+            </div>
+            
+            <div class="campo-persona">
+                <label for="apellidoPersona"><strong>Apellido:</strong></label>
+                <input type="text" id="apellidoPersona" name="apellidoPersona" required>
+            </div>
+        
+            <!-- Campos específicos de Persona -->
+            <div class="fecha-genero-container">
+                <p>
+                <strong>Fecha de Nacimiento:</strong>
+                </p>
+                <div class="fecha-nacimiento-container">
+                    <select id="diaNacimientoPersona">
+                        <!-- Puedes agregar opciones específicas de días aquí -->
+                    </select>
+                    <select id="mesNacimientoPersona">
+                        <!-- Puedes agregar opciones específicas de meses aquí -->
+                    </select>
+                    <select id="anoNacimientoPersona">
+                        <!-- Puedes agregar opciones específicas de años aquí -->
+                    </select>
+                </div>
+        
+                <p>
+                    <strong>Género:</strong>
+                </p>
+                <select id="generoPersona">
+                    <!-- Puedes agregar opciones específicas de género aquí -->
+                </select>
+            </div>
+        </section>
+        
+        <section id="seccion-datos-empresa" class="section-datos-empresa">
+            <h2 class="section-title">Datos Básicos Empresa</h2>
+            <p>
+                <label for="nombreEmpresa"><strong>Nombre de la Empresa:</strong></label>
+                <input type="text" id="nombreEmpresa" name="nombreEmpresa" required>
+            </p>
+        
+            <p>
+                <label for="industria"><strong>Industria:</strong></label>
+                <select id="industria" name="industria" required>
+                    <!-- Agrega más opciones según tus necesidades -->
+                </select>
+            </p>
+        </section>
+        
+        <section id="seccion-aurora-persona" class="section-aurora-persona">
+            <h2 class="section-title">Aurora Persona</h2>
+            <p>
+                <label for="hobby"><strong>Hobby:</strong></label>
+                <input type="text" id="hobby" name="hobby" required>
+            </p>
+        
+            <p>
+                <label for="intereses"><strong>Intereses:</strong></label>
+                <input type="text" id="intereses" name="intereses" required>
+            </p>
+        
+            <p>
+                <label for="profesion"><strong>Profesión:</strong></label>
+                <input type="text" id="profesion" name="profesion" required>
+            </p>
+        </section>
+        
+        <section id="seccion-aurora-empresa" class="section-aurora-empresa">
+            <h2 class="section-title">Aurora Empresa</h2>
+            <p>
+                <label for="sloganEmpresa"><strong>Slogan:</strong></label>
+                <input type="text" id="sloganEmpresa" name="sloganEmpresa" required>
+            </p>
+        
+            <select id="creacionempresa" name="creacionempresa" onchange="mostrarCampoEspecifico(this, 'campoEspecificoEmpresa')" required>
+                <option value="" disabled selected>Selecciona la Fecha de Creación</option>
+                <option value="otro">Otro</option>
+            </select>
+            
+            <p id="campoEspecificoEmpresa" style="display:none;">
+                <label for="creacionempresa"><strong>Año Específico:</strong></label>
+                <input type="text" id="creacionempresaEspecifico" name="creacionempresaEspecifico" placeholder="Ingrese el Año (máx. 4 caracteres)" oninput="limitarCaracteres(this, 4); validarSoloNumeros(event)" pattern="[0-9]*">
+            </p>
+        
+            <p>
+                <label for="mision"><strong>Misión:</strong></label>
+                <textarea id="mision" name="mision" rows="4" maxlength="450" required></textarea>
+            </p>
+        
+            <p>
+                <label for="vision"><strong>Visión:</strong></label>
+                <textarea id="vision" name="vision" rows="4" maxlength="450" required></textarea>
+            </p>
+        
+            <p>
+                <label for="objetivos"><strong>Objetivos:</strong></label>
+                <textarea id="objetivos" name="objetivos" rows="4" maxlength="450" required></textarea>
+            </p>
+        </section>
+        
+        <section id="seccion-contacto" class="section-contacto">
+            <h2 class="section-title">Contacto</h2>
+            <p>
+                <strong>Correo Electrónico:</strong>
+                <input type="text" id="userEmail" placeholder="Correo Electrónico">
+            </p>
+        
+            <p class="telefono-container">
+                <strong>Teléfono:</strong>
+                <select id="codigoPais">
+                    <!-- Puedes agregar opciones específicas de códigos de país aquí -->
+                </select>
+                <input type="text" id="phone" placeholder="Número de teléfono">
+            </p>
+        
+            <p>
+                <strong>Sitio Web:</strong>
+                <input type="text" id="sitioWeb" placeholder="Sitio Web">
+            </p>
+        
+            <p>
+                <strong>Horarios de Disponibilidad:</strong>
+                <input type="text" id="horariosDisponibilidad" placeholder="Ej. Lunes a Viernes, 9 AM - 5 PM">
+            </p>
+        </section>
+        
+        <section id="seccion-ubicacion" class="section-ubicacion">
+            <h2 class="section-title">Ubicación</h2>
+
+
+                <h3>Ubicación Actual:</h3>
+                <p class="location-container">
+                    <span class="location-icon">
+                        <img src="/assets/img/maps/pin-ubication.svg" alt="Icono de ubicación">
+                    </span>
+                    <span class="location-text">
+                        <span id="locationCitySpan"></span>, <span id="locationStateSpan"></span>, <span id="locationCountrySpan"></span>
+                    </span>
+                </p>
+                
+                <h3>Ubicación Selecionada:</h3>
+                <p><span id="locationCity"></span>, <span id="locationState"></span>, <span id="locationCountry"></span></p>
+                
+
+                <strong>Pais:</strong>
+                <select id="countrySelect" onchange="seleccionarPais()">
+                    <option value="" selected disabled>Seleccione un país</option>
+                    <!-- Opciones de países se cargarán dinámicamente desde el JSON -->
+                </select>
+                
+                <strong>Estado:</strong>
+                <select id="stateSelect" onchange="seleccionarEstado()" disabled>
+                    <option value="" selected disabled>Seleccione un estado</option>
+                    <!-- Opciones de estados se cargarán dinámicamente según el país seleccionado -->
+                </select>
+                
+                <strong>Ciudad:</strong>
+                <select id="citySelect" disabled>
+                    <option value="" selected disabled>Seleccione una ciudad</option>
+                    <!-- Opciones de ciudades se cargarán dinámicamente según el estado seleccionado -->
+                </select>
+                
+        
+            <h3>Opcional:</h3>
+            <strong>Espacio:</strong>
+            <select id="ubicacionEspacial">
+                <option value="" disabled selected>Ubicación Espacial</option>
+                <!-- Puedes agregar opciones específicas de ubicaciones espaciales aquí -->
+            </select> 
+        </section>
+        
+        <section id="seccion-crypto" class="section-crypto">
+            <h2 class="section-title">Crypto</h2>
+            <p>
+                <strong>Dirección:</strong>
+                <input type="text" id="userCryptoWalletAddress" placeholder="Dirección de la billetera">
+            </p>
+        
+            <p>
+                <strong>Criptos Favoritas:</strong>
+                <input type="text" id="favoriteCryptos" placeholder="Ej. BTC, ETH, XRP">
+            </p>
+        
+            <p>
+                <strong>Exchange Favorito:</strong>
+                <input type="text" id="favoriteExchange" placeholder="Ej. Binance, Coinbase, Kraken">
+            </p>
+        </section>
+        
+        <section id="seccion-redes-sociales" class="section-redes-sociales">
+            <h2 class="section-title">Redes Sociales</h2>
+            <div id="redes-container">
+                <strong>Selecciona Red social:</strong>
+                <select id="selectRedSocial"></select>
+            
+                <strong>Nombre de usuario @:</strong>
+                <input type="text" id="inputUsuarioRedSocial">
+            
+                <button onclick="agregarRedSocial()">Añadir Red Social</button>
+            </div>
+            
+            <div id="listaRedes"></div>
+            
+        </section>
+
+        
+
+
+
+
+
+
+
+
+        
     </div>
 </div>
 
 <!-- 🌟 WINDOW MODAL 🌟 -->
 
-    <!-- Indicador de carga -->
+    <-- Indicador de carga 
     <div id="intelligentLoader"></div>
 
-<script src="/assets/dist/general/Intel-loader-page.js" defer></script>
+<script src="/assets/dist/general/Intel-loader-page.js" defer></script>-->
+<script src="/assets/dist/settings/users/type-account-id.js" type="module" defer></script>
 <script src="/assets/dist/settings/users/profile-window-modal.js"></script>
-<script src="/assets/dist/settings/users/tab-dynamic-edit.js"></script>
-<script src="/assets/dist/settings/users/save-profile.js" type="module"></script>
-<script src="/assets/dist/settings/users/resaltador-tab-edit-profile.js" defer></script>
-<script src="/assets/dist/settings/users/add-social-form.js"></script>
-<script src="/assets/dist/general/funciones/notificaciones.js" defer></script>
-<script src="/assets/dist/general/funciones/contadorCaracteres.js" defer></script>
-<script src="/assets/dist/general/funciones/count-specific.js" defer></script>
 <script src="/assets/dist/general/funciones/cargar-opciones-select.js" defer></script>
-<script src="/assets/dist/general/funciones/cargar-opciones-ubicacion.js" defer></script>
+<script src="/assets/dist/settings/users/resaltador-tab-edit-profile.js" defer></script>
+<script src="/assets/dist/settings/users/tab-static-edit.js" type="module" defer></script>
+<script src="/assets/dist/general/funciones/update-ubications-select-span.js" defer></script>
+<script src="/assets/dist/settings/users/set-view-profile-data.js" type="module" defer></script>
+<script src="/assets/dist/settings/users/save-profile.js" type="module" defer></script>
+<script src="/assets/dist/settings/users/add-social-form.js"></script>
+<script src="/assets/dist/general/funciones/count-specific.js" defer></script>
+<script src="/assets/dist/general/funciones/notificaciones.js" defer></script>
 
 
 </body>

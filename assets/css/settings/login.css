@@ -36,10 +36,15 @@ body {
   align-items: center;
   width: 400px;
   background-color: #fff;
-  padding: 0px;
+  padding: 25px;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
+
+.login-title {
+  margin-bottom: 15px; /* Puedes ajustar el valor según tus necesidades */
+}
+
 
 /* Estilos para los campos de entrada en el formulario de login */
 .login-form input[type="email"],
@@ -65,6 +70,8 @@ body {
   border-radius: 8px;
   text-decoration: none;
   transition: background-color 0.3s, color 0.3s;
+  margin-bottom: 10px;
+
 }
 
 
@@ -92,6 +99,7 @@ body {
   display: block;
   margin: 0 auto;
   text-align: center;
+  margin-bottom: 25px;
 }
 
 
@@ -156,5 +164,17 @@ body {
   font-size: 12px;
   font-family: 'Arial', sans-serif;
   color: red; /* Cambia el color según tus preferencias */
-  margin-top: -5px; /* Ajusta según sea necesario para alinear con el campo de entrada */
+  margin-top: -10px; /* Ajusta según sea necesario para alinear con el campo de entrada */
+}
+
+/* Aplica estilos a input con id passwordLogin, independientemente de su tipo */
+#passwordLogin,
+#passwordLogin[type="text"] {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s, background-color 0.3s;
 }
