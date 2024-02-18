@@ -40,7 +40,7 @@
   </script>
 
 
-  <link rel="stylesheet" href="/assets/css/home/index.cs">
+  <link rel="stylesheet" href="/assets/css/home/index.css">
   <link rel="stylesheet" href="/assets/css/general/panel.css">
   <link rel="stylesheet" href="/assets/css/general/header.css">
   <link rel="stylesheet" href="/assets/css/general/footer.css">
@@ -53,6 +53,18 @@
   <link rel="stylesheet" href="/assets/css/general/account-navbar-panel.css">
   <link rel="stylesheet" href="/assets/css/general/user-navbar-tab.css">
   <link rel="stylesheet" href="/assets/css/token/cintacrypto.css">
+
+
+  <!-- Busqueda -->
+  <link rel="stylesheet" href="/assets/css/general/funciones/xalysna-search.css">
+  <link rel="stylesheet" href="/assets/css/general/funciones/xalysna-search-modal.css">
+
+
+
+
+
+
+
 
   <!-- Código para el favicon -->
   <link rel="icon" type="image/png" href="/assets/img/web/favicon.ico">
@@ -70,26 +82,72 @@
   </div>
 
   <header>
+    <div>
     <h1 id="main-title">Xalysna - Inspira el Futuro, Desbloquea tu Potencial</h1>
     <p id="greeting"></p>
-    <div class="logo">
-      <a href="index.html">
-        <img src="/assets/img/web/XalysnaAIx72.svg" alt="Logo de Xalysna">
-      </a>
     </div>
+
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="/assets/img/web/XalysnaAIx72.svg" alt="Logo de Xalysna" class="logo-img">
+      </a>
+    </div>    
   </header>
 
+  <div id="searchModal" class="modal uniqueSearchModal" style="display:none;">
+    <span class="closeSearchModal">&times;</span>
+    <div class="search-container"> 
+        <div class="input-container">
+            <input type="search" class="search-input" placeholder="Buscar en la página">
+            <div class="search-button"><img src="/assets/img/search/search.svg" alt="Icono de búsqueda" class="search-svg"></div>
+            <div class="shortcut-text"><span>CTRL</span>+ B</div>
+        </div>
+        <div class="suggestions-container"></div>
+
+        <div id="results-container">
+            <!-- Aquí se mostrarán los resultados -->
+        </div>
+
+        <div id="pagination-container">
+            <!-- Aquí se mostrarán los controles de paginación -->
+        </div>
+
+        <div class="search-options"></div>
+        <div class="search-history"></div>
+    </div>
+</div>
+
+  
+  
+
+
   <div class="navbar">
+
+    <div id="searchModalButton" class="search-button-modal">
+      <img src="/assets/img/search/search.svg" alt="Buscar" class="search-modal-svg">
+    </div>
+    
+
     <div id="auth-buttons-container">
       <button id="login-button">Iniciar sesión</button>
       <button id="signup-button" style="display: none;">Registrarse</button>
     </div>
 
-
     <div id="contenedorPerfil">
       <img id="imagenPerfil" src="" alt="Foto de perfil">
       <div id="primeraLetraContainer"></div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
 
 
     <!-- Menú desplegable -->
@@ -123,6 +181,19 @@
     </div>
    </div>
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <!-- Modal para la vista previa y recorte de la imagen -->
   <div id="modalRecorte" class="modal">
@@ -190,10 +261,8 @@
     </div>
   </footer>
 
-
   <!-- Scripts -->
-  <script src="assets/dist/settings/config/firebase-config-urls.js" type="module"></script>
-  <script src="assets/dist/settings/config/firebase-config.js" type="module"></script>
+  <script src="/assets/dist/general/verification-account-init.js" type="module" defer></script>
   <script src="/assets/dist/general/current-year.js" type="module"></script>
   <script src="/assets/dist/settings/auth/session-control.js" type="module"></script>
   <script src="/assets/dist/general/panel.js" type="module" defer></script>
@@ -205,10 +274,34 @@
   <script src="/assets/dist/settings/users/change-profile-image.js" type="module" defer></script>
   <script src="/assets/dist/settings/users/navbar/UserNavbarTab.js" type="module" defer></script>
   <script src="/assets/other/cropper/cropper.js"></script>
+  <script src="/assets/other/compressor/compressor.js"></script>
   <script src="/assets/dist/general/funciones/cropper-edit.js" type="module"></script>
   <script src="/assets/other/bootstrap/bootstrap.js"></script>
   <script src="/assets/dist/general/sidebar-lateral-izq.js"></script>
   <script src="/assets/dist/marketing/google-analytics.js"></script>
+
+
+  <!-- Busqueda -->
+
+  <script src="/assets/dist/general/funciones/xalysna-search.js" type="module"></script>
+  <script src="/assets/dist//general/funciones/Xalysna-autocomplete.js"></script>
+  <script src="/assets/dist/general/funciones/Xalysna-search-modal.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>

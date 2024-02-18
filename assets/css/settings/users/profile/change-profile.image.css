@@ -1,33 +1,58 @@
-/* Estilo para el contenedor redondo */
 #contenedorPerfil {
-    width: 100px; /* Ajusta según tus necesidades */
-    height: 100px; /* Ajusta según tus necesidades */
-    border-radius: 50%; /* Hace que el contenedor sea redondo */
-    overflow: hidden; /* Asegura que la foto de perfil se ajuste al contenedor redondo */
+    width: 60px; /* Aumentamos el tamaño para darle más presencia */
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
     position: relative;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* Sombra más definida */
+    transition: all 0.3s ease; /* Transición uniforme para todas las propiedades */
+    border: 2px solid #3498db; /* Borde sólido para destacar el contenedor */
+}
+
+#contenedorPerfil:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Sombra más intensa al pasar el mouse */
+    transform: rotate(-5deg) scale(1.1); /* Rotación sutil y aumento de tamaño al pasar el mouse */
 }
 
 #imagenPerfil {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ajusta el tamaño de la imagen para cubrir completamente el contenedor */
-    border-radius: 50%; /* Hace que la imagen sea redonda */
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Añadimos transición para transform */
+}
+
+#contenedorPerfil:hover #imagenPerfil {
+    opacity: 0.7; /* Ajustamos la opacidad para mayor transparencia */
+    transform: rotate(5deg); /* Contrarrestamos la rotación del contenedor */
 }
 
 #primeraLetraContainer {
     width: 100%;
     height: 100%;
-    font-size: 42px; /* Ajusta según tus necesidades */
+    font-size: 26px; /* Aumentamos el tamaño de la fuente */
     text-align: center;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 100px; /* Ajusta según tus necesidades */
-    color: #ffffff; /* Ajusta el color del texto */
-    background-color: #3498db; /* Ajusta el color de fondo del contenedor */
-    border-radius: 50%; /* Hace que el contenedor sea redondo */
+    font-family: 'Dancing Script', cursive;
+    line-height: 60px; /* Ajustamos el line-height al nuevo tamaño del contenedor */
+    color: #ffffff;
+    background-color: #3498db;
+    border-radius: 50%;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease; /* Añadimos transición para el color de fondo */
 }
+
+#contenedorPerfil:hover #primeraLetraContainer {
+    transform: translate(-50%, -50%) scale(1.2); /* Aumentamos más el tamaño al pasar el mouse */
+    opacity: 1; /* Aumentamos la opacidad al pasar el mouse */
+    background-color: #2980b9; /* Oscurecemos el fondo para resaltar la letra */
+}
+
+
 
 #botonSubirFoto {
     display: none; /* Oculta el botón de carga de archivo nativo */

@@ -446,8 +446,6 @@ p span {
     font-size: 16px; /* Tamaño de fuente */
 }
 
-
-
 /* Estilos específicos para dispositivos móviles */
 
 @media only screen and (max-width: 600px) {
@@ -486,6 +484,11 @@ p span {
     margin-right: 10px;
     margin-bottom: 5px;
     }
+}
 
-
+#mensajeUsuario {
+    font-size: 12px; /* Ajusta el tamaño de la fuente según tu preferencia */
+    font-family: 'Arial', sans-serif; /* Puedes cambiar la fuente según tus preferencias */
+    color: #555; /* Color del texto */
+    /* Agrega otros estilos según tus preferencias, como márgenes, espaciado, etc. */
 }

@@ -45,7 +45,7 @@
                     <h2>Paso 1: Ingresa tu nombre de usuario</h2>
                     <div class="campo-usuario">
                         <label for="usernameId"><strong>Usuario:</strong></label>
-                        <input type="text" id="usernameId" name="nombreUsuario" placeholder="Ej. Usuario123" title="Identificación única en la red">
+                        <input type="text" id="usernameId" name="nombreUsuario" placeholder="Ej. Xalysna" title="Identificación única en la red" maxlength="15">
                         <p id="mensajeUsuario"></p>
                     </div>                
                     <button type="button" onclick="anteriorPaso()">Atrás</button>
@@ -188,15 +188,17 @@
         </div>
     </div>
 
+      
 
     <!-- Scripts -->
     <script src="/assets/dist/settings/config/firebase-config.js" type="module"></script>
     <script src="/assets/dist/settings/config/firebase-config-urls.js" type="module"></script>
     <script src="/assets/dist/settings/users/save-profile.js" type="module"></script>
     <script src="/assets/dist/settings/auth/create-account.js"></script>
-    <script src="/assets/dist/settings/users/username-verification.js" type="module" defer></script>
+    <script src="/assets/dist/settings/users/username-verification-create.js" type="module" defer></script>
     <script src="/assets/dist/general/funciones/notificaciones.js" defer></script>
     <script src="/assets/dist/settings/users/set-view-profile-data.js" type="module"></script>
+    <script src="/assets/dist/general/verification-account-init.js" type="module"></script>
 
 
 

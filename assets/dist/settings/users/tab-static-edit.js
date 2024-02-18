@@ -1,5 +1,3 @@
-
-
 // Función para cargar las opciones en los elementos <select>
 function cargarOpciones() {
     cargarOpcionesEnModal(); 

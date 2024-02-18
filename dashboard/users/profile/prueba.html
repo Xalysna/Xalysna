@@ -4,7 +4,7 @@
     
 
     <link rel="stylesheet" href="/assets/css/settings/users/profile/profile-window-modal.css">
-    <link rel="stylesheet" href="/assets/css/general/funciones/contadorCaracteres.css">
+    <link rel="stylesheet" href="/assets/css/general/funciones/alternador-pestanas.css">
     <link rel="stylesheet" href="/assets/css/general/intel-loader-page.css">
 
         <!-- BaseUrl -->
@@ -29,9 +29,9 @@
 
 <!-- 🌟 WINDOW MODAL 🌟 -->
 
-<!-- Ventana modal 
+<!-- Ventana modal -->
 <div class="modal-container"></div>
-<div id="myModal" class="modal">-->
+<div id="myModal" class="modal">
     <!-- Contenido de la ventana modal -->
     <div class="modal-content">
         <button id="saveProfileButton" onclick="uploadToFirestore()">Guardar cambios</button>
@@ -207,7 +207,10 @@
                 <h3>Ubicación Selecionada:</h3>
                 <p><span id="locationCity"></span>, <span id="locationState"></span>, <span id="locationCountry"></span></p>
                 
+                <div class="pestaña" onclick="toggleInfo(this)">
+                <div class="flecha"></div>Cambiar Ubicación</div>
 
+                <div class="informacion">
                 <strong>Pais:</strong>
                 <select id="countrySelect" onchange="seleccionarPais()">
                     <option value="" selected disabled>Seleccione un país</option>
@@ -225,6 +228,8 @@
                     <option value="" selected disabled>Seleccione una ciudad</option>
                     <!-- Opciones de ciudades se cargarán dinámicamente según el estado seleccionado -->
                 </select>
+                </div>
+
                 
         
             <h3>Opcional:</h3>
@@ -284,10 +289,13 @@
 
 <!-- 🌟 WINDOW MODAL 🌟 -->
 
-    <-- Indicador de carga 
+
+    <!--  Indicador de carga  -->
     <div id="intelligentLoader"></div>
 
-<script src="/assets/dist/general/Intel-loader-page.js" defer></script>-->
+
+<script src="/assets/dist/general/Intel-loader-page.js" defer></script>
+<script src="/assets/dist/general/verification-account-init.js" type="module" defer></script>
 <script src="/assets/dist/settings/users/type-account-id.js" type="module" defer></script>
 <script src="/assets/dist/settings/users/profile-window-modal.js"></script>
 <script src="/assets/dist/general/funciones/cargar-opciones-select.js" defer></script>
@@ -297,9 +305,9 @@
 <script src="/assets/dist/settings/users/set-view-profile-data.js" type="module" defer></script>
 <script src="/assets/dist/settings/users/save-profile.js" type="module" defer></script>
 <script src="/assets/dist/settings/users/add-social-form.js"></script>
-<script src="/assets/dist/general/funciones/count-specific.js" defer></script>
+<script src="/assets/dist/settings/users/username-verification.js" type="module" defer></script>
+<script src="/assets/dist/general/funciones/alternador-pestanas.js" defer></script>
 <script src="/assets/dist/general/funciones/notificaciones.js" defer></script>
-
 
 </body>
 </html>

@@ -166,7 +166,7 @@ function cargarPaises() {
 function actualizarUbicacion() {
     // Obtener referencia al elemento select de país y al span correspondiente
     var countrySelect = document.getElementById("countrySelect");
-    var locationCountrySpan = document.getElementById("locationCountry");
+    var locationCountrySpan = document.getElementById("locationCountryStarter");
   
     // Obtener el valor seleccionado en el select de país
     var country = countrySelect.options[countrySelect.selectedIndex];
@@ -215,7 +215,7 @@ function validarPasoActual() {
 
         case 4:
             // Validación del paso 4: País seleccionado
-            const paisSeleccionado = document.getElementById('locationCountry').value;
+            const paisSeleccionado = document.getElementById('locationCountryStarter').value;
             return paisSeleccionado !== '';
 
         default:

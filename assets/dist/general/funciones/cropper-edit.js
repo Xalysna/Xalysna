@@ -47,43 +47,47 @@ botonSubirFoto.addEventListener('change', (event) => {
 });
 
 
-    // Agregar un listener al botón de aceptar en el modal
-    btnAceptarRecorte.addEventListener('click', async function () {
-        try {
-            // Verificar si cropper está inicializado
-            if (cropper) {
-                // Obtener la imagen recortada como base64
-                const canvas = cropper.getCroppedCanvas();
+// Agregar un listener al botón de aceptar en el modal
+btnAceptarRecorte.addEventListener('click', async function () {
+    try {
+        // Verificar si cropper está inicializado
+        if (cropper) {
+            // Obtener la imagen recortada como un Blob directamente desde el canvas
+            cropper.getCroppedCanvas().toBlob(function (blob) {
+                // Utilizar Compressor.js para comprimir el blob
+                new Compressor(blob, {
+                    quality: 0.4, // Ajusta la calidad según necesites, más bajo = menor tamaño de archivo
+                    mimeType: 'image/jpeg', // Mantener PNG para soportar transparencia
+                    success: async function (compressedBlob) {
+                        // Convertir el Blob comprimido a base64 para el siguiente paso de tu flujo
+                        const reader = new FileReader();
+                        reader.readAsDataURL(compressedBlob);
+                        reader.onloadend = async function () {
+                            const base64data = reader.result;
 
-                // Verificar que se obtuvo el lienzo recortado
-                if (!canvas) {
-                    throw new Error('Error: No se pudo obtener el lienzo recortado. Asegúrate de que la imagen se haya cargado completamente.');
-                }
+                            // Convertir la imagen recortada de base64 a un objeto File
+                            const imagenRecortadaFile = await convertirBase64AFile(base64data);
 
-                // Obtener la imagen recortada como base64 nuevamente después de asegurarse de que la imagen se haya cargado completamente
-                const imagenRecortadaBase64 = canvas.toDataURL('image/png');
+                            // Llamar a la función para subir la foto de perfil después del recorte
+                            await subirFotoPerfilYActualizar(obtenerUIDyCorreo().uid, imagenRecortadaFile);
 
-                // Verificar que la base64 sea válida
-                if (!imagenRecortadaBase64.startsWith('data:image/')) {
-                    throw new Error('Error: No se pudo obtener el lienzo recortado. La base64 no es válida.');
-                }
-
-                // Convertir la imagen recortada de base64 a un objeto File
-                const imagenRecortadaFile = await convertirBase64AFile(imagenRecortadaBase64);
-
-                // Llamar a la función para subir la foto de perfil después del recorte
-                await subirFotoPerfilYActualizar(obtenerUIDyCorreo().uid, imagenRecortadaFile);
-
-                // Ocultar el modal y destruir el objeto Cropper después de la operación
-                modalRecorte.style.display = 'none';
-                cropper.destroy();
-            } else {
-                throw new Error('Error: Cropper no inicializado correctamente. Asegúrate de que la imagen se haya cargado correctamente.');
-            }
-        } catch (error) {
-            console.error('Error al obtener la imagen recortada:', error.message);
+                            // Ocultar el modal y destruir el objeto Cropper después de la operación
+                            modalRecorte.style.display = 'none';
+                            cropper.destroy();
+                        };
+                    },
+                    error: function (err) {
+                        console.error('Error al comprimir la imagen:', err.message);
+                    },
+                });
+            }, 'image/jpeg', 0.4); 
+        } else {
+            throw new Error('Error: Cropper no inicializado correctamente.');
         }
-    });
+    } catch (error) {
+        console.error('Error al obtener la imagen recortada:', error.message);
+    }
+});
 
     // Agregar un listener al botón de cancelar en el modal
     btnCancelarRecorte.addEventListener('click', function () {
@@ -133,7 +137,7 @@ function convertirBase64AFile(base64) {
             const blob = dataURItoBlob(base64);
 
             // Crear un objeto File a partir del Blob
-            const file = new File([blob], 'imagen_recortada.png', { type: 'image/png' });
+            const file = new File([blob], 'imagen_recortada.jpeg', { type: 'image/jpeg' });
 
             if (file.size > 0) {
                 resolve(file);

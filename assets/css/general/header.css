@@ -18,7 +18,7 @@ header {
     color: #333;
     text-transform: capitalize;
     position: absolute;
-    top: 85px;
+    top: 80px;
     left: 50px;
     opacity: 0.2;
     animation: slide-in 17s linear infinite;
@@ -41,7 +41,9 @@ header {
     color: #555;
     opacity: 1;
     transition: opacity 0.3s ease;
+    margin-top: -35px; /* Aumenta el margen superior a 20px o el valor que prefieras */
   }
+  
   
   header.scrolled #greeting {
     opacity: 0;
@@ -54,7 +56,7 @@ header {
     }
   
     #main-title {
-      top: 100px;
+      top: 87px;
       left: 20px;
       font-size: 15px;
     }
@@ -63,7 +65,8 @@ header {
       display: block;
       font-size: 10px;
       padding: 7px 7px;
-      margin-top: 50px;
+      margin-top: -10px;
+      
     }
   }
   

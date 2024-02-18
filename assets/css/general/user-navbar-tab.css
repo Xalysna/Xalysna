@@ -1,36 +1,3 @@
-#contenedorPerfil {
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    overflow: hidden;
-    position: relative;
-}
-
-#imagenPerfil {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    cursor: pointer; /* Añadido para indicar que es interactivo */
-}
-
-#primeraLetraContainer {
-    width: 100%;
-    height: 100%;
-    font-size: 24px;
-    text-align: center;
-    font-family: 'Dancing Script', cursive;
-    line-height: 46px; /* Ajusta la altura del contenedor redondo */
-    color: #ffffff;
-    background-color: #3498db;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%; /* Alinea el elemento desde la mitad superior del contenedor */
-    left: 50%; /* Alinea el elemento desde la mitad izquierda del contenedor */
-    transform: translate(-50%, -50%); /* Centra el elemento con respecto al punto central del contenedor */
-    cursor: pointer;
-}
-
 /* Estilos del menú desplegable */
 .dropdown-menu {
     position: absolute;

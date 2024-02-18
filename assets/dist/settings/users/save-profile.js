@@ -62,6 +62,24 @@ export async function saveProfile() {
   // Obtener referencia al documento del usuario en la colección "USERS"
   const userDocRef = doc(firestore, 'USERS', uid);
 
+// Verificar si el documento ya existe
+const docSnapshot = await getDoc(userDocRef);
+
+if (!docSnapshot.exists()) {
+  console.error('El documento del usuario no existe en Firestore.');
+  return;
+}
+
+// Obtener los datos del documento
+const userData = docSnapshot.data();
+
+// Verificar si el campo 'estadoCuenta' ya existe y su valor es true
+if (userData.hasOwnProperty('estadoCuenta') && userData.estadoCuenta === true) {
+  console.log('El estado de la cuenta ya está establecido como true. No se actualizará.');
+} else {
+  // Si el campo 'estadoCuenta' no existe o su valor es false, continúa con la lógica de actualización o creación
+}
+
   // Obtener el tipo de usuario seleccionado desde el formulario HTML
   let tipoUsuario = document.getElementById('tipoFormulario')?.value;
 
@@ -184,6 +202,7 @@ for (const campo in camposEspecificos) {
     userUid: uid,
     fechaCreacion: auth.currentUser.metadata.creationTime,
     ultimaVezAcceso: serverTimestamp(),
+    estadoCuenta: true,
   };
 
   try {

@@ -1,5 +1,25 @@
-.logo img {
-    height: 47px; /* Tamaño del logo */
-    transform: translateY(10px); /* Baja el logo sin afectar a los elementos circundantes */
-    z-index: 2;
+/* Estilos para la imagen del logo en general */
+.logo-img {
+    width: 87px; /* Ajusta el ancho según tus necesidades */
+    height: auto; /* Para mantener la proporción original de la imagen */
+    transition: transform 0.3s ease-in-out; /* Efecto suave de transición al pasar el ratón */
+    margin-bottom: 10px; /* Ajusta la distancia inferior según tus necesidades */
+    margin-top: -10px; /* Ajusta la distancia superior según tus necesidades */
+
+}
+
+/* Estilos al pasar el ratón sobre la imagen del logo */
+.logo-img:hover {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el ratón */
+}
+
+/* Estilos específicos para dispositivos móviles con ancho máximo de 768px */
+@media screen and (max-width: 768px) {
+    .logo-img {
+        width: 100%; /* Haz que la imagen ocupe el ancho completo del contenedor en dispositivos móviles */
+        height: auto; /* Mantén la proporción original de la imagen */
+        margin-top: 20px; /* Ajusta la distancia superior según tus necesidades */
+        margin-bottom: 10px; /* Ajusta la distancia inferior según tus necesidades */
+        transform: none; /* Reinicia cualquier transformación aplicada en el hover */
+    }
 }

@@ -16,7 +16,6 @@
    </script>
 
 
-   <link rel="stylesheet" href="/assets/other/autoComplete/autoComplete.css">
    <link rel="stylesheet" href="/assets/css/general/funciones/xalysna-search.css">
 
 </head>
@@ -25,22 +24,28 @@
 
    <div class="search-container">
       <div class="input-container">
-         <input type="search" class="search-input" placeholder="Buscar en la página">
-         <div class="search-button"><img src="/assets/img/search/search.svg" alt="Icono de búsqueda" class="search-svg">
-         </div>
-         <div class="shortcut-text"><span>CTRL</span>+ B</div>
+          <input type="search" class="search-input" placeholder="Buscar en la página">
+          <div class="search-button"><img src="/assets/img/search/search.svg" alt="Icono de búsqueda" class="search-svg"></div>
+          <div class="shortcut-text"><span>CTRL</span>+ B</div>
       </div>
       <div class="suggestions-container"></div>
+  
+      <div id="results-container">
+          <!-- Aquí se mostrarán los resultados -->
+      </div>
+      <div id="pagination-container">
+          <!-- Aquí se mostrarán los controles de paginación -->
+      </div>
+      
       <div class="search-options"></div>
       <div class="search-history"></div>
-   </div>
+  </div>
+  
 
 
-   <script src="/assets/dist/settings/config/firebase-config-urls.js" type="module"></script>
-   <script src="/assets/dist/settings/config/firebase-config.js" type="module"></script>
    <script src="/assets/dist/general/funciones/xalysna-search.js" type="module"></script>
-   <script src="/assets/other/autoComplete/autoComplete.js" type="module"></script>
-
+   <script src="/assets/dist/general/funciones/Xalysna-autocomplete.js"></script>
+   <script src="/assets/dist/general/funciones/Xalysna-search-modal.js"></script>
 </body>
 
 </html>
