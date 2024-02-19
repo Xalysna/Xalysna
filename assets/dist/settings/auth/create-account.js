@@ -166,7 +166,7 @@ function cargarPaises() {
 function actualizarUbicacion() {
     // Obtener referencia al elemento select de país y al span correspondiente
     var countrySelect = document.getElementById("countrySelect");
-    var locationCountrySpan = document.getElementById("locationCountryStarter");
+    var locationCountrySpan = document.getElementById("locationCountry");
   
     // Obtener el valor seleccionado en el select de país
     var country = countrySelect.options[countrySelect.selectedIndex];
@@ -215,7 +215,7 @@ function validarPasoActual() {
 
         case 4:
             // Validación del paso 4: País seleccionado
-            const paisSeleccionado = document.getElementById('locationCountryStarter').value;
+            const paisSeleccionado = document.getElementById('locationCountry').value;
             return paisSeleccionado !== '';
 
         default:
@@ -252,3 +252,10 @@ function validarCamposSegunTipoCuenta(tipoCuenta) {
     }
 }
 
+
+document.getElementById("saveProfileButton").addEventListener("click", function() {
+    // Espera 10 segundos y redirige al usuario a /index.html
+    setTimeout(function() {
+      window.location.href = "/index.html";
+    }, 10000); // 10000 milisegundos = 10 segundos
+  });

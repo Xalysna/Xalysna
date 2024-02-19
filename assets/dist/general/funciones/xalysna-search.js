@@ -180,20 +180,25 @@ function updatePaginationControls(totalResults) {
 // Función para buscar en Firestore y mostrar los resultados
 async function searchFirestore() {
     try {
+        const searchQuery = searchInput.value.trim().toLowerCase(); // Obtener la consulta de búsqueda del usuario
+
         let allResults = [];
 
         for (const collectionName in collections) {
-            const { titleField, descriptionField, urlField, imageField } = collections[collectionName]; // Asegúrate de incluir imageField aquí
+            const { titleField, descriptionField, urlField, imageField } = collections[collectionName];
             const collectionRef = collection(db, collectionName);
             const collectionData = await getFirestoreData(collectionRef);
 
-            // Ahora también extraemos la URL de la imagen usando imageField
-            const results = collectionData.map(data => ({
+            // Filtrar los resultados de esta colección según la consulta de búsqueda
+            const results = collectionData.filter(data =>
+                data[titleField].toLowerCase().includes(searchQuery) ||
+                data[descriptionField].toLowerCase().includes(searchQuery)
+            ).map(data => ({
                 collectionType: collectionName,
                 title: data[titleField],
                 description: data[descriptionField],
                 url: data[urlField],
-                image: data[imageField] // Extraer la URL de la imagen
+                image: data[imageField]
             }));
 
             allResults = allResults.concat(results);
@@ -205,6 +210,7 @@ async function searchFirestore() {
         errorElement.textContent = 'Error searching Firestore. Please try again later.';
     }
 }
+
 
 // Event listener para el botón de búsqueda
 searchButton.addEventListener('click', function(event) {

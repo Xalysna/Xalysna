@@ -133,21 +133,6 @@
                             </p>
                         </div>
 
-                        <!-- Formulario para datos básicos - Marca -->
-                        <!-- <div id="formularioMarcaDatos" class="formulario-datos" style="display: none;">
-                            <legend>Datos de la Marca</legend>
-
-                            <p>
-                                <label for="nombreMarca"><strong>Nombre de la Marca:</strong></label>
-                                <input type="text" id="nombreMarca" name="nombreMarca" required>
-                            </p>
-                            <p>
-                                <label for="categoriaMarca"><strong>Categoría:</strong></label>
-                                <select id="categoriaMarca" name="categoriaMarca" required>
-                                    <!-- Agrega más opciones según tus necesidades 
-                                </select>
-                            </p>
-                            </div> -->
                     </div>
 
                     <button type="button" onclick="anteriorPaso()">Atrás</button>
@@ -163,7 +148,7 @@
                         <h4>Ubicación Selecionada:</h4>
                         <p>
                             <img src="/assets/img/maps/pin-ubication.svg" alt="Icono de ubicación" class="location-icon">
-                            <span id="locationCountryStarter" class="location-text"></span>
+                            <span id="locationCountry" class="location-text"></span>
                         </p>
                     </div>                        
 
@@ -191,8 +176,7 @@
       
 
     <!-- Scripts -->
-    <script src="/assets/dist/settings/config/firebase-config.js" type="module"></script>
-    <script src="/assets/dist/settings/config/firebase-config-urls.js" type="module"></script>
+    <script src="/assets/dist/settings/users/last-time-login.js" type="module"></script>
     <script src="/assets/dist/settings/users/save-profile.js" type="module"></script>
     <script src="/assets/dist/settings/auth/create-account.js"></script>
     <script src="/assets/dist/settings/users/username-verification-create.js" type="module" defer></script>

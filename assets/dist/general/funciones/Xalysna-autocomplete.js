@@ -189,6 +189,16 @@ let highlightedIndex = -1;
                 shortcutText.style.opacity = '1';
             }
         });
+
+        document.addEventListener('click', (event) => {
+            const isClickInsideSuggestions = suggestionsContainer.contains(event.target);
+            const isClickInsideSearchInput = searchInput.contains(event.target);
+        
+            if (!isClickInsideSuggestions && !isClickInsideSearchInput) {
+                suggestionsContainer.innerHTML = '';
+            }
+        });
+
     }
     
 });

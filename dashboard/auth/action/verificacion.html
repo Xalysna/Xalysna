@@ -32,18 +32,30 @@
 
 <body>
 
-  <form id="registerForm">
-    <div id="errorMessageRegister"></div>
-    <div class="register-container">
-      <div class="register-form">
+<form id="registerForm">
+  <div id="errorMessageRegister"></div>
+  <div class="register-container">
+    <div class="register-form">
 
-  <!-- Mensaje de Verificación -->
-  <div class="verification-container">
-    <h2 class="verification-title">Verificación de Correo Electrónico</h2>
-    <p>Te hemos enviado un correo electrónico con un enlace de verificación. Por favor, verifica tu correo electrónico para completar el proceso de registro en Xavaya.</p>
-    <!-- Agrega aquí cualquier otro contenido relevante -->
+      <!-- Mensaje de Verificación -->
+      <div class="verification-container">
+        <h2 class="verification-title">Verificación de Correo Electrónico</h2>
+        <p>Te hemos enviado un correo electrónico con un enlace de verificación. Por favor, verifica tu correo electrónico para completar el proceso de registro en Xavaya.</p>
+        <!-- Agrega aquí cualquier otro contenido relevante -->
+        
+
+        <a href="/dashboard/auth/create-account.html" class="submit-button">Completar detalles de la cuenta</a>
+
+      </div>
+
+
+    </div>
   </div>
+</form>
 
+
+
+  
         <!-- Pie de página -->
         <footer>
           <nav class="footer-navigation" id="footer-navigation">
@@ -58,6 +70,7 @@
         </footer>
 
   <!-- Scripts -->
+  <script src="/assets/dist/settings/users/last-time-login.js" type="module"></script>
   <script src="/assets/dist/settings/auth/verification-email.js" type="module" defer></script>
   <script src="/assets/dist/general/footer.js" type="module" async></script>
   <script src="/assets/dist/general/funciones/notificaciones.js" defer></script>

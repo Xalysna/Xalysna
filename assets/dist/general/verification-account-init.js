@@ -149,5 +149,9 @@ onAuthStateChanged(auth, (user) => {
     verificarEstadoCuenta(uid);
   } else {
     console.log('Usuario no autenticado');
+    // Redirigir al usuario a /index.html si está en /dashboard/auth/create-account.html y no está autenticado
+    if (isCurrentPage("/dashboard/auth/create-account.html")) {
+      window.location.href = "/index.html";
+    }
   }
 });
