@@ -7,22 +7,10 @@ const navigationButtons = [
   { label: 'Inicio', link: `${baseUrl}index.html`, image: `${baseUrl}assets/img/nav/inicio.svg` },
   { 
     label: 'Blog',
-    link: `/content/blog/index.html`,
+    link: `/content/blog/xalysna/xalysna-files/index.html`,
     image: `${baseUrl}assets/img/nav/blog.svg`,
-    subcategories: [
-      { label: 'Business AI', link: `/content/blog/index.html`, image: `${baseUrl}assets/img/nav/business.svg` },
-      { label: 'Creative AI', link: `${baseUrl}blog/creative-ai`, image: `${baseUrl}assets/img/nav/Creative.svg` },
-      { label: 'Entertain AI', link: `${baseUrl}blog/entertain-ai`, image: `${baseUrl}assets/img/nav/Entertain.svg` },
-      { label: 'FitSport', link: `${baseUrl}blog/fitsport`, image: `${baseUrl}assets/img/nav/FitSport.svg` },
-      { label: 'Lifestyle AI', link: `${baseUrl}blog/lifestyle-ai`, image: `${baseUrl}assets/img/nav/Lifestyle.svg` },
-      { label: 'Science Tech Minds', link: `${baseUrl}blog/science-tech-minds`, image: `${baseUrl}assets/img/nav/Science.svg` },
-      { label: 'TechKnow', link: `${baseUrl}blog/techknow`, image: `${baseUrl}assets/img/nav/TechKnow.svg` },
-      { label: 'TechVision360', link: `${baseUrl}blog/techvision360`, image: `${baseUrl}assets/img/nav/TechVision360.svg` }
-    ]
   },
-  { label: 'Enciclopedia', link: `${baseUrl}xavaya-encyclopedia`, image: `${baseUrl}assets/img/nav/ency.svg` },
   { label: 'Utilidades', link: `${baseUrl}Utilities`, image: `${baseUrl}assets/img/nav/tool.svg` },
-  { label: 'Repositorio', link: `/content/repository/repository.html`, image: `${baseUrl}assets/img/nav/repository.svg` },
   { label: 'Xalysna Token', link: `${baseUrl}xavaya-token`, image: `${baseUrl}assets/img/nav/token.svg` },
 ];
 
@@ -122,16 +110,15 @@ generateButtons();
 /////////////////////////////
 
 // Obtener el nivel máximo de oscuridad permitido (ajusta este valor según tus necesidades)
-const maxDarkness = -1000;
+const maxDarkness = -3000;
 
 // Obtener el nivel máximo de claridad permitido (ajusta este valor según tus necesidades)
 const maxLightness = 5505;
 
-// Obtener el panel que se desea cambiar de color
-const panelElement = document.getElementById('panel'); // Reemplaza 'panel' con el ID real del elemento del panel
-
-// Obtener la barra de navegación
-const navigationElement = document.getElementById('navigation');
+// Obtener los elementos que se desean cambiar de color
+let panelElement = document.getElementById('UserDropdownMenu'); 
+let mainNavbar = document.getElementById('main-navbar'); 
+let primeraLetraContainer = document.getElementById('primeraLetraContainer');
 
 // Crear el elemento de la imagen del icono SVG
 const iconImage = document.createElement('img');
@@ -139,43 +126,35 @@ iconImage.src = `${baseUrl}assets/img/nav/color.svg`;
 iconImage.alt = 'Icono';
 iconImage.style.width = '24px';
 iconImage.style.height = '24px';
-iconImage.id = 'color-icon'; // Asignar el ID 'color-icon' al primer elemento de imagen del icono SVG
-
-// Establecer estilos para el icono como botón
+iconImage.id = 'color-icon';
 iconImage.classList.add('boton-navegacion');
 
 // Verificar si hay un color guardado en el almacenamiento local
 const savedGradient = localStorage.getItem('panelGradient');
 
-// Definir el degradado predeterminado para el color de fondo del panel
+// Definir el degradado predeterminado para el color de fondo de los elementos
 const defaultGradient = 'linear-gradient(to right, #F3F1BA, #A1AFFF)'; // Coloca el degradado predeterminado deseado aquí
 
-// Restaurar el degradado guardado en el panel o establecer el degradado predeterminado
+// Restaurar el degradado guardado en los elementos o establecer el degradado predeterminado
 panelElement.style.backgroundImage = savedGradient || defaultGradient;
+mainNavbar.style.backgroundImage = savedGradient || defaultGradient;
 
 // Actualizar el color del icono y los textos en el inicio
-updateIconAndTextColors(panelElement.style.backgroundImage);
+updateIconAndTextColors(savedGradient || defaultGradient);
 
 // Manejador de evento para el clic en el icono
 iconImage.addEventListener('click', () => {
-  // Generar colores aleatorios para el degradado
   const randomColor1 = getRandomColor();
   const randomColor2 = getRandomColor();
-
-  // Generar el degradado aleatorio
   const randomGradient = `linear-gradient(to right, ${randomColor1}, ${randomColor2})`;
-
-  // Aplicar el degradado al panel
   panelElement.style.backgroundImage = randomGradient;
-
-  // Actualizar el color del icono y los textos en el nuevo fondo
+  mainNavbar.style.backgroundImage = randomGradient;
+  primeraLetraContainer.style.backgroundColor = randomColor2;  // Ajusta el fondo a uno de los colores aleatorios
   updateIconAndTextColors(randomGradient);
-
-  // Guardar el degradado en el almacenamiento local
   localStorage.setItem('panelGradient', randomGradient);
 });
 
-// Función para generar un color aleatorio en formato hexadecimal
+
 function getRandomColor() {
   const letters = '0123456789ABCDEF';
   let color = '#';
@@ -185,36 +164,26 @@ function getRandomColor() {
   return color;
 }
 
-// Función para actualizar el color del icono y los textos
 function updateIconAndTextColors(gradient) {
-  // Obtener los colores del degradado
   const colors = gradient.match(/#[0-9A-Fa-f]{6}/g);
-
   if (colors && colors.length >= 2) {
-    // Obtener el primer y último color del degradado
     const firstColor = colors[0];
     const lastColor = colors[colors.length - 1];
-
-    // Verificar si el primer y último color son oscuros o claros
     const isDarkFirstColor = isDarkColor(firstColor);
     const isDarkLastColor = isDarkColor(lastColor);
-
-    // Establecer el color del icono basado en los colores del degradado
     const iconColor = isDarkFirstColor && isDarkLastColor ? '#FFFFFF' : '#000000';
     iconImage.style.fill = iconColor;
-
-    // Obtener todos los elementos <a> dentro del elemento de navegación
-    const navigationLinks = navigationElement.getElementsByTagName('a');
-
-    // Recorrer los enlaces de navegación y establecer su color
+    // Actualizar solo el color de los enlaces en la barra de navegación principal
+    const navigationLinks = mainNavbar.getElementsByTagName('a');
     for (let i = 0; i < navigationLinks.length; i++) {
       navigationLinks[i].style.color = iconColor;
     }
 
-    // Establecer el color de los textos en el estado de autenticación
-    statusElement.style.color = isDarkLastColor ? '#FFFFFF' : '#000000';
+    // Actualizar el color de fondo de #primeraLetraContainer
+    primeraLetraContainer.style.backgroundColor = lastColor;  // Utiliza el último color del degradado para el fondo
   }
 }
+
 
 // Función para verificar si un color es oscuro o claro
 function isDarkColor(color) {
@@ -272,8 +241,9 @@ panelElement.appendChild(resetButton);
 
 // Manejador de evento para el clic en el botón de restablecer
 resetButton.addEventListener('click', () => {
-  // Restablecer el degradado del panel al degradado predeterminado
   panelElement.style.backgroundImage = defaultGradient;
+  mainNavbar.style.backgroundImage = defaultGradient;
+  primeraLetraContainer.style.backgroundColor = '#A1AFFF';
 
   // Actualizar el color del icono y los textos en el nuevo fondo
   updateIconAndTextColors(defaultGradient);

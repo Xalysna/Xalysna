@@ -14,10 +14,18 @@
   <!-- Configuración general para redes sociales -->
   <meta property="og:title" content="Xalysna - Inspira el Futuro, Desbloquea tu Potencial">
   <meta property="og:description" content="Explora un espacio en constante transformación, descubre fuentes infinitas de inspiración para desbloquear tu potencial.">
-  <meta property="og:image" content="">
+  <meta property="og:image" content="https://www.xalysna.com/assets/img/web/XalysnaOG.jpg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.xalysna.com">
   <meta property="og:site_name" content="Xalysna">
+
+    <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Xalysna">
+  <meta name="twitter:title" content="Xalysna - Inspira el Futuro, Desbloquea tu Potencial">
+  <meta name="twitter:description" content="Explora un espacio en constante transformación, descubre fuentes infinitas de inspiración para desbloquear tu potencial.">
+  <meta name="twitter:image" content="https://www.xalysna.com/assets/img/web/XalysnaOG.jpg">
+  <meta name="twitter:creator" content="@Xalysna">
 
     <!-- Etiqueta Canónica para la Página Principal -->
     <link rel="canonical" href="https://www.xalysna.com/index.html">
@@ -39,46 +47,44 @@
     const jsBaseUrl = `${baseUrl}assets/dist`;
   </script>
 
+<!-- Estilos Generales -->
+<link rel="stylesheet" href="/assets/css/general/header.css">
+<link rel="stylesheet" href="/assets/css/general/footer.css">
+<link rel="stylesheet" href="/assets/css/general/sidebar-lateral-izq.css">
+<link rel="stylesheet" href="/assets/css/general/panel.css">
+<link rel="stylesheet" href="/assets/css/general/logo.css">
+<link rel="stylesheet" href="/assets/css/general/account-navbar-panel.css">
+<link rel="stylesheet" href="/assets/css/general/user-navbar-tab.css">
 
-  <link rel="stylesheet" href="/assets/css/home/index.css">
-  <link rel="stylesheet" href="/assets/css/general/panel.css">
-  <link rel="stylesheet" href="/assets/css/general/header.css">
-  <link rel="stylesheet" href="/assets/css/general/footer.css">
-  <link rel="stylesheet" href="/assets/css/general/sidebar-lateral-izq.css">
-  <link rel="stylesheet" href="/assets/css/general/funciones/notification.css">
-  <link rel="stylesheet" href="/assets/css/settings/users/profile/change-profile.image.css">
-  <link rel="stylesheet" href="/assets/other/cropper/cropper.css">
-  <link rel="stylesheet" href="/assets/css/general/funciones/cropper-edit.css">
-  <link rel="stylesheet" href="/assets/css/general/logo.css">
-  <link rel="stylesheet" href="/assets/css/general/account-navbar-panel.css">
-  <link rel="stylesheet" href="/assets/css/general/user-navbar-tab.css">
-  <link rel="stylesheet" href="/assets/css/token/cintacrypto.css">
+<!-- Notificaciones y Funciones -->
+<link rel="stylesheet" href="/assets/css/general/funciones/notification.css">
+<link rel="stylesheet" href="/assets/css/general/funciones/cropper-edit.css">
 
+<!-- Perfil de Usuario y Configuraciones -->
+<link rel="stylesheet" href="/assets/css/settings/users/profile/change-profile.image.css">
 
-  <!-- Busqueda -->
-  <link rel="stylesheet" href="/assets/css/general/funciones/xalysna-search.css">
-  <link rel="stylesheet" href="/assets/css/general/funciones/xalysna-search-modal.css">
+<!-- Librerías Externas -->
+<link rel="stylesheet" href="/assets/other/cropper/cropper.css">
 
+<!-- Estilos Específicos de Página -->
+<link rel="stylesheet" href="/assets/css/home/index.css">
 
-
-
-
-
-
+<!-- Búsqueda -->
+<link rel="stylesheet" href="/assets/css/general/funciones/xalysna-search.css">
+<link rel="stylesheet" href="/assets/css/general/funciones/xalysna-search-modal.css">
 
   <!-- Código para el favicon -->
   <link rel="icon" type="image/png" href="/assets/img/web/favicon.ico">
 
 </head>
 
-<body>
+  <body>
 
   <div id="panel">
     <!-- Comentario: Este es el panel principal -->
     <p id="status"></p>
     <nav id="navigation"></nav>
     <div id="subcategory-panel"></div>
-
   </div>
 
   <header>
@@ -121,7 +127,7 @@
   
 
 
-  <div class="navbar">
+<div id="main-navbar" class="navbar">
 
     <div id="searchModalButton" class="search-button-modal">
       <img src="/assets/img/search/search.svg" alt="Buscar" class="search-modal-svg">
@@ -137,17 +143,6 @@
       <img id="imagenPerfil" src="" alt="Foto de perfil">
       <div id="primeraLetraContainer"></div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
     <!-- Menú desplegable -->
@@ -176,7 +171,6 @@
       <a href="#">Editar perfil</a>
       <a href="#">Configuraciones de la cuenta</a>
       <a href="#">Ayuda</a>
-      <a href="#">Agregar otra cuenta</a>
       <a href="#" id="logout-button" style="display: none;">Cerrar sesión</a>
     </div>
    </div>
@@ -261,31 +255,41 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="/assets/dist/general/verification-account-init.js" type="module" defer></script>
-  <script src="/assets/dist/general/current-year.js" type="module"></script>
-  <script src="/assets/dist/settings/auth/session-control.js" type="module"></script>
-  <script src="/assets/dist/general/panel.js" type="module" defer></script>
-  <script src="/assets/dist/general/footer.js" defer></script>
-  <script src="assets/dist/settings/users/last-time-login.js" type="module"></script>
-  <script src="/assets/dist/general/funciones/notificaciones.js" defer></script>
-  <script src="/assets/dist/general/auth-buttons-nav.js" type="module" defer></script>
-  <script src="/assets/dist/token/cintacrypto.js" defer></script>
-  <script src="/assets/dist/settings/users/change-profile-image.js" type="module" defer></script>
-  <script src="/assets/dist/settings/users/navbar/UserNavbarTab.js" type="module" defer></script>
-  <script src="/assets/other/cropper/cropper.js"></script>
-  <script src="/assets/other/compressor/compressor.js"></script>
-  <script src="/assets/dist/general/funciones/cropper-edit.js" type="module"></script>
-  <script src="/assets/other/bootstrap/bootstrap.js"></script>
-  <script src="/assets/dist/general/sidebar-lateral-izq.js"></script>
-  <script src="/assets/dist/marketing/google-analytics.js"></script>
 
 
-  <!-- Busqueda -->
 
-  <script src="/assets/dist/general/funciones/xalysna-search.js" type="module"></script>
-  <script src="/assets/dist//general/funciones/Xalysna-autocomplete.js"></script>
-  <script src="/assets/dist/general/funciones/Xalysna-search-modal.js"></script>
+
+<!-- Autenticación y Control de Sesión -->
+<script src="/assets/dist/general/verification-account-init.js" type="module" defer></script>
+<script src="/assets/dist/settings/auth/session-control.js" type="module"></script>
+<script src="/assets/dist/general/auth-buttons-nav.js" type="module" defer></script>
+<script src="/assets/dist/settings/users/last-time-login.js" type="module"></script>
+<script src="/assets/dist/settings/users/change-profile-image.js" type="module" defer></script>
+<script src="/assets/dist/settings/users/navbar/UserNavbarTab.js" type="module" defer></script>
+
+<!-- Utilidades y Funcionalidades Generales -->
+<script src="/assets/dist/general/current-year.js" type="module"></script>
+<script src="/assets/dist/general/panel.js" type="module" defer></script>
+<script src="/assets/dist/general/footer.js" defer></script>
+<script src="/assets/dist/general/funciones/notificaciones.js" defer></script>
+<script src="/assets/dist/general/sidebar-lateral-izq.js"></script>
+
+<!-- Edición de Imágenes -->
+<script src="/assets/other/cropper/cropper.js"></script>
+<script src="/assets/other/compressor/compressor.js"></script>
+<script src="/assets/dist/general/funciones/cropper-edit.js" type="module"></script>
+
+<!-- Librerías Externas -->
+<script src="/assets/other/bootstrap/bootstrap.js"></script>
+
+<!-- Marketing y Análisis -->
+<script src="/assets/dist/marketing/google-analytics.js"></script>
+
+<!-- Búsqueda -->
+<script src="/assets/dist/general/funciones/xalysna-search.js" type="module"></script>
+<script src="/assets/dist/general/funciones/Xalysna-autocomplete.js"></script>
+<script src="/assets/dist/general/funciones/Xalysna-search-modal.js"></script>
+
 
 
 

@@ -2,32 +2,73 @@
 <html lang="es">
 
 <head>
-<!-- Metadatos -->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Perfil de Usuario - Xalysna Inspira el Futuro, Desbloquea tu Potencial</title>
-<meta name="description" content="Perfil de <span id='nombre'></span>: <span id='descripcion'></span>">
-<meta name="author" content="Xalysna">
-<meta name="robots" content="index, follow">
-<meta http-equiv="x-content-type-options" content="nosniff">
+  <!-- Metadatos -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil de  - Xalysna Inspira el Futuro, Desbloquea tu Potencial</title>
+  <meta name="description" content="Explora un espacio en constante transformación, descubre fuentes infinitas de inspiración para desbloquear tu potencial.">
+  <meta name="author" content="Xalysna">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="x-content-type-options" content="nosniff">
 
-<!-- BaseUrl -->
-    <script>
+  <!-- Configuración general para redes sociales -->
+  <meta property="og:title" content="Xalysna - Inspira el Futuro, Desbloquea tu Potencial">
+  <meta property="og:description" content="Explora un espacio en constante transformación, descubre fuentes infinitas de inspiración para desbloquear tu potencial.">
+  <meta property="og:image" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.xalysna.com">
+  <meta property="og:site_name" content="Xalysna">
+
+    <!-- Etiqueta Canónica para la Página Principal -->
+    <link rel="canonical" href="https://www.xalysna.com/index.html">
+
+  <!-- Etiqueta de verificación de Google Search Console -->
+  <meta name="google-site-verification" content="Tu-Código-de-Verificación">
+
+
+  <!-- Xalysna - Google analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYHNGX0Y0E"></script>
+<script src="/assets/dist/marketing/google-analytics.js"></script>
+
+
+  <!-- BaseUrl -->
+  <script>
     const baseUrl = '/'; // Coloca aquí tu URL base
     const imgBaseUrl = `${baseUrl}assets/img`;
     const cssBaseUrl = `${baseUrl}assets/css`;
     const jsBaseUrl = `${baseUrl}assets/dist`;
-    </script>
+  </script>
 
-
-<link rel="stylesheet" href="/assets/css/settings/users/profile/profile-container.css">
-<link rel="stylesheet" href="/assets/css/settings/users/profile/profile-buttons.css">
-<link rel="stylesheet" href="/assets/css/settings/users/profile/change-profile.image.css">
-<link rel="stylesheet" href="/assets/css/settings/users/profile/profile-window-modal.css">
+<!-- Estilos Generales -->
+<link rel="stylesheet" href="/assets/css/general/header.css">
 <link rel="stylesheet" href="/assets/css/general/footer.css">
-<link rel="stylesheet" href="/assets/css/home/index.css">
-<link rel="stylesheet" href="/assets/css/general/funciones/notification.css">
+<link rel="stylesheet" href="/assets/css/general/sidebar-lateral-izq.css">
 <link rel="stylesheet" href="/assets/css/general/panel.css">
+<link rel="stylesheet" href="/assets/css/general/logo.css">
+<link rel="stylesheet" href="/assets/css/general/account-navbar-panel.css">
+<link rel="stylesheet" href="/assets/css/general/user-navbar-tab.css">
+
+<!-- Notificaciones y Funciones -->
+<link rel="stylesheet" href="/assets/css/general/funciones/notification.css">
+<link rel="stylesheet" href="/assets/css/general/funciones/cropper-edit.css">
+
+<!-- Perfil de Usuario y Configuraciones -->
+<link rel="stylesheet" href="/assets/css/settings/users/profile/change-profile.image.css">
+<link rel="stylesheet" href="/assets/css/settings/users/profile/profile-container.css">
+
+
+<!-- Librerías Externas -->
+<link rel="stylesheet" href="/assets/other/cropper/cropper.css">
+
+<!-- Estilos Específicos de Página -->
+<link rel="stylesheet" href="/assets/css/home/index.css">
+
+<!-- Búsqueda -->
+<link rel="stylesheet" href="/assets/css/general/funciones/xalysna-search.css">
+<link rel="stylesheet" href="/assets/css/general/funciones/xalysna-search-modal.css">
+
+
+
 
 <!-- Código para el favicon -->
 <link rel="icon" type="image/png" href="/assets/img/web/favicon.ico">
@@ -37,23 +78,140 @@
 
 <body>
 
-    <header>
-        <h1 id="main-title">Xavaya: Inspira el Futuro, Desbloquea tu Potencial</h1>
-        <p id="greeting"></p>
-    </header>
+  <div id="panel">
+    <!-- Comentario: Este es el panel principal -->
+    <p id="status"></p>
+    <nav id="navigation"></nav>
+    <div id="subcategory-panel"></div>
 
-    <!-- Sección de Cambio de Imagen de Perfil -->
-    <div id="avatar" class="change-profile-image-container">
-        <!-- Mostrar la imagen de perfil o inicial del nombre si no hay imagen -->
-        <img src="" id="userAvatar">
-        <div class="initial-avatar" id="initialAvatar">A</div>
+  </div>
 
-        <!-- Botón de subir imagen -->
-        <button id="uploadImageButton" class="upload-button">Subir Imagen</button>
+  <header>
+    <div>
+    <h1 id="main-title">Xalysna - Inspira el Futuro, Desbloquea tu Potencial</h1>
+    <p id="greeting"></p>
+    </div>
+
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="/assets/img/web/XalysnaAIx72.svg" alt="Logo de Xalysna" class="logo-img">
+      </a>
+    </div>    
+  </header>
+
+
+    <div id="searchModal" class="modal uniqueSearchModal" style="display:none;">
+    <span class="closeSearchModal">&times;</span>
+    <div class="search-container"> 
+        <div class="input-container">
+            <input type="search" class="search-input" placeholder="Buscar en la página">
+            <div class="search-button"><img src="/assets/img/search/search.svg" alt="Icono de búsqueda" class="search-svg"></div>
+            <div class="shortcut-text"><span>CTRL</span>+ B</div>
+        </div>
+        <div class="suggestions-container"></div>
+
+        <div id="results-container">
+            <!-- Aquí se mostrarán los resultados -->
+        </div>
+
+        <div id="pagination-container">
+            <!-- Aquí se mostrarán los controles de paginación -->
+        </div>
+
+        <div class="search-options"></div>
+        <div class="search-history"></div>
+    </div>
+</div>
+
+  
+  
+
+
+  <div class="navbar">
+
+    <div id="searchModalButton" class="search-button-modal">
+      <img src="/assets/img/search/search.svg" alt="Buscar" class="search-modal-svg">
+    </div>
+    
+
+    <div id="auth-buttons-container">
+      <button id="login-button">Iniciar sesión</button>
+      <button id="signup-button" style="display: none;">Registrarse</button>
+    </div>
+
+    <div id="contenedorPerfil">
+      <img id="imagenPerfil" src="" alt="Foto de perfil">
+      <div id="primeraLetraContainer"></div>
     </div>
 
 
 
+    <!-- Menú desplegable -->
+    <div id="UserDropdownMenu" class="dropdown-menu">
+      <!-- Contenedor para el botón de subir foto de perfil -->
+      <div class="contenedor-boton">
+        <label for="botonSubirFoto" class="custom-file-upload">
+          <!-- Ruta al archivo SVG de la cámara -->
+          <img class="icono-camera" src="/assets/img/profile/Camera.svg" alt="Icono de cámara">
+        </label>
+        <!-- Botón para subir la foto de perfil -->
+        <input type="file" id="botonSubirFoto" accept="image/*">
+      </div>
+
+      <!-- Contenedor para el botón de eliminar foto de perfil -->
+      <div class="contenedor-boton">
+        <!-- Botón personalizado para eliminar la foto con solo el icono de la papelera -->
+        <label for="eliminarFotoPerfilBtn" class="custom-delete" style="cursor: pointer;">
+          <!-- Ruta al archivo SVG de la papelera -->
+          <img class="icono-papelera" src="/assets/img/profile/gallery-remove.svg" alt="Icono de papelera">
+        </label>
+        <!-- Input oculto que servirá como el botón de clic real -->
+        <input type="button" id="eliminarFotoPerfilBtn" style="display: none;">
+      </div>
+
+      <a href="#">Editar perfil</a>
+      <a href="#">Configuraciones de la cuenta</a>
+      <a href="#">Ayuda</a>
+      <a href="#">Agregar otra cuenta</a>
+      <a href="#" id="logout-button" style="display: none;">Cerrar sesión</a>
+    </div>
+   </div>
+  </div>
+
+  <!-- Modal para la vista previa y recorte de la imagen -->
+  <div id="modalRecorte" class="modal">
+    <div class="modal-content">
+      <img id="imagenRecorte" src="" alt="Vista previa de recorte">
+      <button id="btnAceptarRecorte">Aceptar</button>
+      <button id="btnCancelarRecorte">Cancelar</button>
+    </div>
+  </div>
+
+  <!-- Agrega esta ventana modal en tu HTML -->
+  <div class="modal fade" id="confirmacionModal" tabindex="-1" aria-labelledby="confirmacionModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmacionModalLabel">Confirmar eliminación</h5>
+        </div>
+        <div class="modal-body">
+          ¿Estás seguro de que quieres eliminar tu foto de perfil?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger" id="confirmarEliminacionBtn">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <main>
     <div class="profile-container">
         <div class="profile-info">
             <!-- Pestañas de Navegación -->
@@ -67,9 +225,6 @@
             </div>
 
 
-            <!-- Botón para abrir la ventana modal -->
-            <button onclick="mostrarModal()">Editar Perfil</button>
-
 
             <!-- Nueva sección "Red Social" -->
             <div id="red-social" class="tabcontent">
@@ -77,7 +232,7 @@
                     <!-- Detalles del usuario -->
                     <div class="user-details">
                         <h2 id="fullName"></h2>
-                        <h3 id="alias"></h3>
+                        <h3 id="usernameId"></h3>
                         <p id="locationInfo"><strong>Ubicación:</strong> <span id="locationCity"></span>, <span
                                 id="locationCountry"></span>, <span id="locationPlanet"></span></p>
                         <p><strong>Descripción:</strong> <span id="bio"></span></p>
@@ -110,10 +265,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
 
             <!-- Sección de Biografía -->
             <div id="bio-info" class="tabcontent">
@@ -190,11 +341,29 @@
                     <!-- Puedes repetir este patrón para mostrar más publicaciones privadas -->
                 </div>
             </div>
-
-
         </div>
     </div>
 
+  </main>  
+
+
+
+
+
+    
+  <div class="outside-btn" onclick="toggleSidebar()">
+    <img src="/assets/img/nav/sidebar-right.svg" alt="Icono de la barra lateral">
+  </div>
+  
+
+  <div class="sidebar">
+    <button class="toggle-btn" onclick="toggleSidebar()">
+      <img src="/assets/img/nav/Sidebar.svg" alt="Icono de la barra lateral">
+    </button>
+    <div class="sidebar-content">
+      <p>Contenido de la barra lateral</p>
+    </div>
+  </div>
 
 
 
@@ -214,13 +383,56 @@
     <!-- Scripts -->
     <script src="/assets/dist/settings/users/profile-nav.js" defer></script>
     <script src="/assets/dist/settings/users/display-profile-data.js" type="module" defer></script>
-    <script src="/assets/dist/settings/users/change-profile-image.js" type="module" defer></script>
-    <script src="/assets/dist/settings/users/profile-window-modal.js" defer></script>
     <script src="/assets/dist/settings/users/generate-qrcode.js" type="module" defer></script>
     <script src="/assets/dist/blog/title-article.js" type="module" async></script>
-    <script src="/assets/dist/general/current-year.js" type="module" async></script>
-    <script src="/assets/dist/general/footer.js" type="module" async></script>
-    <script src="/assets/dist/general/funciones/notificaciones.js" defer></script>
+
+
+  
+<!-- Autenticación y Control de Sesión -->
+<script src="/assets/dist/general/verification-account-init.js" type="module" defer></script>
+<script src="/assets/dist/settings/auth/session-control.js" type="module"></script>
+<script src="/assets/dist/general/auth-buttons-nav.js" type="module" defer></script>
+<script src="/assets/dist/settings/users/last-time-login.js" type="module"></script>
+<script src="/assets/dist/settings/users/change-profile-image.js" type="module" defer></script>
+<script src="/assets/dist/settings/users/navbar/UserNavbarTab.js" type="module" defer></script>
+
+<!-- Utilidades y Funcionalidades Generales -->
+<script src="/assets/dist/general/current-year.js" type="module"></script>
+<script src="/assets/dist/general/panel.js" type="module" defer></script>
+<script src="/assets/dist/general/footer.js" defer></script>
+<script src="/assets/dist/general/funciones/notificaciones.js" defer></script>
+<script src="/assets/dist/general/sidebar-lateral-izq.js"></script>
+
+<!-- Edición de Imágenes -->
+<script src="/assets/other/cropper/cropper.js"></script>
+<script src="/assets/other/compressor/compressor.js"></script>
+<script src="/assets/dist/general/funciones/cropper-edit.js" type="module"></script>
+
+<!-- Librerías Externas -->
+<script src="/assets/other/bootstrap/bootstrap.js"></script>
+
+<!-- Marketing y Análisis -->
+<script src="/assets/dist/marketing/google-analytics.js"></script>
+
+<!-- Búsqueda -->
+<script src="/assets/dist/general/funciones/xalysna-search.js" type="module"></script>
+<script src="/assets/dist/general/funciones/Xalysna-autocomplete.js"></script>
+<script src="/assets/dist/general/funciones/Xalysna-search-modal.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>

@@ -73,11 +73,6 @@ async function displayProfileData() {
 
         // Redes Sociales
         setElementContent('facebook', 'https://www.facebook.com/' + (userData && userData.facebook), true);
-        setElementContent('instagram', 'https://www.instagram.com/' + (userData && userData.instagram), true);
-        setElementContent('youtube', 'https://www.youtube.com/' + (userData && userData.youtube), true);
-        setElementContent('twitter', 'https://www.twitter.com/' + (userData && userData.twitter), true);
-        setElementContent('tiktok', 'https://www.tiktok.com/' + (userData && userData.tiktok), true);
-        setElementContent('vk', 'https://vk.com/' + (userData && userData.vk), true);
 
         // Otros datos
         setElementTextContent('userCryptoWalletAddress', userData && userData.userCryptoWalletAddress);
