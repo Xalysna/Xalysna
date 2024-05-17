@@ -1,6 +1,6 @@
 #contenedorPerfil {
-    width: 60px; /* Aumentamos el tamaño para darle más presencia */
-    height: 60px;
+    width: 42px; /* Aumentamos el tamaño para darle más presencia */
+    height: 42px;
     border-radius: 50%;
     overflow: hidden;
     position: relative;
@@ -31,12 +31,12 @@
 #primeraLetraContainer {
     width: 100%;
     height: 100%;
-    font-size: 26px; /* Tamaño de fuente adecuado */
-    text-align: center;
+    font-size: 26px; /* Puede necesitar ajustes basados en el contenido */
     font-family: 'Poppins', sans-serif;
-    line-height: 60px; /* Ajuste del line-height al tamaño del contenedor */
+    text-align: center;
+    line-height: 42px; /* Igual al height del contenedor para centrar verticalmente */
     color: #ffffff; /* Color de texto en blanco para contraste */
-    background-color: #3498db; /* Color de fondo azul para comenzar */
+    background-color: #3498db; /* Color de fondo azul */
     border-radius: 50%;
     position: absolute;
     top: 50%;
@@ -45,6 +45,7 @@
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves para color de fondo y texto */
 }
+
 
 #contenedorPerfil:hover #primeraLetraContainer {
     background-color: #fff; /* Fondo más claro al pasar el mouse */

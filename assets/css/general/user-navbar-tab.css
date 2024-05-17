@@ -2,9 +2,9 @@
 .dropdown-menu {
     position: absolute;
     top: 50px;
-    left: 88%;
+    left: 94%;
     transform: translateX(-50%);
-    max-width: 300px; /* Ajusta la anchura máxima según sea necesario */
+    max-width: 140px; /* Ajusta la anchura máxima según sea necesario */
     width: 100%;
     background-color: #f5f5f5;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
@@ -65,4 +65,3 @@
         transform: translateX(-50%);
     }
 }
-

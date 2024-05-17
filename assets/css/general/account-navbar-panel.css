@@ -1,7 +1,7 @@
 /* Estilos de la barra de navegación mejorada */
 .navbar {
     position: fixed;
-    top: 20%;
+    top: 0%;
     left: 0;
     width: 100%;
     background-color: #34495e; /* Color de fondo más oscuro */
@@ -13,7 +13,8 @@
     color: #ecf0f1; /* Texto en color claro */
     border-radius: 10px;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    height: 40px; /* Aumenta la altura para un aspecto más moderno */
+    height: 50px; /* Aumenta la altura para un aspecto más moderno */
+    z-index: 999;
 }
 
 .navbar ul {
@@ -30,7 +31,6 @@
 .navbar a {
     text-decoration: none;
     color: #ecf0f1; /* Texto en color claro */
-    font-weight: bold;
     transition: color 0.3s ease; /* Transición suave para el cambio de color */
 }
 
@@ -82,6 +82,19 @@
     text-decoration: none;
 }
 
+.user-greeting {
+    color: #fff; /* Ajusta al color que desees, aquí es blanco */
+    font-size: 16px; /* Tamaño de fuente */
+    margin-right: 20px; /* Margen a la derecha, ajusta según necesidad */
+    display: flex; /* Usa flexbox para facilitar la alineación */
+    align-items: center; /* Alineación vertical al centro */
+    justify-content: flex-end; /* Alineación horizontal a la derecha */
+    flex: 1; /* Ocupar todo el espacio disponible para empujar a la derecha */
+}
 
 
-
+@media (max-width: 345px) {
+    .user-greeting {
+        display: none; /* Oculta el elemento en pantallas de 345px o menos */
+    }
+}

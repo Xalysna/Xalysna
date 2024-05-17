@@ -56,6 +56,7 @@ export async function saveProfile() {
 
   if (!uid) {
     console.error('No se pudo obtener el UID del usuario.');
+    showNotification('Error al obtener el UID del usuario. Por favor, inicie sesión nuevamente.', 'error');
     return;
   }
 
@@ -97,6 +98,7 @@ if (userData.hasOwnProperty('estadoCuenta') && userData.estadoCuenta === true) {
 
       // Obtener los valores de las redes sociales del formulario
       const listaRedes = obtenerListaRedes();
+      
 
   // Obtener los valores de los campos del formulario específicos para cada tipo de usuario
   let camposEspecificos = {};
@@ -134,18 +136,19 @@ if (userData.hasOwnProperty('estadoCuenta') && userData.estadoCuenta === true) {
       return;
   }
 
+  /*
 // Verificar que todos los campos específicos para el tipo de usuario estén completos
 for (const campo in camposEspecificos) {
   if (document.getElementById(campo)) { // Verificar si el campo está presente en el HTML
     const valorCampo = camposEspecificos[campo];
     if (!valorCampo) {
       console.error(`Por favor, complete el campo ${campo}.`);
+      showNotification(`Por favor, complete el campo ${campo}.`);
       return;
     }
   }
 }
-
-
+*/
 
   // Obtener campos comunes a todos los tipos de usuario
   const camposComunes = {
@@ -213,16 +216,19 @@ for (const campo in camposEspecificos) {
       // Si el documento existe, actualizar los datos
       await updateDoc(userDocRef, profileData);
       console.log('Perfil actualizado con éxito.');
+      showNotification('Perfil actualizado con éxito!', 'success');
     } else {
       // Si el documento no existe, crear uno nuevo
       await setDoc(userDocRef, profileData);
       console.log('Perfil creado con éxito.');
+      showNotification('Perfil creado con éxito!', 'success');
     }
 
     // Imprimir los datos que se están subiendo a Firestore
     console.log('Datos subidos a Firestore:', profileData);
   } catch (error) {
     console.error('Error al guardar el perfil:', error);
+    showNotification('Error al guardar el perfil. Por favor, intente nuevamente.', 'error');
   }
 }
 

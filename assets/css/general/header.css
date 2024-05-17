@@ -1,6 +1,5 @@
 /* Estilos del encabezado */
 header {
-    background-color: #ffffff;
     padding: 45px;
     display: flex;
     justify-content: space-between;
@@ -18,7 +17,7 @@ header {
     color: #333;
     text-transform: capitalize;
     position: absolute;
-    top: 80px;
+    top: 110px;
     left: 50px;
     opacity: 0.2;
     animation: slide-in 17s linear infinite;
@@ -65,7 +64,7 @@ header {
       display: block;
       font-size: 10px;
       padding: 7px 7px;
-      margin-top: -10px;
+      margin-top: -30px;
       
     }
   }

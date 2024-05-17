@@ -19,18 +19,37 @@ const auth = getAuth(app);
 document.addEventListener('DOMContentLoaded', function() {
   var repositoryFolder = document.getElementById('repository');
   var logoutButton = document.getElementById('logout-button');
+  var loginButton = document.getElementById('login-button');
+  var signupButton = document.getElementById('signup-button');
+
+  // Verificar el estado del caché inmediatamente al cargar
+  updateUIBasedOnAuth(localStorage.getItem('isUserLoggedIn') === 'true');
 
   auth.onAuthStateChanged(function(user) {
     if (user) {
       // El usuario ha iniciado sesión
-      showElement(repositoryFolder);
-      showElement(logoutButton);
+      localStorage.setItem('isUserLoggedIn', 'true'); // Actualizar el estado del caché
+      updateUIBasedOnAuth(true);
     } else {
       // El usuario no ha iniciado sesión
-      hideElement(repositoryFolder);
-      hideElement(logoutButton);
+      localStorage.setItem('isUserLoggedIn', 'false'); // Actualizar el estado del caché
+      updateUIBasedOnAuth(false);
     }
   });
+
+  function updateUIBasedOnAuth(isLoggedIn) {
+    if (isLoggedIn) {
+      showElement(repositoryFolder);
+      showElement(logoutButton);
+      hideElement(loginButton);
+      hideElement(signupButton);
+    } else {
+      hideElement(repositoryFolder);
+      hideElement(logoutButton);
+      showElement(loginButton);
+      showElement(signupButton);
+    }
+  }
 
   function showElement(element) {
     if (element) {

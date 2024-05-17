@@ -167,7 +167,7 @@ button:focus {
   }
 
   #navigation {
-    flex-wrap: wrap; /* Permitir que los elementos se envuelvan en dispositivos móviles */
+    /* flex-wrap: wrap; */ /* Permitir que los elementos se envuelvan en dispositivos móviles */
     justify-content: center; /* Centrar los elementos en dispositivos móviles */
   }
 
@@ -304,7 +304,7 @@ button:focus {
 
 }
 
-@media only screen and (max-width: 297px) {
+@media only screen and (max-width: 370px) {
 
   #navigation {
     flex-wrap: wrap;

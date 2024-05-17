@@ -180,6 +180,7 @@ async function rellenarFormulario(uid) {
 
             // Verificar y mostrar en consola los IDs que están en el HTML
             checkElementPresent('usernameId', foundElements, notFoundElements);
+            checkElementPresent('usernameDisplay', foundElements, notFoundElements);
             checkElementPresent('userEmail', foundElements, notFoundElements);
             checkElementPresent('codigoPais', foundElements, notFoundElements);
             checkElementPresent('phone', foundElements, notFoundElements);
@@ -226,6 +227,7 @@ async function rellenarFormulario(uid) {
 
             // Rellenar campos comunes
             setValue('usernameId', userData.usernameId);
+            setValue('usernameDisplay', userData.usernameId);
             setValue('userEmail', userData.userEmail);
             setValue('codigoPais', userData.codigoPais);
             setValue('phone', userData.phone);

@@ -7,11 +7,11 @@ const navigationButtons = [
   { label: 'Inicio', link: `${baseUrl}index.html`, image: `${baseUrl}assets/img/nav/inicio.svg` },
   { 
     label: 'Blog',
-    link: `/content/blog/xalysna/xalysna-files/index.html`,
+    link: `${baseUrl}content/blog/xalysna-blog/xalysna-blog-files/index.html`,
     image: `${baseUrl}assets/img/nav/blog.svg`,
   },
-  { label: 'Utilidades', link: `${baseUrl}Utilities`, image: `${baseUrl}assets/img/nav/tool.svg` },
-  { label: 'Xalysna Token', link: `${baseUrl}xavaya-token`, image: `${baseUrl}assets/img/nav/token.svg` },
+  { label: 'Utilidades', link: `${baseUrl}construction.html`, image: `${baseUrl}assets/img/nav/tool.svg` },
+  { label: 'Xalysna Token', link: `${baseUrl}construction.html`, image: `${baseUrl}assets/img/nav/token.svg` },
 ];
 
 
