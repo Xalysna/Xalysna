@@ -1,8 +1,0 @@
-{
-  "AppDesc": {
-    "message": "Xóa bỏ hạn chế CORS để tăng cường web với các yêu cầu PUT, PATCH, POST và DELETE."
-  },
-  "AppName": {
-    "message": "CORS Freedom Plus"
-  }
-}

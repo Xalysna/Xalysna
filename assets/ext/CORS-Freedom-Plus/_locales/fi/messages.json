@@ -1,8 +1,0 @@
-{
-  "AppDesc": {
-    "message": "Poista CORS-rajoitukset vahvistaaksesi verkon PUT-, PATCH-, POST- ja DELETE-pyyntöjen avulla."
-  },
-  "AppName": {
-    "message": "CORS Freedom Plus"
-  }
-}

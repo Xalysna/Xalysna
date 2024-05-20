@@ -1,8 +1,0 @@
-{
-  "AppDesc": {
-    "message": "إزالة قيود CORS لتعزيز الويب بطلبات PUT، PATCH، POST، وDELETE."
-  },
-  "AppName": {
-    "message": "CORS Freedom Plus"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "AppDesc": {
-    "message": "删除CORS限制，以PUT、PATCH、POST和DELETE请求增强网站。"
-  },
-  "AppName": {
-    "message": "CORS Freedom Plus"
-  }
-}

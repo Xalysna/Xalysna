@@ -1,8 +1,0 @@
-{
-  "AppDesc": {
-    "message": "Ta bort CORS-begränsningar för att stärka webben med PUT, PATCH, POST och DELETE-begäran."
-  },
-  "AppName": {
-    "message": "CORS Freedom Plus"
-  }
-}

@@ -8,7 +8,7 @@ const statAsync = promisify(stat);
 const unlinkAsync = promisify(unlink);
 const writeFileAsync = promisify(writeFile);
 
-const rootPath = 'C:/Users/kevin/public';
+const rootPath = 'C:/Users/kevin/Xalysna/public';
 const sitemapStream = new SitemapStream({
     hostname: 'https://www.xalysna.com',
     xslUrl: 'https://www.xalysna.com/sitemap.xsl'

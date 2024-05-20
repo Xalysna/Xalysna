@@ -145,6 +145,7 @@
     
     <!--    <div id="categoryDisplay">Categoría: </div> -->
 
+    
 
 
     <div id="userGreeting" class="user-greeting">
@@ -356,16 +357,11 @@
                 <input type="text" id="sloganEmpresa" name="sloganEmpresa" required>
             </p>
         
-            <select id="creacionempresa" name="creacionempresa" onchange="mostrarCampoEspecifico(this, 'campoEspecificoEmpresa')" required>
-                <option value="" disabled selected>Selecciona la Fecha de Creación</option>
-                <option value="otro">Otro</option>
-            </select>
-            
-            <p id="campoEspecificoEmpresa" style="display:none;">
-                <label for="creacionempresa"><strong>Año Específico:</strong></label>
-                <input type="text" id="creacionempresaEspecifico" name="creacionempresaEspecifico" placeholder="Ingrese el Año (máx. 4 caracteres)" oninput="limitarCaracteres(this, 4); validarSoloNumeros(event)" pattern="[0-9]*">
-            </p>
-        
+            <select id="creacionempresa" name="creacionempresa" required>
+              <option value="" disabled selected>Selecciona la Fecha de Creación</option>
+              <option value="otro">Otro</option>
+          </select>
+          
             <p>
                 <label for="mision"><strong>Misión:</strong></label>
                 <textarea id="mision" name="mision" rows="4" maxlength="450" required></textarea>
@@ -522,6 +518,8 @@
     </div>
   </footer>
 
+  <p>El identificador único generado es: <span id="identificadorUnico"></span></p>
+
 
     <!--  Indicador de carga  -->
     <div id="intelligentLoader"></div>
@@ -575,6 +573,8 @@
 <script src="/assets/dist/general/funciones/Xalysna-autocomplete.js"></script>
 <script src="/assets/dist/general/funciones/Xalysna-search-modal.js"></script>
 
+<!-- Url ID -->
+<script src="/assets/dist/general/funciones/url-identify.js" type="module" ></script>
 
 
 </body>

@@ -1,8 +1,0 @@
-{
-  "AppDesc": {
-    "message": "Hapus pembatasan CORS untuk meningkatkan web dengan permintaan PUT, PATCH, POST, dan DELETE."
-  },
-  "AppName": {
-    "message": "CORS Freedom Plus"
-  }
-}
