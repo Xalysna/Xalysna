@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "xalysna-system",
+    "xalyna-system": "xalysna-system"
+  },
+  "targets": {},
+  "etags": {}
+}

@@ -1,0 +1,33 @@
+<!-- ubicacion-form.html -->
+<section id="seccion-ubicacion" class="section-ubicacion">
+    <h2 class="section-title">Ubicación</h2>
+
+
+        <h3>Ubicación Actual:</h3>
+        <p><span id="locationCitySpan"></span>, <span id="locationStateSpan"></span>, <span id="locationCountrySpan"></span></p>
+    
+
+    <strong>Pais:</strong>
+    <select id="locationCountry" onchange="seleccionarPais()">
+        <option value="" selected disabled>Seleccione un país</option>
+        <!-- Opciones de países se cargarán dinámicamente desde el JSON -->
+    </select>
+    
+    <strong>Estado:</strong>
+    <select id="locationState" onchange="seleccionarEstado()" disabled>
+        <option value="" selected disabled>Seleccione un estado</option>
+        <!-- Opciones de estados se cargarán dinámicamente según el país seleccionado -->
+    </select>
+    
+    <strong>Ciudad:</strong>
+    <select id="locationCity" disabled>
+        <option value="" selected disabled>Seleccione una ciudad</option>
+        <!-- Opciones de ciudades se cargarán dinámicamente según el estado seleccionado -->
+    </select> 
+
+    <strong>Espacio:</strong>
+    <select id="ubicacionEspacial">
+        <option value="" disabled selected>Ubicación Espacial</option>
+        <!-- Puedes agregar opciones específicas de ubicaciones espaciales aquí -->
+    </select> 
+</section>

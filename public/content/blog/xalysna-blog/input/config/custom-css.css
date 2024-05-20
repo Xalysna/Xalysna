@@ -1,0 +1,93 @@
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    transform: scale(0.8);
+    transform-origin: center center;
+    width: 125%;  /* Aumentar al 125% compensa la reducción del escalado */
+    height: 125%; /* Aumentar al 125% compensa la reducción del escalado */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+}
+
+.logo > img {
+    margin-top: 10px; /* Ajusta este valor según necesites */
+}
+
+.banner-horizontal {
+    width: 728px; /* Ancho del banner, mismo que el ancho del iframe */
+    height: 90px; /* Altura del banner, misma que la altura del iframe */
+    margin: 20px auto; /* Centra el banner horizontalmente en la página y agrega un margen vertical */
+    border: 1px solid #ccc; /* Borde sutil para el contenedor, opcional */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra ligera para dar profundidad, opcional */
+    background-color: #f9f9f9; /* Color de fondo del contenedor, opcional */
+}
+
+/* Opcional: Estilo adicional para asegurarse de que el iframe del anuncio se muestre correctamente */
+.banner-horizontal iframe {
+    display: block; /* Asegura que no haya espacio adicional alrededor del iframe */
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    height: 100%; /* Ocupa toda la altura del contenedor */
+    border: none; /* Elimina cualquier borde por defecto del iframe */
+}
+
+@media (max-width: 451px) {
+    .banner-horizontal {
+        display: none !important;
+    }
+}
+
+
+.banner-rectangular {
+    width: 300px;
+    height: 250px;
+    margin: 20px auto; /* Este margen centrará el banner horizontalmente y añadirá espacio vertical */
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: none; /* Inicia oculto por defecto */
+}
+
+@media (max-width: 451px) {
+    .banner-rectangular {
+        display: block;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* Estilos generales para los contenedores de anuncios */
+.ad-container {
+    position: absolute;  /* Mantiene el anuncio fijo en la pantalla mientras te desplazas */
+    width: 160px;      /* Ancho del anuncio */
+    height: 600px;     /* Alto del anuncio */
+    top: 120%;          /* Centra verticalmente en la vista de la ventana */
+    transform: translateY(-50%); /* Ajusta la centración vertical para que siempre esté en el centro */
+}
+
+/* Estilos específicos para el anuncio izquierdo */
+.ad-container--left {
+    left: 0; /* Coloca el anuncio al lado izquierdo de la pantalla */
+}
+
+/* Estilos específicos para el anuncio derecho */
+.ad-container--right {
+    right: 0; /* Coloca el anuncio al lado derecho de la pantalla */
+}
+
+/* Media query para ocultar los anuncios en pantallas con ancho menor a 763px */
+@media (max-width: 762px) {
+    .ad-container {
+        display: none; /* Oculta los anuncios */
+    }
+}

@@ -1,0 +1,39 @@
+<!-- datos-basicos-persona.html -->
+<fieldset id="formularioPersonaDatos" class="formulario-datos">
+    <legend>Datos Personales</legend>
+
+    <div class="campo-persona">
+        <label for="nombrePersona"><strong>Nombre:</strong></label>
+        <input type="text" id="nombrePersona" name="nombrePersona" required>
+    </div>
+    
+    <div class="campo-persona">
+        <label for="apellidoPersona"><strong>Apellido:</strong></label>
+        <input type="text" id="apellidoPersona" name="apellidoPersona" required>
+    </div>
+
+    <!-- Campos específicos de Persona -->
+    <div class="fecha-genero-container">
+        <p>
+            <strong>Fecha de Nacimiento:</strong>
+        </p>
+        <div class="fecha-nacimiento-container">
+            <select id="diaNacimientoPersona">
+                <!-- Puedes agregar opciones específicas de días aquí -->
+            </select>
+            <select id="mesNacimientoPersona">
+                <!-- Puedes agregar opciones específicas de meses aquí -->
+            </select>
+            <select id="anoNacimientoPersona">
+                <!-- Puedes agregar opciones específicas de años aquí -->
+            </select>
+        </div>
+
+        <p>
+            <strong>Género:</strong>
+        </p>
+        <select id="generoPersona">
+            <!-- Puedes agregar opciones específicas de género aquí -->
+        </select>
+    </div>
+</fieldset>

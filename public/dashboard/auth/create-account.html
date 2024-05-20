@@ -1,0 +1,191 @@
+    <!DOCTYPE html>
+    <html lang="es">
+
+    <head>
+    <!-- Metadatos -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración inicial de cuenta - Xalysna Inspira el Futuro, Desbloquea tu Potencial</title>
+    <meta name="description" content="Explora un espacio en constante transformación, descubre fuentes infinitas de inspiración para desbloquear tu potencial.">
+    <meta name="author" content="Xalysna">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="x-content-type-options" content="nosniff">
+
+    <!-- BaseUrl -->
+    <script>
+        const baseUrl = '/'; // Coloca aquí tu URL base
+        const imgBaseUrl = `${baseUrl}assets/img`;
+        const cssBaseUrl = `${baseUrl}assets/css`;
+        const jsBaseUrl = `${baseUrl}assets/dist`;
+    </script>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="/assets/css/settings/auth/create-account.css">
+    <link rel="stylesheet" href="/assets/css/general/funciones/notification.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/img/web/favicon.ico">
+    </head>
+
+    <body>
+
+    <div class="contenedor">
+        <div class="contenido">
+            <form id="formulario">
+
+                <!-- Paso 0 -->
+                <div id="paso0">
+                    <h2 id="titulo">¡Empecemos juntos! Crea tu Perfil</h2>
+                    <button type="button" onclick="siguientePaso()">Siguiente</button>
+                </div>
+
+
+                <!-- Paso 1 -->
+                <div id="paso1" style="display: none;">
+                    <h2>Paso 1: Ingresa tu nombre de usuario</h2>
+                    <div class="campo-usuario">
+                        <label for="usernameId"><strong>Usuario:</strong></label>
+                        <input type="text" id="usernameId" name="nombreUsuario" placeholder="Ej. Xalysna" title="Identificación única en la red" maxlength="15">
+                        <p id="mensajeUsuario"></p>
+                    </div>                
+                    <button type="button" onclick="anteriorPaso()">Atrás</button>
+
+                    <div class="button-container">
+                        <button type="button" id="btnSiguientePaso" onclick="siguientePaso()">Siguiente</button>
+                    </div>
+                    
+                </div>
+
+                <!-- Paso 2 -->
+                <div id="paso2" style="display: none;">
+                    <h2>Paso 2: Selecciona Tipo de cuenta</h2>
+                    <label for="tipoFormulario"><strong>Tipo de cuenta:</strong></label>
+                    <select id="tipoFormulario" onchange="mostrarFormulario(this.value)">
+                        <option value="" disabled selected>Seleccione Tipo de cuenta</option>
+                        <option value="Persona">Persona</option>
+                        <option value="Empresa">Empresa</option>
+                <!-- <option value="Marca">Marca</option> -->
+                    </select>
+                    <button type="button" onclick="anteriorPaso()">Atrás</button>
+                    <button type="button" onclick="siguientePaso()">Siguiente</button>
+                </div>
+
+                <!-- Paso 3 -->
+                <div id="paso3" style="display: none;">
+                    <h2>Paso 3: Completa los siguientes datos</h2>
+
+                    <!-- Contenedor para cargar el formulario específico -->
+                    <div id="formularioDatosContainer">
+                        <!-- Formulario para datos básicos - Persona -->
+                        <div id="formularioPersonaDatos" class="formulario-datos" style="display: none;">
+                            <legend>Datos Personales</legend>
+
+                            <div class="campo-persona">
+                                <label for="nombrePersona"><strong>Nombre:</strong></label>
+                                <input type="text" id="nombrePersona" name="nombrePersona" required>
+                            </div>
+
+                            <div class="campo-persona">
+                                <label for="apellidoPersona"><strong>Apellido:</strong></label>
+                                <input type="text" id="apellidoPersona" name="apellidoPersona" required>
+                            </div>
+
+                            <!-- Campos específicos de Persona -->
+                            <div class="fecha-genero-container">
+                                <p>
+                                    <strong>Fecha de Nacimiento:</strong>
+                                </p>
+                                <div class="fecha-nacimiento-container">
+                                    <select id="diaNacimientoPersona">
+                                        <!-- Agrega opciones específicas de días aquí -->
+                                    </select>
+                                    <select id="mesNacimientoPersona">
+                                        <!-- Agrega opciones específicas de meses aquí -->
+                                    </select>
+                                    <select id="anoNacimientoPersona">
+                                        <!-- Agrega opciones específicas de años aquí -->
+                                    </select>
+                                </div>
+
+                                <p>
+                                    <strong>Género:</strong>
+                                </p>
+                                <select id="generoPersona">
+                                    <!-- Agrega opciones específicas de género aquí -->
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Formulario para datos básicos - Empresa -->
+                        <div id="formularioEmpresaDatos" class="formulario-datos" style="display: none;">
+                            <legend>Datos de la Empresa</legend>
+
+                            <p>
+                                <label for="nombreEmpresa"><strong>Nombre de la Empresa:</strong></label>
+                                <input type="text" id="nombreEmpresa" name="nombreEmpresa" required>
+                            </p>
+
+                            <p>
+                                <label for="industria"><strong>Industria:</strong></label>
+                                <select id="industria" name="industria" required>
+                                    <!-- Agrega más opciones según tus necesidades -->
+                                </select>
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <button type="button" onclick="anteriorPaso()">Atrás</button>
+                    <button type="button" onclick="siguientePaso()">Siguiente</button>
+                </div>
+
+
+                <!-- Paso 4 -->
+                <div id="paso4" style="display: none;">
+                    <h2>Paso 4: Selecciona tu ubicación</h2>
+
+                    <div class="location-container">
+                        <h4>Ubicación Selecionada:</h4>
+                        <p>
+                            <img src="/assets/img/maps/pin-ubication.svg" alt="Icono de ubicación" class="location-icon">
+                            <span id="locationCountry" class="location-text"></span>
+                        </p>
+                    </div>                        
+
+                    <select id="countrySelect" onchange="cargarPaises()">
+                        <option value="" selected disabled>Seleccione un país</option>
+                        <!-- Opciones de países se cargarán dinámicamente desde el JSON -->
+                    </select>
+
+                    <button type="button" onclick="anteriorPaso()">Atrás</button>
+                    <button type="button" onclick="siguientePaso()">Siguiente</button>
+                </div>
+
+                <!-- Paso 5 -->
+                <div id="paso5" style="display: none;">
+                    <h2>Paso 5: ¡Registro completado!</h2>
+                    <p>Ahora puedes hacer uso de tu cuenta.</p>
+                    <p>Si deseas agregar más detalles, dirígete a tu perfil y busca el botón "Editar".</p>
+                    <button id="saveProfileButton" onclick="uploadToFirestore()">Comencemos</button>
+                    <button type="button" onclick="anteriorPaso()">Atrás</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+      
+
+    <!-- Scripts -->
+    <script src="/assets/dist/settings/users/last-time-login.js" type="module"></script>
+    <script src="/assets/dist/settings/users/save-profile.js" type="module"></script>
+    <script src="/assets/dist/settings/auth/create-account.js"></script>
+    <script src="/assets/dist/settings/users/username-verification-create.js" type="module" defer></script>
+    <script src="/assets/dist/general/funciones/notificaciones.js" defer></script>
+    <script src="/assets/dist/settings/users/set-view-profile-data.js" type="module"></script>
+    <script src="/assets/dist/general/verification-account-init.js" type="module"></script>
+
+
+
+    
+    </body>
+    </html>

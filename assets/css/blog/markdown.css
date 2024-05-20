@@ -1,0 +1,40 @@
+/* Estilo para el contenedor del markdown y botón de copiar */
+.contenedor-markdown {
+    background: linear-gradient(135deg, #2196F3, #64B5F6);
+    border: 2px solid #1565C0; /* Borde de color azul más oscuro */
+    padding: 6px; /* Espaciado interno uniforme */
+    margin: 0px auto; /* Margen superior e inferior y centrar horizontalmente */
+    border-radius: 10px; /* Borde redondeado */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    width: auto; /* Ancho automático al contenido */
+    display: flex;
+    justify-content: space-between; /* Colocar el contenido en los extremos */
+    align-items: center; /* Centrar verticalmente */
+    opacity: 0.9; /* Opacidad reducida para un efecto más sutil */
+}
+
+/* Estilo para el título "Formato Markdown" */
+.formato-markdown {
+    font-weight: bold;
+    color: #fff; /* Color del texto en el contenedor */
+    flex-grow: 1; /* Permitir que el título se expanda y ocupe espacio adicional */
+    margin-right: 20px; /* Margen derecho para separarlo del botón */
+    font-size: 14px; /* Tamaño de fuente aumentado */
+}
+
+/* Estilo para el botón "Copiar" */
+#copy-button {
+    background-color: #1565C0; /* Color de botón más oscuro */
+    color: #fff;
+    border: none;
+    border-radius: 10px; /* Borde redondeado más pronunciado */
+    padding: 4px 10px; /* Mayor relleno para el botón */
+    cursor: pointer;
+    font-size: 14px; /* Tamaño de fuente aumentado */
+    transition: background-color 0.3s ease; /* Transición suave de color de fondo */
+}
+
+/* Estilo para cambiar el color del botón al pasar el ratón por encima */
+#copy-button:hover {
+    background-color: #007bff;
+}

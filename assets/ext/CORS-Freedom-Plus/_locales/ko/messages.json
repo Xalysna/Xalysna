@@ -1,0 +1,8 @@
+{
+  "AppDesc": {
+    "message": "PUT, PATCH, POST 및 DELETE 요청을 사용하여 웹에 CORS 제한을 제거하세요."
+  },
+  "AppName": {
+    "message": "CORS Freedom Plus"
+  }
+}

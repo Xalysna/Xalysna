@@ -1,0 +1,8 @@
+{
+  "AppDesc": {
+    "message": "Noņemiet CORS ierobežojumus, lai stiprinātu tīmekli ar PUT, PATCH, POST un DELETE pieprasījumiem."
+  },
+  "AppName": {
+    "message": "CORS Freedom Plus"
+  }
+}

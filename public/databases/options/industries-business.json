@@ -1,0 +1,33 @@
+{
+    "nombre": "INDUSTRIAS",
+    "descripcion": "Información relacionada con industrias",
+    "opciones": [
+        {"valor": "tecnologia", "label": "Tecnología"},
+        {"valor": "manufactura", "label": "Manufactura"},
+        {"valor": "energia", "label": "Energía"},
+        {"valor": "salud", "label": "Salud"},
+        {"valor": "alimentaria", "label": "Industria Alimentaria"},
+        {"valor": "automotriz", "label": "Automotriz"},
+        {"valor": "construccion", "label": "Construcción"},
+        {"valor": "textil_moda", "label": "Textil y Moda"},
+        {"valor": "aeroespacial", "label": "Aeroespacial"},
+        {"valor": "quimica", "label": "Industria Química"},
+        {"valor": "finanzas", "label": "Servicios Financieros"},
+        {"valor": "telecomunicaciones", "label": "Telecomunicaciones"},
+        {"valor": "medios_comunicacion", "label": "Medios de Comunicación"},
+        {"valor": "entretenimiento", "label": "Entretenimiento"},
+        {"valor": "turismo_hoteleria", "label": "Turismo y Hotelería"},
+        {"valor": "agricultura", "label": "Agricultura"},
+        {"valor": "educacion", "label": "Educación"},
+        {"valor": "servicios", "label": "Servicios"},
+        {"valor": "medio_ambiente", "label": "Medio Ambiente"},
+        {"valor": "transporte_logistica", "label": "Transporte y Logística"},
+        {"valor": "biotecnologia", "label": "Biotecnología"},
+        {"valor": "farmaceutica", "label": "Industria Farmacéutica"},
+        {"valor": "mineria", "label": "Minería"},
+        {"valor": "arte_cultura", "label": "Arte y Cultura"},
+        {"valor": "deporte", "label": "Deporte"},
+        {"valor": "ciencia_investigacion", "label": "Ciencia e Investigación"},
+        {"valor": "otra", "label": "Otra"}
+    ]
+}
