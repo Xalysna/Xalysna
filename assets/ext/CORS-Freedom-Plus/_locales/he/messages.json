@@ -1,0 +1,8 @@
+{
+  "AppDesc": {
+    "message": "הסר הגבלות CORS להגברת הרשת עם בקשות PUT, PATCH, POST ו-DELETE."
+  },
+  "AppName": {
+    "message": "CORS Freedom Plus"
+  }
+}

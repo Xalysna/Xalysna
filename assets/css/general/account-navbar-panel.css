@@ -1,0 +1,100 @@
+/* Estilos de la barra de navegación mejorada */
+.navbar {
+    position: fixed;
+    top: 0%;
+    left: 0;
+    width: 100%;
+    background-color: #34495e; /* Color de fondo más oscuro */
+    box-shadow: 0 5px 15px rgba(52, 73, 94, 0.5); /* Sutil sombra */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    color: #ecf0f1; /* Texto en color claro */
+    border-radius: 10px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    height: 50px; /* Aumenta la altura para un aspecto más moderno */
+    z-index: 999;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar li {
+    margin-right: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #ecf0f1; /* Texto en color claro */
+    transition: color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+.navbar a:hover {
+    color: #2ecc71; /* Cambia el color al pasar el ratón a un verde claro */
+}
+
+.navbar-btn {
+    background-color: #e74c3c; /* Color rojo llamativo */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+.navbar-btn:hover {
+    background-color: #c0392b; /* Cambia el color al pasar el ratón a un tono más oscuro */
+}
+
+
+
+
+#auth-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin: auto; /* Agregado para centrar los botones horizontalmente */
+}
+
+#login-button,
+#signup-button {
+    width: 100px;
+    padding: 8px;
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #5abd94; /* Color de fondo inicial (verde) */
+    margin-right: 10px; 
+}
+
+#login-button:hover,
+#signup-button:hover {
+    background-color: #8257a6; /* Color de fondo al pasar el mouse (hover) */
+    color: #fff;
+    text-decoration: none;
+}
+
+.user-greeting {
+    color: #fff; /* Ajusta al color que desees, aquí es blanco */
+    font-size: 16px; /* Tamaño de fuente */
+    margin-right: 20px; /* Margen a la derecha, ajusta según necesidad */
+    display: flex; /* Usa flexbox para facilitar la alineación */
+    align-items: center; /* Alineación vertical al centro */
+    justify-content: flex-end; /* Alineación horizontal a la derecha */
+    flex: 1; /* Ocupar todo el espacio disponible para empujar a la derecha */
+}
+
+
+@media (max-width: 345px) {
+    .user-greeting {
+        display: none; /* Oculta el elemento en pantallas de 345px o menos */
+    }
+}
