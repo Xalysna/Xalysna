@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- Metadatos -->
+  <meta name="charset" content="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil de Usuario: Inspira el Futuro, Desbloquea tu Potencial</title>
+  <meta name="description" content="Explora el fascinante mundo de Xavaya y descubre un sinfín de recursos para inspirarte, aprender y desbloquear tu potencial. Sumérgete en nuestro blog, enciclopedia y repositorio, y forma parte de una comunidad apasionada de personas en busca de conocimiento. Únete a nosotros y prepárate para un viaje emocionante hacia el crecimiento personal y la realización de tus sueños.">
+  <meta name="keywords" content="Xavaya, Inspira, Futuro, Desbloquea, Potencial, Explora, Recursos, Aprender, Blog, Enciclopedia, Repositorio, Comunidad, Conocimiento, Crecimiento personal, Realización de sueños, Inspiración, Desarrollo personal, Apasionado, Viaje emocionante, Aprendizaje">
+  <meta name="author" content="Xavaya">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="x-content-type-options" content="nosniff">
+
+  <!-- BaseUrl -->
+  <script>
+    const baseUrl = '/'; // Coloca aquí tu URL base
+    const imgBaseUrl = `${baseUrl}assets/img`;
+    const cssBaseUrl = `${baseUrl}assets/css`;
+    const jsBaseUrl = `${baseUrl}assets/dist`;
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/settings/users/profile/profile-window-modal.css">
+  <link rel="stylesheet" href="/assets/css/settings/users/profile/profile-buttons.css">
+  <link rel="stylesheet" href="/assets/css/settings/users/profile/profile-section-image.css">
+  <link rel="stylesheet" href="/assets/css/settings/users/input-styles.css">
+  <link rel="stylesheet" href="/assets/css/general/footer.css">
+  <link rel="stylesheet" href="/assets/css/home/index.css">
+  <link rel="stylesheet" href="/assets/css/general/funciones/copy-wallet.css">
+  <link rel="stylesheet" href="/assets/css/general/panel.css">
+
+  <!-- Código para el favicon -->
+  <link rel="icon" type="image/png" href="/assets/img/web/favicon32x32R.png">
+</head>
+
+<body>
+
+  <header>
+    <h1 id="main-title">Xavaya: Inspira el Futuro, Desbloquea tu Potencial</h1>
+    <p id="greeting"></p>
+  </header>
+
+
+<!-- Contenedor principal -->
+<div class="profile-container">
+
+    <!-- Sección de cambio de imagen del perfil -->
+    <div class="change-profile-image-container">
+        <div id="avatar" class="profile-section change-image-section">
+            <button id="uploadImageButton" class="upload-button">Subir Imagen</button>
+        </div>
+    </div>
+
+    <!-- Información del perfil -->
+    <div class="profile-info">
+        <!-- Datos personales -->
+        <div class="profile-section personal-info-section">
+            <h3>DATOS PERSONALES</h3>
+            <input type="text" id="fullName" placeholder="Nombre y Apellidos">
+            <input type="text" id="alias" placeholder="Nombre de Usuario">
+            <input type="email" id="userEmail" placeholder="Correo Electrónico">
+            <input type="tel" id="phone" placeholder="Número de Teléfono">
+        </div>
+
+        <!-- Detalles de ubicación -->
+        <div class="profile-section location-info-section">
+            <h3>UBICACIÓN</h3>
+            <input type="text" id="locationCity" placeholder="Ciudad">
+            <input type="text" id="locationCountry" placeholder="País">
+            <input type="text" id="locationPlanet" placeholder="Planeta">
+        </div>
+
+        <!-- Información Biográfica -->
+        <div class="profile-section bio-info-section">
+            <h4>INFORMACIÓN BIOGRÁFICA</h4>
+            <p>Descripción Personal o Lema: <input type="text" id="bio" placeholder="Descripción Personal o Lema"></p>
+            <p>Edad: <input type="text" id="edad" placeholder="Edad"></p>
+            <p>Profesión: <input type="text" id="profesion" placeholder="Profesión"></p>
+            <p>Hobbies/Intereses: <input type="text" id="intereses" placeholder="Hobbies/Intereses"></p>
+            <!-- Puedes agregar más campos según sea necesario -->
+        </div>
+
+
+        <!-- Información de cartera crypto -->
+        <div class="profile-section crypto-wallet-section">
+            <h3>CRYPTO WALLET</h3>
+            <input type="text" id="userCryptoWalletAddress" placeholder="Ingrese la dirección de la cartera crypto">
+        </div>
+
+        <!-- Botón de Editar Perfil -->
+        <div class="button-section">
+            <button id="editProfileButton" class="edit-button" onclick="enableEdit()">Editar Perfil</button>
+        </div>
+
+        <!-- Botón de Guardar Perfil -->
+        <div class="button-section">
+            <button id="saveProfileButton" class="save-button">Guardar Perfil</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <!-- Pie de página -->
+    <footer>
+        <nav class="footer-navigation" id="footer-navigation">
+          <ul id="footer-menu"></ul>
+          <a href="#" id="wallet-address" class="wallet-address" data-copy="0x96dFa67FDff3B167C0923b2fA3697E2a2b298869">
+            ❤️ Apoya con Ethereum (ETH) - Dirección de donación: 0x96dFa67FDff3B167C0923b2fA3697E2a2b298869
+          </a>
+        </nav>
+        <button id="toggle-button" class="icon-button">
+          <img src="/assets/img/footer/sidebar.svg" alt="Icono de menú">
+        </button>
+      </footer>
+
+
+<!-- Scripts -->
+<script src="/assets/dist/settings/users/profile-window-modal.js" defer></script>
+<script src="/assets/dist/settings/users/display-profile-data.js" type="module" defer></script>
+<script src="/assets/dist/settings/users/change-profile-image.js" type="module" defer></script>
+<script src="/assets/dist/settings/users/generate-qrcode.js" type="module" defer></script>
+<script src="/assets/dist/blog/title-article.js" type="module" async></script>
+<script src="/assets/dist/general/current-year.js" type="module" async></script>
+<script src="/assets/dist/general/footer.js" type="module" async></script>
+<script src="/assets/dist/general/funciones/copy-wallet.js" defer></script>
+<script src="/assets/dist/general/funciones/notificaciones.js" defer></script>
+
+
+</body>
+
+</html>
