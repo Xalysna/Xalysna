@@ -1,9 +1,0 @@
-{
-    "nombre": "TIPO_CUENTA",
-    "descripcion": "Información relacionada con el tipo de cuenta",
-    "opciones": [
-        {"valor": "Persona", "label": "Persona"},
-        {"valor": "Empresa", "label": "Empresa"},
-        {"valor": "Marca", "label": "Marca"}
-    ]
-}

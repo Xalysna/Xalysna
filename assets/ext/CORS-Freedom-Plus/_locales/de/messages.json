@@ -1,8 +1,0 @@
-{
-  "AppDesc": {
-    "message": "Entfernen Sie CORS-Beschränkungen, um das Web mit PUT-, PATCH-, POST- und DELETE-Anfragen zu stärken."
-  },
-  "AppName": {
-    "message": "CORS Freedom Plus"
-  }
-}

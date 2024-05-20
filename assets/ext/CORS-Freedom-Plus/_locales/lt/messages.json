@@ -1,8 +1,0 @@
-{
-  "AppDesc": {
-    "message": "Pašalinkite CORS apribojimus, kad sustiprintumėte tinklą naudojant PUT, PATCH, POST ir DELETE užklausas."
-  },
-  "AppName": {
-    "message": "CORS Freedom Plus"
-  }
-}

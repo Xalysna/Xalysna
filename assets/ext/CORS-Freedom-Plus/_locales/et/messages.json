@@ -1,8 +1,0 @@
-{
-  "AppDesc": {
-    "message": "Eemalda CORS-i piirangud veebi tugevdamiseks PUT-, PATCH-, POST- ja DELETE-päringutega."
-  },
-  "AppName": {
-    "message": "CORS Freedom Plus"
-  }
-}
