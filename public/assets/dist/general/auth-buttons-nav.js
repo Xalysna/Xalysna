@@ -77,7 +77,7 @@ document.body.appendChild(panelElement);
     // Manejador de evento para el botón de registrarse
     signupButton.addEventListener('click', () => {
       // Redirigir al usuario a la página de registro
-      window.location.href = '/public/dashboard/auth/signup.html';
+      window.location.href = '/dashboard/auth/signup.html';
     });
   }
 }
@@ -92,7 +92,7 @@ if (loginButton) {
   // Manejador de evento para el botón de inicio de sesión
   loginButton.addEventListener('click', () => {
     // Redirigir al usuario a la página de inicio de sesión
-    window.location.href = '/public/dashboard/auth/login.html';
+    window.location.href = '/dashboard/auth/login.html';
   });
 }
 
@@ -103,7 +103,7 @@ if (logoutButton) {
     signOut(auth)
       .then(() => {
         // Redirigir al usuario a la página de inicio
-        window.location.href = '/public/index.html';
+        window.location.href = '../index.html';
       })
       .catch(error => {
         // Manejar errores

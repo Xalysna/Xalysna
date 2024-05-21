@@ -1,7 +1,7 @@
 // cargar-opciones-ubicacion.js
 
 // URL del archivo JSON
-const ubicationsURL = '/public/databases/options/ubications-earth.json';
+const ubicationsURL = '/databases/options/ubications-earth.json';
 
 // Declarar variables globales
 let paisSeleccionadoGlobal;

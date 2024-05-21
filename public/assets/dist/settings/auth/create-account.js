@@ -75,7 +75,7 @@ function limpiarYAgregarDefault(selector, defaultOptionText) {
 }
 
 // Obtener la ruta base para los archivos JSON
-const rutaBase = '/public/databases/options/';
+const rutaBase = '/databases/options/';
 
 // Función genérica para cargar opciones desde un archivo JSON
 function cargarOpcionesDesdeJSON(config) {
@@ -133,7 +133,7 @@ cargarOpcionesDesdeJSON({ jsonPath: 'brand-categories.json', selectorId: 'catego
 mostrarPasoActual();
 
 // URL del archivo JSON
-const ubicationCountries = '/public/databases/options/ubications-earth.json';
+const ubicationCountries = '/databases/options/ubications-earth.json';
 
 // Función para cargar opciones de países
 function cargarPaises() {

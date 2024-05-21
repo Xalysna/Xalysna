@@ -70,13 +70,13 @@ document.addEventListener('DOMContentLoaded', function() {
     languages.unshift(userLanguage);
     
     // Generar las rutas de archivos basándose en los idiomas predeterminados
-    const languageFilesDefault = languages.map(language => `/public/databases/words/${language}/${language}.txt`);
+    const languageFilesDefault = languages.map(language => `/databases/words/${language}/${language}.txt`);
     
     // Generar la ruta de archivo basada en el idioma del usuario actual
-    const languageFilesUser = [userLanguage].map(language => `/public/databases/words/${userLanguage}/${userLanguage}.txt`);
+    const languageFilesUser = [userLanguage].map(language => `/databases/words/${userLanguage}/${userLanguage}.txt`);
     
     // Incluir la ruta del archivo de números
-    const numberFile = '/public/databases/numbers/decimal.txt';
+    const numberFile = '/databases/numbers/decimal.txt';
 
     // Aquí combinamos todo en un único array y después mapeamos a las promesas
     const allFiles = [...languageFilesDefault, ...languageFilesUser, numberFile];
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
     );
     
     // Carpeta base para los archivos JSON
-    const baseFolder = '/public/databases/names';
+    const baseFolder = '/databases/names';
     
     // Genera automáticamente las rutas de los archivos JSON para los nombres
     const years = Array.from({length: (2022 - 1880 + 1)}, (_, k) => k + 1880);

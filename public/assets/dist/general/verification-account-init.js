@@ -52,14 +52,14 @@ async function verificarEstadoCuenta(uid) {
           console.log('La cuenta está activa.');
 
         // Si intenta acceder a la página de creación de cuenta, redirigir a index.html
-        if (isCurrentPage("/public/dashboard/auth/create-account.html")) {
+        if (isCurrentPage("/dashboard/auth/create-account.html")) {
           window.location.href = "../../index.html";
           return; // Finalizar la ejecución aquí
         }  
           
         } else {
           // Mostrar la notificación solo si no estamos en la página correcta
-          const createAccountUrl = "/public/dashboard/auth/create-account.html";
+          const createAccountUrl = "/dashboard/auth/create-account.html";
           if (!isCurrentPage(createAccountUrl)) {
             showNotificationAndRedirect('¡Oops! Tu cuenta no está activa o falta información. Completa el formulario de creación de cuenta para empezar a disfrutar de nuestros servicios.', 20);
           }
@@ -69,7 +69,7 @@ async function verificarEstadoCuenta(uid) {
       }
 
        // Mostrar notificación si estamos en la página correcta
-      if (isCurrentPage("/public/dashboard/auth/create-account.html")) {
+      if (isCurrentPage("/dashboard/auth/create-account.html")) {
         showGreenNotification('Bienvenido a la página de creación de cuenta.');
         
       }
@@ -173,7 +173,7 @@ function isCurrentPage(url) {
 
 // Función para redireccionar si la cuenta no está activa
 function redirectIfAccountInactive() {
-  const createAccountUrl = "/public/dashboard/auth/create-account.html";
+  const createAccountUrl = "/dashboard/auth/create-account.html";
   if (!isCurrentPage(createAccountUrl)) {
     window.location.href = createAccountUrl;
   }
@@ -189,8 +189,8 @@ onAuthStateChanged(auth, (user) => {
   } else {
     console.log('Usuario no autenticado');
     // Redirigir al usuario a /index.html si está en /public/dashboard/auth/create-account.html y no está autenticado
-    if (isCurrentPage("/public/dashboard/auth/create-account.html")) {
-      window.location.href = "../../index.html";
+    if (isCurrentPage("/dashboard/auth/create-account.html")) {
+      window.location.href = "../index.html";
     }
   }
 });

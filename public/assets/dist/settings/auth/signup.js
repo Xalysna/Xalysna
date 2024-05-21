@@ -89,7 +89,7 @@ function redirectToVerificationPage(user) {
 
 function buildVerificationURL(user) {
   const actionURL = getActionURL();
-  return `${baseUrl}/public/dashboard/auth/action/verificacion.html?${actionURL}&oobCode=${user.uid}`;
+  return `${baseUrl}/dashboard/auth/action/verificacion.html?${actionURL}&oobCode=${user.uid}`;
 }
 
 function getActionURL() {
@@ -119,8 +119,29 @@ function isValidEmail(email) {
 function handleFirebaseError(error) {
   console.error('Error de Firebase:', error.code, error.message);
 
+  // Definir mensajes de error amigables para el usuario
+  const errorMessages = {
+    'auth/invalid-email': 'El correo electrónico no es válido.',
+    'auth/user-disabled': 'El usuario ha sido deshabilitado.',
+    'auth/user-not-found': 'No se encontró un usuario con ese correo.',
+    'auth/wrong-password': 'La contraseña es incorrecta.',
+    'auth/user-disabled': 'El usuario ha sido deshabilitado.',
+    'auth/user-not-found': 'No se encontró un usuario con ese correo.',
+    'auth/weak-password': 'La contraseña es demasiado débil.',
+    'auth/email-already-in-use': 'El correo electrónico ya está en uso.',
+    'auth/invalid-email': 'El correo electrónico no es válido.',
+    'auth/operation-not-allowed': 'La operación no está permitida.',
+    'auth/requires-recent-login': 'La autenticación reciente es necesaria. Por favor, vuelve a iniciar sesión.',
+    'auth/too-many-requests': 'Demasiados intentos. Por favor, inténtalo más tarde.',
+    // Puedes añadir más códigos de error según sea necesario
+  };
+
+  // Obtener un mensaje de error amigable o usar uno por defecto
+  const userFriendlyMessage = errorMessages[error.code] || 'Ocurrió un error durante la autenticación. Por favor, intenta de nuevo más tarde.';
+
   switch (error.code) {
     default:
       console.error('Ocurrió un error durante la autenticación.');
+      showNotification(userFriendlyMessage); // Mostrar el mensaje amigable
   }
 }

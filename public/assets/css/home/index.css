@@ -132,6 +132,30 @@ body::-webkit-scrollbar-thumb:hover {
     margin-top: 10px;
 }
 
+/* Estilos para el botón de "Atrás" */
+#backButton {
+    display: block; /* Mostrar como bloque */
+    margin: 20px auto; /* Centrar horizontalmente */
+    padding: 10px 20px;
+    background-color: #007bff; /* Color de fondo azul */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Manito de clic */
+    text-align: center; /* Centrar texto */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: background-color 0.3s; /* Transición suave al cambiar color */
+}
+
+#backButton:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el mouse */
+}
+
+.hidden {
+    display: none; /* Ocultar el botón por defecto */
+}
+
+
 @media (max-width: 768px) {
     #contenido {
         width: 95%; /* Ajuste para dispositivos más pequeños */

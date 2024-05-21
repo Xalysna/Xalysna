@@ -1,8 +1,10 @@
 {
   "projects": {
     "default": "xalysna-system",
-    "xalyna-system": "xalysna-system"
+    "xalyna-system": "xalysna-system",
+    "xalysna-system": "xalysna-system"
   },
   "targets": {},
-  "etags": {}
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }

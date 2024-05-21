@@ -71,7 +71,7 @@ function redirectToMainPage() {
 
 // Redirigir a la página de registro
 function redirectToSignup() {
-  const urlToSignup = `../signup.html`;
+  const urlToSignup = `./signup.html`;
   window.location.href = urlToSignup;
 }
 

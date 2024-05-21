@@ -40,10 +40,10 @@ window.addEventListener('popstate', function(event) {
 
 // Creación de elementos del menú
 const menuItems = [
-  { label: 'Soporte y Foro', link: `${baseUrl}public/content/support/support-forum.html`, image: `${baseUrl}assets/img/nav/soporte.svg` },
-  { label: 'Política y Términos de Uso', link: `${baseUrl}public/content/privacy/policy-and-terms.html`, image: `${baseUrl}assets/img/nav/terminos.svg` },
-  { label: 'Acerca de, Contacto', link: `${baseUrl}public/content/about/about.html`, image: `${baseUrl}assets/img/nav/acerca.svg` },
-  { label: 'Donate and Paypal or Crypto', link: `${baseUrl}public/content/donate/donate.html`, image: `${baseUrl}assets/img/footer/eth.svg` }
+  { label: 'Soporte y Foro', link: `${baseUrl}content/support/support-forum.html`, image: `${baseUrl}assets/img/nav/soporte.svg` },
+  { label: 'Política y Términos de Uso', link: `${baseUrl}content/privacy/policy-and-terms.html`, image: `${baseUrl}assets/img/nav/terminos.svg` },
+  { label: 'Acerca de, Contacto', link: `${baseUrl}content/about/about.html`, image: `${baseUrl}assets/img/nav/acerca.svg` },
+  { label: 'Donate and Paypal or Crypto', link: `${baseUrl}content/donate/donate.html`, image: `${baseUrl}assets/img/footer/eth.svg` }
 ];
 
 const footerMenu = document.createElement('ul');

@@ -52,7 +52,7 @@ function agregarOpciones(selector, opciones) {
 }
 
 // Obtener la ruta base para los archivos JSON
-const rutaBase = '/public/databases/options/';
+const rutaBase = '/databases/options/';
 
 // Función para cargar opciones cuando se abre la ventana modal
 function cargarOpcionesEnModal() {
